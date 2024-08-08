@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=3 format=3 uid="uid://c7a8cexa0tn2l"]
 
-[node name="Game" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_wyxp4"]
+[ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Tourists: 999"
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+value = 50.0
+texture_progress = ExtResource("1_wyxp4")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+value = 50.0
+texture_progress = ExtResource("1_wyxp4")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Money: 999"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cost: 999
+"
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Go to city view"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
+
+[node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
+
+[node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
+
+[node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
+
+[node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
+
+[node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
+layout_mode = 2
