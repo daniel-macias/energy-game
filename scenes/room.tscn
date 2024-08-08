@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_4sh66"]
 
 [node name="Control" type="Control"]
-custom_minimum_size = Vector2(500, 250)
+custom_minimum_size = Vector2(500, 275)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 409.0
@@ -12,7 +12,7 @@ offset_bottom = 288.0
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 244.0
+offset_bottom = 282.0
 texture = ExtResource("1_4sh66")
 
 [node name="TextureButton" type="TextureButton" parent="."]
