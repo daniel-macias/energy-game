@@ -3,27 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_4sh66"]
 
 [node name="Control" type="Control"]
-custom_minimum_size = Vector2(500, 275)
+custom_minimum_size = Vector2(500, 320)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 409.0
-offset_bottom = 288.0
+offset_right = 500.0
+offset_bottom = 281.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 282.0
+offset_bottom = 320.0
 texture = ExtResource("1_4sh66")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.226
-anchor_bottom = 0.848
+anchor_right = 1.0
+anchor_bottom = 0.869
 offset_left = 179.0
 offset_top = 61.0
-offset_right = -194.434
-offset_bottom = -55.224
+offset_right = -193.0
+offset_bottom = -95.163
 texture_normal = ExtResource("1_4sh66")
 
 [node name="Panel" type="Panel" parent="."]
