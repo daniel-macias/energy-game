@@ -76,7 +76,11 @@ func calculate_happiness_based_on_cleanliness():
 func calculate_tourists_based_on_happiness():
 	var happiness_factor = happiness / 100.0  # Normalize happiness to 0-1
 	var adjustment = lerp(-1.0, 1.0, happiness_factor)  # Gradual adjustment based on happiness
-	update_tourists(int(adjustment * happiness_to_tourists_multiplier))
+
+	if happiness < 50:
+		update_tourists(-int((50 - happiness) / 5 * happiness_to_tourists_multiplier))  # Increase the rate of departure
+	else:
+		update_tourists(int(happiness / 10 * happiness_to_tourists_multiplier))  # Slower increase when happiness is above 50
 
 # Calculate wattage usage based on tourists with Lerp
 func calculate_wattage_usage():
