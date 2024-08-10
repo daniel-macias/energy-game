@@ -3,7 +3,8 @@ extends Control
 # Game variables
 var happiness = 100  # 0 to 100
 var tourists = 0  # 0 to infinity
-var wattage = 100  # 0 to 100
+var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
+var wattage_capacity = 10000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 100  # 0 to 100
 var money = 1000
 var cost = 0
@@ -29,7 +30,6 @@ var happiness_images = [
 @onready var cleanliness_bar = $VBoxContainer/HBoxContainer/Cleanliness
 @onready var money_label = $VBoxContainer/HBoxContainer/Money
 @onready var cost_label = $VBoxContainer/HBoxContainer/Cost
-@onready var city_button = $VBoxContainer/HBoxContainer/City
 
 func _ready():
 	load_game()
@@ -39,16 +39,16 @@ func _ready():
 func update_happiness(value):
 	happiness = clamp(happiness + value, 0, 100)
 	update_happiness_image()
-	update_tourists_based_on_happiness()
 
 func update_cleanliness(value):
 	cleanliness = clamp(cleanliness + value, 0, 100)
 	cleanliness_bar.value = cleanliness
-	update_happiness_based_on_cleanliness()
+	calculate_happiness_based_on_cleanliness()
 
 func update_tourists(value):
 	tourists = max(tourists + value, 0)
 	tourists_label.text = "Tourists: " + str(tourists)
+	calculate_wattage_usage()
 
 func update_wattage(value):
 	wattage = clamp(wattage + value, 0, 100)
@@ -67,23 +67,35 @@ func update_happiness_image():
 	var index = int(happiness / 25.0)  # Divide by 25 to get an index from 0 to 4
 	happiness_rect.texture = load(happiness_images[index])
 
-# Influence functions
-func update_happiness_based_on_cleanliness():
-	if cleanliness < 50:
-		update_happiness(-1 * cleanliness_to_happiness_multiplier)
-	else:
-		update_happiness(1 * cleanliness_to_happiness_multiplier)
+# Influence functions using Lerp
+func calculate_happiness_based_on_cleanliness():
+	var cleanliness_factor = cleanliness / 100.0  # Normalize cleanliness to 0-1
+	var adjustment = lerp(-1.0, 1.0, cleanliness_factor)  # Gradual adjustment based on cleanliness
+	update_happiness(adjustment * cleanliness_to_happiness_multiplier)
 
-func update_tourists_based_on_happiness():
-	if happiness > 50:
-		update_tourists(int(happiness / 10 * happiness_to_tourists_multiplier))
-	else:
-		update_tourists(-int((100 - happiness) / 10 * happiness_to_tourists_multiplier))
+func calculate_tourists_based_on_happiness():
+	var happiness_factor = happiness / 100.0  # Normalize happiness to 0-1
+	var adjustment = lerp(-1.0, 1.0, happiness_factor)  # Gradual adjustment based on happiness
+	update_tourists(int(adjustment * happiness_to_tourists_multiplier))
+
+# Calculate wattage usage based on tourists with Lerp
+func calculate_wattage_usage():
+	var required_wattage = tourists * tourists_to_wattage_multiplier
+	wattage = clamp(wattage_capacity - required_wattage, 0, wattage_capacity) / wattage_capacity * 100
+	update_wattage(0)
+
+	var wattage_factor = wattage / 100.0  # Normalize wattage to 0-1
+	var happiness_adjustment = lerp(-1.0, 1.0, wattage_factor)  # Gradual adjustment based on wattage
+	update_happiness(happiness_adjustment * cleanliness_to_happiness_multiplier)
 
 # Process function to handle updates over time
 func _process(delta):
 	update_cleanliness(-0.1 * delta)  # Decrease cleanliness over time
 	update_wattage(-0.05 * delta)  # Decrease wattage slowly over time
+
+	calculate_happiness_based_on_cleanliness()
+	calculate_tourists_based_on_happiness()
+	calculate_wattage_usage()
 
 # Save and Load functions
 func save_game():
@@ -91,6 +103,7 @@ func save_game():
 		"happiness": happiness,
 		"tourists": tourists,
 		"wattage": wattage,
+		"wattage_capacity": wattage_capacity,
 		"cleanliness": cleanliness,
 		"money": money,
 		"cost": cost
@@ -113,6 +126,7 @@ func load_game():
 			happiness = save_data.get("happiness", 100)
 			tourists = save_data.get("tourists", 0)
 			wattage = save_data.get("wattage", 100)
+			wattage_capacity = save_data.get("wattage_capacity", 100)
 			cleanliness = save_data.get("cleanliness", 100)
 			money = save_data.get("money", 1000)
 			cost = save_data.get("cost", 0)
