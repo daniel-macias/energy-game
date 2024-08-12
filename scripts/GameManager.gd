@@ -4,7 +4,7 @@ extends Control
 var happiness = 100  # 0 to 100
 var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
-var wattage_capacity = 10000  # Max wattage capacity (can be increased with upgrades)
+var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 100  # 0 to 100
 var money = 1000
 var cost = 0
@@ -76,12 +76,13 @@ func calculate_happiness_based_on_cleanliness():
 func calculate_tourists_based_on_happiness():
 	var happiness_factor = happiness / 100.0  # Normalize happiness to 0-1
 	var adjustment = lerp(-1.0, 1.0, happiness_factor)  # Gradual adjustment based on happiness
+	
+	if adjustment < 0:  # If happiness is low, decrease tourists
+		update_tourists(int(adjustment * 5 * happiness_to_tourists_multiplier))
+	else:  # If happiness is high, increase tourists
+		update_tourists(int(adjustment * happiness_to_tourists_multiplier))
 
-	if happiness < 50:
-		update_tourists(-int((50 - happiness) / 5 * happiness_to_tourists_multiplier))  # Increase the rate of departure
-	else:
-		update_tourists(int(happiness / 10 * happiness_to_tourists_multiplier))  # Slower increase when happiness is above 50
-
+	
 # Calculate wattage usage based on tourists with Lerp
 func calculate_wattage_usage():
 	var required_wattage = tourists * tourists_to_wattage_multiplier
@@ -92,6 +93,11 @@ func calculate_wattage_usage():
 	var happiness_adjustment = lerp(-1.0, 1.0, wattage_factor)  # Gradual adjustment based on wattage
 	update_happiness(happiness_adjustment * cleanliness_to_happiness_multiplier)
 
+# New function to calculate cleanliness based on other factors
+func calculate_cleanliness_factors():
+	# Placeholder for future logic
+	pass
+
 # Process function to handle updates over time
 func _process(delta):
 	update_cleanliness(-0.1 * delta)  # Decrease cleanliness over time
@@ -100,6 +106,7 @@ func _process(delta):
 	calculate_happiness_based_on_cleanliness()
 	calculate_tourists_based_on_happiness()
 	calculate_wattage_usage()
+	calculate_cleanliness_factors()
 
 # Save and Load functions
 func save_game():
