@@ -31,10 +31,29 @@ var happiness_images = [
 @onready var money_label = $VBoxContainer/HBoxContainer/Money
 @onready var cost_label = $VBoxContainer/HBoxContainer/Cost
 
+#Panel Node References
+@onready var energy_panel = $PanelContainer
+@onready var energy_title = $PanelContainer/VBoxContainer/HBoxContainer/EnergyType
+@onready var exit_button = $PanelContainer/VBoxContainer/HBoxContainer/ExitButton
+
 func _ready():
 	load_game()
 	set_process(true)  # Enable _process() to make updates over time
+	
+	 # Initially hide the energy panel
+	energy_panel.visible = false
+	
+	# Connect the exit button to close the panel
+	exit_button.pressed.connect(hide_energy_panel)
 
+
+func show_energy_panel(energy_type):
+	energy_title.text = energy_type
+	energy_panel.visible = true
+
+func hide_energy_panel():
+	energy_panel.visible = false
+	
 
 # Update functions
 func update_happiness(value):
