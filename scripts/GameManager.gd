@@ -35,6 +35,7 @@ func _ready():
 	load_game()
 	set_process(true)  # Enable _process() to make updates over time
 
+
 # Update functions
 func update_happiness(value):
 	happiness = clamp(happiness + value, 0, 100)

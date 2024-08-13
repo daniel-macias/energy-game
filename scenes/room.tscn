@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://m20qguwbdhdt"]
+[gd_scene load_steps=4 format=3 uid="uid://m20qguwbdhdt"]
 
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_4sh66"]
+[ext_resource type="Script" path="res://scripts/Room.gd" id="1_xqrcf"]
+[ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="2_wbds3"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(500, 320)
@@ -8,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 281.0
+script = ExtResource("1_xqrcf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -15,15 +18,15 @@ offset_right = 500.0
 offset_bottom = 320.0
 texture = ExtResource("1_4sh66")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Computer" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.869
-offset_left = 179.0
-offset_top = 61.0
-offset_right = -193.0
-offset_bottom = -95.163
+offset_left = 184.0
+offset_top = 9.0
+offset_right = -188.0
+offset_bottom = -141.08
 texture_normal = ExtResource("1_4sh66")
 
 [node name="Panel" type="Panel" parent="."]
@@ -40,3 +43,20 @@ offset_bottom = 245.0
 [node name="Button" type="Button" parent="Panel/GridContainer"]
 layout_mode = 2
 text = "Temp"
+
+[node name="Notification" type="TextureButton" parent="."]
+offset_left = 53.0
+offset_top = 177.0
+offset_right = 134.0
+offset_bottom = 258.0
+texture_normal = ExtResource("2_wbds3")
+stretch_mode = 0
+
+[node name="Clicker" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 101.0
+offset_right = 481.0
+offset_bottom = 265.0
+texture_normal = ExtResource("1_4sh66")
+stretch_mode = 0
