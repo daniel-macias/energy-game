@@ -76,7 +76,7 @@ texture_progress = ExtResource("1_wyxp4")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
-text = "Money: 999"
+text = "Money: 1000"
 
 [node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -98,26 +98,32 @@ columns = 3
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 plant_amount = 1
+id = 0
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 energy_type = "Hydroelectric"
+id = 1
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 energy_type = "Wind Power"
+id = 2
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 energy_type = "Solar Power"
+id = 3
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 energy_type = "Geothermal"
+id = 4
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
 energy_type = "Nuclear"
+id = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

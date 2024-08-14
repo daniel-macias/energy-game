@@ -8,6 +8,8 @@ var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgra
 var cleanliness = 100  # 0 to 100
 var money = 1000
 var cost = 0
+var rooms = []
+var currently_selected_room = -1  # -1 means no room is currently selected
 
 # Image paths
 var happiness_images = [
@@ -51,6 +53,15 @@ func _ready():
 	
 	create_plant_button.pressed.connect(_on_CreatePlantButton_pressed)
 	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
+	
+	rooms = [
+		$VBoxContainer/GridContainer/Control,
+		$VBoxContainer/GridContainer/Control2,
+		$VBoxContainer/GridContainer/Control3,
+		$VBoxContainer/GridContainer/Control4,
+		$VBoxContainer/GridContainer/Control5,
+		$VBoxContainer/GridContainer/Control6
+	]
 
 func _on_CreatePlantButton_pressed():
 	var room = get_selected_room()
@@ -62,7 +73,8 @@ func _on_RemovePlantButton_pressed():
 	if room:
 		room.remove_plant()
 
-func update_panel(plant_amount, plant_cost, remove_plant_refund):
+func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
+	currently_selected_room = id
 	plant_amount_label.text = str(plant_amount)
 	create_plant_button.text = str(plant_cost) + " Gold"
 	remove_plant_button.text = str(remove_plant_refund) + " Gold"
@@ -70,7 +82,7 @@ func update_panel(plant_amount, plant_cost, remove_plant_refund):
 func get_selected_room():
 	# Logic to get the currently selected room based on the UI, e.g., a variable tracking the active room
 	# Placeholder: returns the first room for example purposes
-	return $GridContainer/Control
+	return rooms[currently_selected_room]
 
 func show_energy_panel(energy_type):
 	energy_title.text = energy_type
