@@ -35,6 +35,9 @@ var happiness_images = [
 @onready var energy_panel = $PanelContainer
 @onready var energy_title = $PanelContainer/VBoxContainer/TopBar/EnergyType
 @onready var exit_button = $PanelContainer/VBoxContainer/TopBar/ExitButton
+@onready var plant_amount_label = $PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount
+@onready var create_plant_button = $PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant
+@onready var remove_plant_button = $PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant
 
 func _ready():
 	load_game()
@@ -45,7 +48,29 @@ func _ready():
 	
 	# Connect the exit button to close the panel
 	exit_button.pressed.connect(hide_energy_panel)
+	
+	create_plant_button.pressed.connect(_on_CreatePlantButton_pressed)
+	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
 
+func _on_CreatePlantButton_pressed():
+	var room = get_selected_room()
+	if room:
+		room.create_plant()
+
+func _on_RemovePlantButton_pressed():
+	var room = get_selected_room()
+	if room:
+		room.remove_plant()
+
+func update_panel(plant_amount, plant_cost, remove_plant_refund):
+	plant_amount_label.text = str(plant_amount)
+	create_plant_button.text = str(plant_cost) + " Gold"
+	remove_plant_button.text = str(remove_plant_refund) + " Gold"
+
+func get_selected_room():
+	# Logic to get the currently selected room based on the UI, e.g., a variable tracking the active room
+	# Placeholder: returns the first room for example purposes
+	return $GridContainer/Control
 
 func show_energy_panel(energy_type):
 	energy_title.text = energy_type

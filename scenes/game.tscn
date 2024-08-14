@@ -143,7 +143,8 @@ alignment = 1
 
 [node name="EnergyType" type="Label" parent="PanelContainer/VBoxContainer/TopBar"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 46
 text = "Energy Type"
 horizontal_alignment = 1
 
@@ -154,43 +155,45 @@ texture_normal = ExtResource("5_chb1t")
 
 [node name="Menu" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Cantidad de Plantas"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+[node name="PlantAmount" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "0
 "
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Crear Planta"
 horizontal_alignment = 1
 
 [node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "999 Gold"
 
 [node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Quitar Planta"
 horizontal_alignment = 1
 
 [node name="DeletePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "999 Gold"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
@@ -198,13 +201,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Resumen"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Energía"
 horizontal_alignment = 1
 
@@ -224,7 +227,7 @@ texture_progress = ExtResource("7_udmlx")
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Contaminación"
 horizontal_alignment = 1
 
@@ -244,7 +247,7 @@ texture_progress = ExtResource("7_udmlx")
 
 [node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Felicidad"
 horizontal_alignment = 1
 
@@ -267,11 +270,11 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Tecnología"
 horizontal_alignment = 1
 
 [node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Ver Árbol Tecnológico"

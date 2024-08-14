@@ -7,6 +7,9 @@ extends Control
 @export var clicker_reward = 10  # Reward when clicking the Clicker button
 @export var energy_type = "Fossil Fuels"
 @export var plant_amount = 0
+@export var plant_cost = 999  # Initial cost to create a plant
+@export var remove_plant_refund = 800  # Amount refunded when a plant is removed
+@export var cost_increase_per_plant = 100  # How much the cost increases per plant
 
 
 # Node references
@@ -37,12 +40,27 @@ func _on_Clicker_pressed():
 func _on_RoomButton_pressed():
 	 # Call the main scene's function to show the energy panel with this room's energy type
 	get_parent().get_parent().get_parent().show_energy_panel(energy_type)
+	get_parent().get_parent().get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund)
 
 # Function to handle the Notification button press
 func _on_Notification_pressed():
 	get_parent().get_parent().get_parent().update_money(notification_reward)
 	notification_button.visible = false  # Hide the notification again
 	notification_time_target = notification_interval + randf() * notification_interval_randomness
+	
+func create_plant():
+	if get_parent().money >= plant_cost:
+		plant_amount += 1
+		get_parent().update_money(-plant_cost)
+		plant_cost += cost_increase_per_plant  # Increase the cost after purchasing
+		get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund)
+
+func remove_plant():
+	if plant_amount > 0:
+		plant_amount -= 1
+		get_parent().update_money(remove_plant_refund)
+		plant_cost -= cost_increase_per_plant  # Optional: Decrease the cost after selling
+		get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund)
 
 # Update the room every frame
 func _process(delta):
