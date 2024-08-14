@@ -33,8 +33,8 @@ var happiness_images = [
 
 #Panel Node References
 @onready var energy_panel = $PanelContainer
-@onready var energy_title = $PanelContainer/VBoxContainer/HBoxContainer/EnergyType
-@onready var exit_button = $PanelContainer/VBoxContainer/HBoxContainer/ExitButton
+@onready var energy_title = $PanelContainer/VBoxContainer/TopBar/EnergyType
+@onready var exit_button = $PanelContainer/VBoxContainer/TopBar/ExitButton
 
 func _ready():
 	load_game()

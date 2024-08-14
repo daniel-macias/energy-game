@@ -6,6 +6,7 @@ extends Control
 @export var notification_reward = 50  # Reward when clicking the notification
 @export var clicker_reward = 10  # Reward when clicking the Clicker button
 @export var energy_type = "Fossil Fuels"
+@export var plant_amount = 0
 
 
 # Node references
