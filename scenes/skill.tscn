@@ -26,5 +26,27 @@ mouse_filter = 2
 
 [node name="Line2D" type="Line2D" parent="."]
 top_level = true
+default_color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -117.0
+offset_right = 59.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "0/3"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

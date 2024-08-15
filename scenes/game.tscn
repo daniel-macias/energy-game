@@ -214,34 +214,133 @@ grow_vertical = 1
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
-offset_left = 207.0
-offset_top = 118.0
-offset_right = 324.0
-offset_bottom = 235.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+disabled = true
 
 [node name="Skill4" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
-offset_left = 211.0
-offset_top = 0.0
-offset_right = 328.0
-offset_bottom = 117.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+disabled = true
+
+[node name="Skill4" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill4" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
 
 [node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
-offset_left = 203.0
-offset_top = -107.0
-offset_right = 320.0
-offset_bottom = 10.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+disabled = true
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill4" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false

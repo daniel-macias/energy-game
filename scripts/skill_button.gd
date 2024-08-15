@@ -3,6 +3,13 @@ class_name SkillNode
 
 @onready var panel = $Panel
 @onready var line_2d = $Line2D
+@onready var label = $MarginContainer/Label
+
+var level : int = 0:
+	set(value):
+		level = value
+		label.text = str(level) + "/3"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Wait until the layout is ready to calculate positions
@@ -25,5 +32,11 @@ func _update_lines():
 
 
 func _on_pressed():
-	print("ljdsa")
+	line_2d.default_color = Color(0,0,0.25)
 	panel.show_behind_parent = true
+	
+	level = min(level+1, 3)
+	var skills = get_children()
+	for skill in skills:
+		if skill is SkillNode and level == 1:
+			skill.disabled = false
