@@ -125,7 +125,82 @@ layout_mode = 2
 energy_type = "Nuclear"
 id = 5
 
+[node name="FossilTree" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 74.5
+offset_top = 78.0
+offset_right = 1445.5
+offset_bottom = 638.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h7ljl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FossilTree"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="FossilTree/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title Lable" type="Label" parent="FossilTree/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 46
+text = "Fossil Tree"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="FossilTree/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_chb1t")
+
+[node name="Menu" type="HBoxContainer" parent="FossilTree/VBoxContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="FossilTree/VBoxContainer/Menu"]
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="TechInfo" type="VBoxContainer" parent="FossilTree/VBoxContainer/Menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="TechTitle" type="Label" parent="FossilTree/VBoxContainer/Menu/TechInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "TechTitle"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="FossilTree/VBoxContainer/Menu/TechInfo"]
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+stretch_mode = 3
+
+[node name="TechDesc" type="Label" parent="FossilTree/VBoxContainer/Menu/TechInfo"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TechPrice" type="Label" parent="FossilTree/VBoxContainer/Menu/TechInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "1000 Gold"
+horizontal_alignment = 1
+
+[node name="Investigar" type="Button" parent="FossilTree/VBoxContainer/Menu/TechInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Investigar"
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
