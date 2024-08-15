@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=10 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_wxrd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
+[ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
 [ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ljl"]
@@ -126,7 +127,6 @@ energy_type = "Nuclear"
 id = 5
 
 [node name="FossilTree" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 2
 offset_left = 74.5
 offset_top = 78.0
@@ -161,10 +161,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="FossilTree/VBoxContainer/Menu"]
-custom_minimum_size = Vector2(1000, 400)
-layout_mode = 2
-
 [node name="TechInfo" type="VBoxContainer" parent="FossilTree/VBoxContainer/Menu"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -198,6 +194,54 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Investigar"
+
+[node name="Tree" type="Control" parent="FossilTree/VBoxContainer/Menu"]
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="FossilTree/VBoxContainer/Menu/Tree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Skill2" parent="FossilTree/VBoxContainer/Menu/Tree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 207.0
+offset_top = 118.0
+offset_right = 324.0
+offset_bottom = 235.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Skill4" parent="FossilTree/VBoxContainer/Menu/Tree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = 0.0
+offset_right = 328.0
+offset_bottom = 117.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Skill3" parent="FossilTree/VBoxContainer/Menu/Tree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 203.0
+offset_top = -107.0
+offset_right = 320.0
+offset_bottom = 10.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
