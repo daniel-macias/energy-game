@@ -10,6 +10,19 @@ var money = 10000
 var cost = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
+var skill_states = {}  # Dictionary to store skill states
+
+var selected_skill_node: SkillNode = null
+
+#Skill Tree Panel References
+@onready var skill_panel = get_node("/root/Control/TreeContainer")
+@onready var energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/Title Lable")
+@onready var title_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechTitle")
+@onready var description_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechDesc")
+@onready var price_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechPrice")
+@onready var invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
+@onready var tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
+@onready var tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
 
 # Image paths
 var happiness_images = [
@@ -55,12 +68,12 @@ func _ready():
 	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
 	
 	rooms = [
-		$VBoxContainer/GridContainer/Control,
-		$VBoxContainer/GridContainer/Control2,
-		$VBoxContainer/GridContainer/Control3,
-		$VBoxContainer/GridContainer/Control4,
-		$VBoxContainer/GridContainer/Control5,
-		$VBoxContainer/GridContainer/Control6
+		get_node("/root/Control/VBoxContainer/GridContainer/Control"),
+		get_node("/root/Control/VBoxContainer/GridContainer/Control2"),
+		get_node("/root/Control/VBoxContainer/GridContainer/Control3"),
+		get_node("/root/Control/VBoxContainer/GridContainer/Control4"),
+		get_node("/root/Control/VBoxContainer/GridContainer/Control5"),
+		get_node("/root/Control/VBoxContainer/GridContainer/Control6")
 	]
 
 func _on_CreatePlantButton_pressed():
@@ -164,6 +177,39 @@ func _process(delta):
 	calculate_tourists_based_on_happiness()
 	calculate_wattage_usage()
 	calculate_cleanliness_factors()
+
+# Update the skill panel with the selected skill details
+func update_skill_panel(title: String, description: String, price: int, effects: Array, skill_node: SkillNode):
+	title_label.text = title
+	description_label.text = description
+	price_label.text = str(price) + " Gold"
+	invest_button.disabled = money < price  # Disable if not enough money
+
+	selected_skill_node = skill_node
+	
+		# Disconnect any previous signal connection
+	if invest_button.is_connected("pressed", Callable(self, "on_invest_button_pressed")):
+		invest_button.disconnect("pressed", Callable(self, "on_invest_button_pressed"))
+		
+	# Connect the Invest button to the skill's activate function
+	invest_button.connect("pressed", Callable(self, "on_invest_button_pressed"))
+	# Display or log the effects for debugging or visualization
+	for effect in effects:
+		print("Effect Type: %s, Value: %f" % [effect["type"], effect["value"]])
+		
+
+func on_invest_button_pressed():
+	if selected_skill_node:
+		selected_skill_node.activate_skill()  # Activate the selected skill
+
+func apply_skill_effect(effect_type: String, effect_value: float):
+	pass
+	#match effect_type:
+		#"money_multiplier":
+			#money_multiplier += effect_value
+		#"tourist_multiplier":
+			#tourist_multiplier += effect_value
+		# Add other effects here
 
 # Save and Load functions
 func save_game():

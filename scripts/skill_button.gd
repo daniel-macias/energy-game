@@ -5,6 +5,16 @@ class_name SkillNode
 @onready var line_2d = $Line2D
 @onready var label = $MarginContainer/Label
 
+# Skill attributes
+@export var title: String
+@export var description: String
+@export var price: int
+
+# Array of effects, each effect is a dictionary with "type" and "value"
+@export var effects = []
+
+var activated: bool = false  # Track if the skill has been activated
+
 var level : int = 0:
 	set(value):
 		level = value
@@ -32,11 +42,38 @@ func _update_lines():
 
 
 func _on_pressed():
+	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
+	
 	line_2d.default_color = Color(0,0,0.25)
 	panel.show_behind_parent = true
 	
-	level = min(level+1, 3)
-	var skills = get_children()
-	for skill in skills:
-		if skill is SkillNode and level == 1:
-			skill.disabled = false
+
+func activate_skill():
+	if not activated and GameManager.money >= price:
+		GameManager.update_money(-price)
+		activated = true
+		
+		level = min(level+1, 3)
+		var skills = get_children()
+		for skill in skills:
+			if skill is SkillNode and level == 1:
+				skill.disabled = false
+		
+		# Apply each effect in the array to the GameManager
+		for effect in effects:
+			GameManager.apply_skill_effect(effect["type"], effect["value"])
+			
+# Save skill state
+func save_state() -> Dictionary:
+	return {
+		"title": title,
+		"activated": activated,
+		"level": level
+	}
+	
+# Load skill state
+func load_state(data: Dictionary):
+	activated = data.get("activated", false)
+	level = data.get("level", 0)
+	if activated:
+		disabled = true
