@@ -13,6 +13,7 @@ var currently_selected_room = -1  # -1 means no room is currently selected
 var skill_states = {}  # Dictionary to store skill states
 
 var selected_skill_node: SkillNode = null
+var current_tree: Control = null 
 
 #Skill Tree Panel References
 @onready var skill_panel = get_node("/root/Control/TreeContainer")
@@ -23,6 +24,14 @@ var selected_skill_node: SkillNode = null
 @onready var invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
 @onready var tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
 @onready var tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
+
+#Tech Trees
+@onready var fossilTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/FossilTree")
+@onready var hydroTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/HydroTree")
+@onready var windTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/WindTree")
+@onready var solarTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/SolarTree")
+@onready var geoTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/GeoTree")
+@onready var nuclearTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/NuclearTree")
 
 # Image paths
 var happiness_images = [
@@ -53,6 +62,7 @@ var happiness_images = [
 @onready var plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
 @onready var create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
 @onready var remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
+@onready var open_tech_tree_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenTechTree")
 
 func _ready():
 	load_game()
@@ -60,9 +70,12 @@ func _ready():
 	
 	 # Initially hide the energy panel
 	energy_panel.visible = false
+	hide_tech_trees()
 	
 	# Connect the exit button to close the panel
 	exit_button.pressed.connect(hide_energy_panel)
+	tree_exit.pressed.connect(_on_TreeExitButton_pressed)
+	open_tech_tree_button.pressed.connect(_on_OpenTechTreeButton_pressed)
 	
 	create_plant_button.pressed.connect(_on_CreatePlantButton_pressed)
 	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
@@ -104,6 +117,63 @@ func show_energy_panel(energy_type):
 func hide_energy_panel():
 	energy_panel.visible = false
 	
+# Show the appropriate tech tree and hide the main panel
+func _on_OpenTechTreeButton_pressed():
+	var energy_type = energy_title.text
+	
+	# Hide the main panel and show the TreeContainer
+	hide_main_panel()
+	show_tree_container()
+	
+	match energy_type:
+		"Fossil Fuel":
+			switch_tree(fossilTree)
+		"Hydro":
+			switch_tree(hydroTree)
+		"Wind":
+			switch_tree(windTree)
+		"Solar":
+			switch_tree(solarTree)
+		"Geo":
+			switch_tree(geoTree)
+		"Nuclear":
+			switch_tree(nuclearTree)
+
+# Switch between tech trees
+func switch_tree(tree: Control):
+	if current_tree:
+		current_tree.visible = false
+	tree.visible = true
+	current_tree = tree
+
+# Hide the main panel and show the tech tree container
+func hide_main_panel():
+	energy_panel.visible = false
+	
+func show_tree_container():
+	print("Opening tree")
+	skill_panel.visible = true
+
+# Hide the tech tree and bring back the main panel
+func _on_TreeExitButton_pressed():
+	hide_tech_trees()
+	show_main_panel()
+	hide_tree_container()
+	
+func hide_tree_container():
+	skill_panel.visible = false
+
+# Hide all tech trees
+func hide_tech_trees():
+	fossilTree.visible = false
+	hydroTree.visible = false
+	windTree.visible = false
+	solarTree.visible = false
+	geoTree.visible = false
+	nuclearTree.visible = false# Hide all tech trees
+
+func show_main_panel():
+	energy_panel.visible = true
 
 # Update functions
 func update_happiness(value):

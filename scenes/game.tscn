@@ -98,27 +98,28 @@ columns = 3
 
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+energy_type = "Fossil Fuel"
 plant_amount = 1
 id = 0
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Hydroelectric"
+energy_type = "Hydro"
 id = 1
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Wind Power"
+energy_type = "Wind"
 id = 2
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Solar Power"
+energy_type = "Solar"
 id = 3
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Geothermal"
+energy_type = "Geo"
 id = 4
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
@@ -127,6 +128,7 @@ energy_type = "Nuclear"
 id = 5
 
 [node name="TreeContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 74.5
 offset_top = 78.0
@@ -194,11 +196,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Investigar"
 
-[node name="Tree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+[node name="NuclearTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
 custom_minimum_size = Vector2(1000, 400)
 layout_mode = 2
 
-[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/Tree" instance=ExtResource("6_ph5yp")]
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/NuclearTree" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -212,7 +215,7 @@ title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill" instance=ExtResource("6_ph5yp")]
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -227,7 +230,7 @@ title = "Test Skill 3"
 description = "Desc"
 price = 1000
 
-[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -242,7 +245,7 @@ title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -257,7 +260,7 @@ title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -272,7 +275,7 @@ title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -287,7 +290,7 @@ title = "Test Skill 2"
 description = "Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -302,7 +305,7 @@ title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -317,7 +320,7 @@ title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -332,7 +335,7 @@ title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -347,7 +350,7 @@ title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -362,7 +365,927 @@ title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
 
-[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/Tree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 11"
+description = "Desc Desc"
+price = 1000
+
+[node name="GeoTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/GeoTree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Test Skill 1"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 3"
+description = "Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 6"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 9"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 12"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 2"
+description = "Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 4"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 7"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 10"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 5"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 8"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 11"
+description = "Desc Desc"
+price = 1000
+
+[node name="SolarTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/SolarTree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Test Skill 1"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 3"
+description = "Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 6"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 9"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 12"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 2"
+description = "Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 4"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 7"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 10"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 5"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 8"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 11"
+description = "Desc Desc"
+price = 1000
+
+[node name="WindTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/WindTree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Test Skill 1"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 3"
+description = "Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 6"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 9"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 12"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 2"
+description = "Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 4"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 7"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 10"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 5"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 8"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 11"
+description = "Desc Desc"
+price = 1000
+
+[node name="HydroTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/HydroTree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Test Skill 1"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 3"
+description = "Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 6"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 9"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 12"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 2"
+description = "Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 4"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 7"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 10"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 5"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 8"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 11"
+description = "Desc Desc"
+price = 1000
+
+[node name="FossilTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
+visible = false
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+
+[node name="Skill" parent="TreeContainer/VBoxContainer/Menu/FossilTree" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 43.5
+offset_top = 160.0
+offset_right = 160.5
+offset_bottom = 277.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Test Skill 1"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 170.0
+offset_right = 329.0
+offset_bottom = 287.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 3"
+description = "Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 222.0
+offset_top = -3.0
+offset_right = 339.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 6"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 116.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 9"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 171.0
+offset_top = -3.0
+offset_right = 288.0
+offset_bottom = 114.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 12"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 211.0
+offset_top = -75.0
+offset_right = 328.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 2"
+description = "Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 224.0
+offset_top = -66.0
+offset_right = 341.0
+offset_bottom = 51.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 4"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 121.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 7"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 10"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 80.0
+offset_right = 340.0
+offset_bottom = 197.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 5"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_left = 183.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 1
+grow_vertical = 1
+disabled = true
+title = "Test Skill 8"
+description = "Desc Desc"
+price = 1000
+
+[node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
 anchors_preset = 0
 anchor_bottom = 0.0
@@ -533,7 +1456,7 @@ theme_override_font_sizes/font_size = 36
 text = "Tecnología"
 horizontal_alignment = 1
 
-[node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+[node name="OpenTechTree" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Ver Árbol Tecnológico"
