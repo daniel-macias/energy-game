@@ -44,12 +44,13 @@ func _update_lines():
 func _on_pressed():
 	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
 	
-	line_2d.default_color = Color(0,0,0.25)
-	panel.show_behind_parent = true
+	
 	
 
 func activate_skill():
-	if not activated and GameManager.money >= price:
+	if level < 3 and GameManager.money >= price:
+		line_2d.default_color = Color(0,0,0.25)
+		panel.show_behind_parent = true
 		GameManager.update_money(-price)
 		activated = true
 		
