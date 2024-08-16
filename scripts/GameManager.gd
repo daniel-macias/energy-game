@@ -26,20 +26,20 @@ var happiness_images = [
 @export var tourists_to_wattage_multiplier = 1.0
 
 # Node references
-@onready var happiness_rect = $VBoxContainer/HBoxContainer/Happiness
-@onready var tourists_label = $VBoxContainer/HBoxContainer/Tourists
-@onready var wattage_bar = $VBoxContainer/HBoxContainer/Wattage
-@onready var cleanliness_bar = $VBoxContainer/HBoxContainer/Cleanliness
-@onready var money_label = $VBoxContainer/HBoxContainer/Money
-@onready var cost_label = $VBoxContainer/HBoxContainer/Cost
+@onready var happiness_rect = get_node("/root/Control/VBoxContainer/HBoxContainer/Happiness")
+@onready var tourists_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Tourists")
+@onready var wattage_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Wattage")
+@onready var cleanliness_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Cleanliness")
+@onready var money_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Money")
+@onready var cost_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Cost")
 
 #Panel Node References
-@onready var energy_panel = $PanelContainer
-@onready var energy_title = $PanelContainer/VBoxContainer/TopBar/EnergyType
-@onready var exit_button = $PanelContainer/VBoxContainer/TopBar/ExitButton
-@onready var plant_amount_label = $PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount
-@onready var create_plant_button = $PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant
-@onready var remove_plant_button = $PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant
+@onready var energy_panel = get_node("/root/Control/PanelContainer")
+@onready var energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/EnergyType")
+@onready var exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/ExitButton")
+@onready var plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
+@onready var create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
+@onready var remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
 
 func _ready():
 	load_game()
