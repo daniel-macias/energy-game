@@ -168,7 +168,7 @@ layout_mode = 2
 [node name="TechTitle" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "TechTitle"
+text = "Investigación"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
@@ -180,14 +180,13 @@ stretch_mode = 3
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet"
+text = "Selecione una tecnología para ver detalles"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="TechPrice" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "1000 Gold"
 horizontal_alignment = 1
 
 [node name="Investigar" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]

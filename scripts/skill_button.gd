@@ -4,6 +4,7 @@ class_name SkillNode
 @onready var panel = $Panel
 @onready var line_2d = $Line2D
 @onready var label = $MarginContainer/Label
+@onready var selector = $SelectRectangle
 
 # Skill attributes
 @export var title: String
@@ -43,9 +44,14 @@ func _update_lines():
 
 func _on_pressed():
 	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
+
+func deselect():
+	# When this skill is deselected, hide the selection rectangle
+	selector.visible = false
 	
-	
-	
+func select():
+	# When this skill is selected, show the selection rectangle
+	selector.visible = true
 
 func activate_skill():
 	if level < 3 and GameManager.money >= price:

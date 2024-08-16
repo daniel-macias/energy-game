@@ -185,7 +185,13 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 	price_label.text = str(price) + " Gold"
 	invest_button.disabled = money < price  # Disable if not enough money
 
+	# Deselect the previous skill (if any)
+	if selected_skill_node != null:
+		selected_skill_node.deselect()
+		pass
+		
 	selected_skill_node = skill_node
+	selected_skill_node.select()
 	
 		# Disconnect any previous signal connection
 	if invest_button.is_connected("pressed", Callable(self, "on_invest_button_pressed")):
