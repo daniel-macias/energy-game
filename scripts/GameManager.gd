@@ -117,6 +117,14 @@ func show_energy_panel(energy_type):
 func hide_energy_panel():
 	energy_panel.visible = false
 	
+# Clear the sidebar (tech info) when switching trees or nothing is selected
+func clear_sidebar():
+	title_label.text = ""
+	description_label.text = ""
+	price_label.text = ""
+	invest_button.disabled = true
+	#tech_image.texture = null
+
 # Show the appropriate tech tree and hide the main panel
 func _on_OpenTechTreeButton_pressed():
 	var energy_type = energy_title.text
@@ -124,6 +132,10 @@ func _on_OpenTechTreeButton_pressed():
 	# Hide the main panel and show the TreeContainer
 	hide_main_panel()
 	show_tree_container()
+	clear_sidebar()  # Clear sidebar when switching to a new tree
+	
+	# Update the tree title
+	energy_tree_title.text = energy_type + " Tree"
 	
 	match energy_type:
 		"Fossil Fuel":
@@ -151,7 +163,9 @@ func hide_main_panel():
 	energy_panel.visible = false
 	
 func show_tree_container():
-	print("Opening tree")
+	# Deselect the previous skill (if any)
+	if selected_skill_node != null:
+		selected_skill_node.deselect()
 	skill_panel.visible = true
 
 # Hide the tech tree and bring back the main panel

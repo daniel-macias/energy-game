@@ -40,6 +40,7 @@ func _on_Clicker_pressed():
 
 func _on_RoomButton_pressed():
 	 # Call the main scene's function to show the energy panel with this room's energy type
+	
 	get_parent().get_parent().get_parent().show_energy_panel(energy_type)
 	get_parent().get_parent().get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund, id)
 
