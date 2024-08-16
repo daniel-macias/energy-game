@@ -24,9 +24,11 @@ var level : int = 0:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Wait until the layout is ready to calculate positions
-	call_deferred("_update_lines")
+	pass
+	#call_deferred("_update_lines")
 
 func _update_lines():
+	print("Updating line")
 	if get_parent() is SkillNode:
 		# Convert global positions to local positions relative to line_2d
 		var start_position = self.global_position
@@ -43,6 +45,7 @@ func _update_lines():
 
 
 func _on_pressed():
+	_update_lines()
 	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
 
 func deselect():
@@ -84,3 +87,4 @@ func load_state(data: Dictionary):
 	level = data.get("level", 0)
 	if activated:
 		disabled = true
+

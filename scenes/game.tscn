@@ -98,33 +98,33 @@ columns = 3
 
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Fossil Fuel"
+energy_type = "Central de Combustibles Fósiles"
 plant_amount = 1
 id = 0
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Hydro"
+energy_type = "Central Hydroeléctrica"
 id = 1
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Wind"
+energy_type = "Central Eólica"
 id = 2
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Solar"
+energy_type = "Central Solar"
 id = 3
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Geo"
+energy_type = "Central Geotérmica"
 id = 4
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Nuclear"
+energy_type = "Central Nuclear"
 id = 5
 
 [node name="TreeContainer" type="PanelContainer" parent="."]

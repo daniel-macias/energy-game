@@ -15,6 +15,8 @@ var skill_states = {}  # Dictionary to store skill states
 var selected_skill_node: SkillNode = null
 var current_tree: Control = null 
 
+@onready var line_update_timer = Timer.new()
+
 #Skill Tree Panel References
 @onready var skill_panel = get_node("/root/Control/TreeContainer")
 @onready var energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/Title Lable")
@@ -135,21 +137,23 @@ func _on_OpenTechTreeButton_pressed():
 	clear_sidebar()  # Clear sidebar when switching to a new tree
 	
 	# Update the tree title
-	energy_tree_title.text = energy_type + " Tree"
+	energy_tree_title.text = energy_type + " - Tecnologías"
 	
 	match energy_type:
-		"Fossil Fuel":
+		"Central de Combustibles Fósiles":
 			switch_tree(fossilTree)
-		"Hydro":
+		"Central Hydroeléctrica":
 			switch_tree(hydroTree)
-		"Wind":
+		"Central Eólica":
 			switch_tree(windTree)
-		"Solar":
+		"Central Solar":
 			switch_tree(solarTree)
-		"Geo":
+		"Central Geotérmica":
 			switch_tree(geoTree)
-		"Nuclear":
+		"Central Nuclear":
 			switch_tree(nuclearTree)
+			
+	call_deferred("force_update_lines")
 
 # Switch between tech trees
 func switch_tree(tree: Control):
@@ -157,6 +161,21 @@ func switch_tree(tree: Control):
 		current_tree.visible = false
 	tree.visible = true
 	current_tree = tree
+	
+	# Ensure the tree is fully visible before updating the lines
+	#call_deferred("force_update_lines", tree)
+
+func force_update_lines():
+	# Get all skill nodes in the tree, including children, grandchildren, etc.
+	update_skill_lines_recursive(self)
+	print("DSA")
+
+# Recursively updates all SkillNode children
+func update_skill_lines_recursive(node):
+	if node is SkillNode:
+		node._update_lines()  # Update the lines for the current skill
+	for child in node.get_children():
+		update_skill_lines_recursive(child)  # Recursively apply to all children
 
 # Hide the main panel and show the tech tree container
 func hide_main_panel():
