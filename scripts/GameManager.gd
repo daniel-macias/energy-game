@@ -1,4 +1,6 @@
 extends Control
+# Static variable to prevent duplicate initialization
+static var is_initialized = false
 
 # Game variables
 var happiness = 100  # 0 to 100
@@ -12,30 +14,7 @@ var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
 var skill_states = {}  # Dictionary to store skill states
 
-var selected_skill_node: SkillNode = null
-var current_tree: Control = null 
-
-@onready var line_update_timer = Timer.new()
-
-#Skill Tree Panel References
-@onready var skill_panel = get_node("/root/Control/TreeContainer")
-@onready var energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/Title Lable")
-@onready var title_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechTitle")
-@onready var description_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechDesc")
-@onready var price_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechPrice")
-@onready var invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
-@onready var tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
-@onready var tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
-
-#Tech Trees
-@onready var fossilTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/FossilTree")
-@onready var hydroTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/HydroTree")
-@onready var windTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/WindTree")
-@onready var solarTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/SolarTree")
-@onready var geoTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/GeoTree")
-@onready var nuclearTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/NuclearTree")
-
-# Image paths
+# Image paths for happiness states
 var happiness_images = [
 	"res://sprites/happy0.png",
 	"res://sprites/happy1.png",
@@ -49,32 +28,90 @@ var happiness_images = [
 @export var happiness_to_tourists_multiplier = 1.0
 @export var tourists_to_wattage_multiplier = 1.0
 
-# Node references
-@onready var happiness_rect = get_node("/root/Control/VBoxContainer/HBoxContainer/Happiness")
-@onready var tourists_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Tourists")
-@onready var wattage_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Wattage")
-@onready var cleanliness_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Cleanliness")
-@onready var money_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Money")
-@onready var cost_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Cost")
+# Node references - initialize as null
+var selected_skill_node: SkillNode = null
+var current_tree: Control = null 
+var line_update_timer: Timer = null
+var skill_panel: Control = null
+var energy_tree_title: Label = null
+var title_label: Label = null
+var description_label: Label = null
+var price_label: Label = null
+var invest_button: Button = null
+var tech_image: TextureRect = null
+var tree_exit: TextureButton = null
 
-#Panel Node References
-@onready var energy_panel = get_node("/root/Control/PanelContainer")
-@onready var energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/EnergyType")
-@onready var exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/ExitButton")
-@onready var plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
-@onready var create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
-@onready var remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
-@onready var open_tech_tree_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenTechTree")
+# Tech Trees - initialize as null
+var fossilTree: Control = null
+var hydroTree: Control = null
+var windTree: Control = null
+var solarTree: Control = null
+var geoTree: Control = null
+var nuclearTree: Control = null
 
-func _ready():
-	load_game()
-	set_process(true)  # Enable _process() to make updates over time
+# Other UI Elements - initialize as null
+var happiness_rect: TextureRect = null
+var tourists_label: Label = null
+var wattage_bar: TextureProgressBar = null
+var cleanliness_bar: TextureProgressBar = null
+var money_label: Label = null
+var cost_label: Label = null
+
+# Panel and Button Nodes - initialize as null
+var energy_panel: Control = null
+var energy_title: Label = null
+var exit_button: TextureButton = null
+var plant_amount_label: Label = null
+var create_plant_button: Button = null
+var remove_plant_button: Button = null
+var open_tech_tree_button: Button = null
+
+# Initialize the game logic and nodes only when the game scene is active
+func initialize_game_logic():
+	# Initialize the nodes manually
+	skill_panel = get_node("/root/Control/TreeContainer")
+	energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/Title Lable")
+	title_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechTitle")
+	description_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechDesc")
+	price_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechPrice")
+	invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
+	tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
+	tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
+
+	# Tech Trees
+	fossilTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/FossilTree")
+	hydroTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/HydroTree")
+	windTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/WindTree")
+	solarTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/SolarTree")
+	geoTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/GeoTree")
+	nuclearTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/NuclearTree")
+
+	# Other UI Elements
+	happiness_rect = get_node("/root/Control/VBoxContainer/HBoxContainer/Happiness")
+	tourists_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Tourists")
+	wattage_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Wattage")
+	cleanliness_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Cleanliness")
+	money_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Money")
+	cost_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Cost")
+
+	# Panel and Button Nodes
+	energy_panel = get_node("/root/Control/PanelContainer")
+	energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/EnergyType")
+	exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/ExitButton")
+	plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
+	create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
+	remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
+	open_tech_tree_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenTechTree")
+
+
+	# Set the process function to true to start updating every frame
+	set_process(true)
 	
-	 # Initially hide the energy panel
+	# Initially hide the energy panel
 	energy_panel.visible = false
 	hide_tech_trees()
-	
-	# Connect the exit button to close the panel
+
+	# Connect buttons to their respective functions
 	exit_button.pressed.connect(hide_energy_panel)
 	tree_exit.pressed.connect(_on_TreeExitButton_pressed)
 	open_tech_tree_button.pressed.connect(_on_OpenTechTreeButton_pressed)
@@ -82,6 +119,7 @@ func _ready():
 	create_plant_button.pressed.connect(_on_CreatePlantButton_pressed)
 	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
 	
+	# Initialize rooms (assumed setup for room nodes)
 	rooms = [
 		get_node("/root/Control/VBoxContainer/GridContainer/Control"),
 		get_node("/root/Control/VBoxContainer/GridContainer/Control2"),
@@ -90,6 +128,44 @@ func _ready():
 		get_node("/root/Control/VBoxContainer/GridContainer/Control5"),
 		get_node("/root/Control/VBoxContainer/GridContainer/Control6")
 	]
+	
+
+	
+	# Log for debugging
+	print("Game logic initialized.")
+
+func disable_game_logic():
+	# Disconnect signals to prevent errors or unexpected behavior in other scenes
+	exit_button.pressed.disconnect(hide_energy_panel)
+	tree_exit.pressed.disconnect(_on_TreeExitButton_pressed)
+	open_tech_tree_button.pressed.disconnect(_on_OpenTechTreeButton_pressed)
+	
+	create_plant_button.pressed.disconnect(_on_CreatePlantButton_pressed)
+	remove_plant_button.pressed.disconnect(_on_RemovePlantButton_pressed)
+	
+	# Stop the process loop
+	set_process(false)
+
+	# Hide or reset panels and UI elements to a default state
+	energy_panel.visible = false
+	hide_tech_trees()
+
+	print("Game logic disabled.")
+
+func _ready():
+	# Check if we are in the game scene
+	set_process(false)
+	if not is_initialized:
+		is_initialized = true
+		print(get_tree().current_scene.name)
+		if get_tree().current_scene.name != "MainMenu":
+			initialize_game_logic()
+		else:
+			print("disable")
+			set_process(false)
+			#disable_game_logic()
+	else:
+		print("GM already initialized")
 
 func _on_CreatePlantButton_pressed():
 	var room = get_selected_room()
@@ -102,7 +178,9 @@ func _on_RemovePlantButton_pressed():
 		room.remove_plant()
 
 func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
+	print("updating panel")
 	currently_selected_room = id
+	print(plant_amount)
 	plant_amount_label.text = str(plant_amount)
 	create_plant_button.text = str(plant_cost) + " Gold"
 	remove_plant_button.text = str(remove_plant_refund) + " Gold"
@@ -275,7 +353,6 @@ func calculate_cleanliness_factors():
 func _process(delta):
 	update_cleanliness(-0.1 * delta)  # Decrease cleanliness over time
 	update_wattage(-0.05 * delta)  # Decrease wattage slowly over time
-
 	calculate_happiness_based_on_cleanliness()
 	calculate_tourists_based_on_happiness()
 	calculate_wattage_usage()
@@ -312,7 +389,7 @@ func on_invest_button_pressed():
 		selected_skill_node.activate_skill()  # Activate the selected skill
 
 func apply_skill_effect(effect_type: String, effect_value: float):
-	pass
+	print("Applying: ", effect_type , "value: " , effect_value)
 	#match effect_type:
 		#"money_multiplier":
 			#money_multiplier += effect_value
@@ -329,8 +406,13 @@ func save_game():
 		"wattage_capacity": wattage_capacity,
 		"cleanliness": cleanliness,
 		"money": money,
-		"cost": cost
+		"cost": cost,
+		"skills":[]
 	}
+	
+	# Save the state of all skills
+	for skill in get_all_skills():
+		save_data["skills"].append(skill.save_state())
 	
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -360,5 +442,22 @@ func load_game():
 			update_cleanliness(0)
 			update_money(0)
 			update_cost(0)
+			
+			# Load the state of all skills
+			var skills_data = save_data.get("skills", [])
+			var all_skills = get_all_skills()
+
+			for i in range(skills_data.size()):
+				all_skills[i].load_state(skills_data[i])
 		
 		file.close()
+
+func get_all_skills():
+	# Return a list of all SkillNodes in the scene
+	# Modify this based on how skills are structured in your game
+	var skills = []
+	# Assuming skills are children of a container or grid in the scene
+	for skill in $SkillContainer.get_children():
+		if skill is SkillNode:
+			skills.append(skill)
+	return skills

@@ -22,6 +22,7 @@ extends Control
 var notification_timer = 0.0
 var notification_time_target = 0.0
 
+
 func _ready():
 	# Hide the notification button at the start
 	notification_button.visible = false
@@ -36,17 +37,18 @@ func _ready():
 
 # Function to handle the Clicker button press
 func _on_Clicker_pressed():
-	get_parent().get_parent().get_parent().update_money(clicker_reward)
+	GameManager.update_money(clicker_reward)
+
 
 func _on_RoomButton_pressed():
 	 # Call the main scene's function to show the energy panel with this room's energy type
-	
-	get_parent().get_parent().get_parent().show_energy_panel(energy_type)
-	get_parent().get_parent().get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+	print("Plant amount: ", plant_amount)
+	GameManager.show_energy_panel(energy_type)
+	GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
 
 # Function to handle the Notification button press
 func _on_Notification_pressed():
-	get_parent().get_parent().get_parent().update_money(notification_reward)
+	GameManager.update_money(notification_reward)
 	notification_button.visible = false  # Hide the notification again
 	notification_time_target = notification_interval + randf() * notification_interval_randomness
 
@@ -56,18 +58,20 @@ func reset_notification_timer():
 
 
 func create_plant():
-	if get_parent().get_parent().get_parent().money >= plant_cost:
+	print("Creating plant, current before ", plant_amount)
+	if GameManager.money >= plant_cost:
 		plant_amount += 1
-		get_parent().get_parent().get_parent().update_money(-plant_cost)
+		GameManager.update_money(-plant_cost)
 		plant_cost += cost_increase_per_plant  # Increase the cost after purchasing
-		get_parent().get_parent().get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund, id)
-
+		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+	print("Creating plant, current after ", plant_amount)
+	
 func remove_plant():
 	if plant_amount > 0:
 		plant_amount -= 1
-		get_parent().get_parent().get_parent().update_money(remove_plant_refund)
+		GameManager.update_money(remove_plant_refund)
 		plant_cost -= cost_increase_per_plant  # Optional: Decrease the cost after selling
-		get_parent().get_parent().get_parent().update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
 
 # Update the room every frame
 func _process(delta):

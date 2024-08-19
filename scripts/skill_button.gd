@@ -12,7 +12,14 @@ class_name SkillNode
 @export var price: int
 
 # Array of effects, each effect is a dictionary with "type" and "value"
-@export var effects = []
+@export var effects = [    {
+		"type": "money_multiplier",
+		"value": 1.2  # This means a 20% increase in money earned
+	},
+		{
+		"type": "tourist_increase",
+		"value": 50  # This adds 50 more tourists when activated
+	}]
 
 var activated: bool = false  # Track if the skill has been activated
 
@@ -87,4 +94,6 @@ func load_state(data: Dictionary):
 	level = data.get("level", 0)
 	if activated:
 		disabled = true
+		for effect in effects:
+			GameManager.apply_skill_effect(effect["type"],effect["value"])
 
