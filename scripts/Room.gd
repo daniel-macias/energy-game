@@ -49,7 +49,12 @@ func _on_Notification_pressed():
 	get_parent().get_parent().get_parent().update_money(notification_reward)
 	notification_button.visible = false  # Hide the notification again
 	notification_time_target = notification_interval + randf() * notification_interval_randomness
-	
+
+func reset_notification_timer():
+	notification_timer = 0.0
+	notification_time_target = notification_interval + randf() * notification_interval_randomness
+
+
 func create_plant():
 	if get_parent().get_parent().get_parent().money >= plant_cost:
 		plant_amount += 1
@@ -67,7 +72,7 @@ func remove_plant():
 # Update the room every frame
 func _process(delta):
 	notification_timer += delta
-	if notification_timer >= notification_interval:
+	if notification_timer >= notification_time_target:
 		notification_button.visible = true
-		notification_timer = 0.0  # Reset the timer
+		reset_notification_timer()  # Reset the timer after showing the notification
 
