@@ -38,12 +38,21 @@ func _ready():
 	options_button.pressed.connect(_on_options_button_pressed)
 
 func _on_play_button_pressed():
+	# Load the game scene
+	var game_scene = load("res://scenes/game.tscn").instantiate()
+	
+	# Connect to the `game_scene_loaded` signal regardless of whether it's a new game or a continued game
+	game_scene.connect("game_scene_loaded", _on_game_scene_loaded)
+	
+	# Add the scene to the tree and switch to it
+	get_tree().root.add_child(game_scene)
+	get_tree().set_current_scene(game_scene)
+
+func _on_game_scene_loaded():
 	if play_button.text == "Continue Game":
 		GameManager.load_game()
 	else:
 		GameManager.initialize_game_logic()  # Start a fresh game
-	# Transition to the game scene
-	get_tree().change_scene("res://scenes/game.tscn")
 
 func _on_tutorial_button_pressed():
 	get_tree().change_scene("res://scenes/tutorial.tscn")

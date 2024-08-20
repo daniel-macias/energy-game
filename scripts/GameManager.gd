@@ -461,3 +461,4 @@ func get_all_skills():
 		if skill is SkillNode:
 			skills.append(skill)
 	return skills
+
