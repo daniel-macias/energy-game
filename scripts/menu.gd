@@ -12,12 +12,11 @@ func _ready():
 		
 		# Load the save file and display some of its contents in the debug label
 		var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
-		var json = JSON.new()
-		var result = json.parse(file.get_as_text())
+		var result = JSON.parse_string(file.get_as_text())
 		file.close()
 
-		if result.error == OK:
-			var save_data = result.result
+		if result:
+			var save_data = result
 			# Display relevant information from the save file
 			var happiness = save_data.get("happiness", 100)
 			var money = save_data.get("money", 1000)
@@ -47,9 +46,11 @@ func _on_play_button_pressed():
 	# Add the scene to the tree and switch to it
 	get_tree().root.add_child(game_scene)
 	get_tree().set_current_scene(game_scene)
+	self.visible = false
 
 func _on_game_scene_loaded():
 	if play_button.text == "Continue Game":
+		GameManager.initialize_game_logic()
 		GameManager.load_game()
 	else:
 		GameManager.initialize_game_logic()  # Start a fresh game

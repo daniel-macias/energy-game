@@ -66,6 +66,7 @@ var create_plant_button: Button = null
 var remove_plant_button: Button = null
 var open_tech_tree_button: Button = null
 
+@onready var auto_save_timer = Timer.new()
 # Initialize the game logic and nodes only when the game scene is active
 func initialize_game_logic():
 	# Initialize the nodes manually
@@ -130,9 +131,18 @@ func initialize_game_logic():
 	]
 	
 
-	
+	add_child(auto_save_timer)
+	auto_save_timer.wait_time = 120  # 2 minutes
+	auto_save_timer.autostart = true
+	auto_save_timer.one_shot = false
+	auto_save_timer.timeout.connect(_on_auto_save_timer_timeout)
+	auto_save_timer.start()
 	# Log for debugging
 	print("Game logic initialized.")
+
+func _on_auto_save_timer_timeout():
+	print("Auto-saving game...")
+	save_game()  # Call your save_game function
 
 func disable_game_logic():
 	# Disconnect signals to prevent errors or unexpected behavior in other scenes
@@ -171,11 +181,13 @@ func _on_CreatePlantButton_pressed():
 	var room = get_selected_room()
 	if room:
 		room.create_plant()
+		save_game()
 
 func _on_RemovePlantButton_pressed():
 	var room = get_selected_room()
 	if room:
 		room.remove_plant()
+		save_game()
 
 func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
 	print("updating panel")
@@ -387,6 +399,7 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 func on_invest_button_pressed():
 	if selected_skill_node:
 		selected_skill_node.activate_skill()  # Activate the selected skill
+		save_game()
 
 func apply_skill_effect(effect_type: String, effect_value: float):
 	print("Applying: ", effect_type , "value: " , effect_value)
@@ -399,6 +412,7 @@ func apply_skill_effect(effect_type: String, effect_value: float):
 
 # Save and Load functions
 func save_game():
+	print("Saving...")
 	var save_data = {
 		"happiness": happiness,
 		"tourists": tourists,
@@ -417,16 +431,17 @@ func save_game():
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
 	file.close()
+	print("Saved!")
 
 func load_game():
+	print("Loading...")
 	if FileAccess.file_exists("user://save_game.dat"):
 		var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
 		
-		var json = JSON.new()
-		var result = json.parse(file.get_as_text())
+		var result = JSON.parse_string(file.get_as_text())
 		
-		if result.error == OK:
-			var save_data = result.result
+		if result:
+			var save_data = result
 			
 			happiness = save_data.get("happiness", 100)
 			tourists = save_data.get("tourists", 0)
@@ -436,29 +451,55 @@ func load_game():
 			money = save_data.get("money", 1000)
 			cost = save_data.get("cost", 0)
 
-			update_happiness_image()
-			update_tourists(0)
-			update_wattage(0)
-			update_cleanliness(0)
-			update_money(0)
-			update_cost(0)
+			#update_happiness_image()
+			#update_tourists(tourists)
+			#update_wattage(wattage)
+			#update_cleanliness(wattage_capacity)
+			#update_money(money)
+			#update_cost(cost)
 			
 			# Load the state of all skills
 			var skills_data = save_data.get("skills", [])
 			var all_skills = get_all_skills()
 
-			for i in range(skills_data.size()):
-				all_skills[i].load_state(skills_data[i])
+			#TODO: Fix way skills are loaded
+			#for i in range(skills_data.size()):
+				#all_skills[i].load_state(skills_data[i])
 		
 		file.close()
 
 func get_all_skills():
-	# Return a list of all SkillNodes in the scene
-	# Modify this based on how skills are structured in your game
+	# Return a list of all SkillNodes in all tech trees
 	var skills = []
-	# Assuming skills are children of a container or grid in the scene
-	for skill in $SkillContainer.get_children():
-		if skill is SkillNode:
-			skills.append(skill)
+	
+	# Array of all the tech trees in the scene
+	var tech_trees = [
+		nuclearTree,
+		geoTree,
+		solarTree,
+		windTree,
+		hydroTree,
+		fossilTree
+	]
+	
+	# Loop through each tech tree
+	for tree in tech_trees:
+		# Call the recursive function to collect all SkillNodes within the tree
+		collect_skill_nodes(tree, skills)
+	
 	return skills
+# Helper function to recursively collect SkillNodes from a tree
+func collect_skill_nodes(node, skills):
+	# If the node is a SkillNode, add it to the list
+	if node is SkillNode:
+		skills.append(node)
+	
+	# Recursively check all children of the node
+	#TODO: FIX
+	#for child in node.get_children():
+		#collect_skill_nodes(child, skills)
 
+func _notification(what):
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		save_game()  # Save the game before quitting
+		get_tree().quit()
