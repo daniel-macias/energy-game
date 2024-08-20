@@ -11,6 +11,10 @@ class_name SkillNode
 @export var description: String
 @export var price: int
 
+#Skill Meta
+@export var roomId: int
+@export var skillId: int
+
 # Array of effects, each effect is a dictionary with "type" and "value"
 @export var effects = [    {
 		"type": "money_multiplier",
@@ -85,7 +89,9 @@ func save_state() -> Dictionary:
 	return {
 		"title": title,
 		"activated": activated,
-		"level": level
+		"level": level,
+		"roomId": roomId,
+		"skillId": skillId
 	}
 	
 # Load skill state

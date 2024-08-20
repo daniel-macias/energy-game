@@ -421,6 +421,12 @@ func save_game():
 		"cleanliness": cleanliness,
 		"money": money,
 		"cost": cost,
+		"roomAmount":[rooms[0].plant_amount,
+		rooms[1].plant_amount,
+		rooms[2].plant_amount,
+		rooms[3].plant_amount,
+		rooms[4].plant_amount, 
+		rooms[5].plant_amount],
 		"skills":[]
 	}
 	
@@ -496,8 +502,8 @@ func collect_skill_nodes(node, skills):
 	
 	# Recursively check all children of the node
 	#TODO: FIX
-	#for child in node.get_children():
-		#collect_skill_nodes(child, skills)
+	for child in node.get_children():
+		collect_skill_nodes(child, skills)
 
 func _notification(what):
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:

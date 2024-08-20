@@ -214,6 +214,7 @@ grow_vertical = 1
 title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
+roomId = 5
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -229,6 +230,8 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+roomId = 5
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -244,6 +247,8 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -259,6 +264,8 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -274,6 +281,8 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -289,6 +298,8 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+roomId = 5
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -304,6 +315,8 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -319,6 +332,8 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -334,6 +349,8 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -349,6 +366,8 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -364,6 +383,8 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -379,6 +400,8 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+roomId = 5
+skillId = 11
 
 [node name="GeoTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -398,6 +421,7 @@ grow_vertical = 1
 title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
+roomId = 4
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -413,6 +437,8 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+roomId = 4
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -428,6 +454,8 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -443,6 +471,8 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -458,6 +488,8 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -473,6 +505,8 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+roomId = 4
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -488,6 +522,8 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -503,6 +539,8 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -518,6 +556,8 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -533,6 +573,8 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -548,6 +590,8 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -563,6 +607,8 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+roomId = 4
+skillId = 11
 
 [node name="SolarTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -582,6 +628,7 @@ grow_vertical = 1
 title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
+roomId = 3
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -597,6 +644,8 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+roomId = 3
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -612,6 +661,8 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -627,6 +678,8 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -642,6 +695,8 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -657,6 +712,8 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+roomId = 3
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -672,6 +729,8 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -687,6 +746,8 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -702,6 +763,8 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -717,6 +780,8 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -732,6 +797,8 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/SolarTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -747,6 +814,8 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+roomId = 3
+skillId = 11
 
 [node name="WindTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -766,6 +835,7 @@ grow_vertical = 1
 title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
+roomId = 2
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -781,6 +851,8 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+roomId = 2
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -796,6 +868,8 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -811,6 +885,8 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -826,6 +902,8 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -841,6 +919,8 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+roomId = 2
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -856,6 +936,8 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -871,6 +953,8 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -886,6 +970,8 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -901,6 +987,8 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -916,6 +1004,8 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/WindTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -931,6 +1021,8 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+roomId = 2
+skillId = 11
 
 [node name="HydroTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -950,6 +1042,7 @@ grow_vertical = 1
 title = "Test Skill 1"
 description = "Desc Desc"
 price = 1000
+roomId = 1
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -965,6 +1058,8 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+roomId = 1
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -980,6 +1075,8 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -995,6 +1092,8 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1010,6 +1109,8 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1025,6 +1126,8 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+roomId = 1
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1040,6 +1143,8 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1055,6 +1160,8 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1070,6 +1177,8 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1085,6 +1194,8 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1100,6 +1211,8 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/HydroTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1115,6 +1228,8 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+roomId = 1
+skillId = 11
 
 [node name="FossilTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -1131,7 +1246,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
-title = "Test Skill 1"
+title = "Test Skill 1 FF"
 description = "Desc Desc"
 price = 1000
 
@@ -1149,6 +1264,7 @@ disabled = true
 title = "Test Skill 3"
 description = "Desc"
 price = 1000
+skillId = 1
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1164,6 +1280,7 @@ disabled = true
 title = "Test Skill 6"
 description = "Desc Desc"
 price = 1000
+skillId = 2
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1179,6 +1296,7 @@ disabled = true
 title = "Test Skill 9"
 description = "Desc Desc"
 price = 1000
+skillId = 3
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1194,6 +1312,7 @@ disabled = true
 title = "Test Skill 12"
 description = "Desc Desc"
 price = 1000
+skillId = 4
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1209,6 +1328,7 @@ disabled = true
 title = "Test Skill 2"
 description = "Desc"
 price = 1000
+skillId = 5
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1224,6 +1344,7 @@ disabled = true
 title = "Test Skill 4"
 description = "Desc Desc"
 price = 1000
+skillId = 6
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1239,6 +1360,7 @@ disabled = true
 title = "Test Skill 7"
 description = "Desc Desc"
 price = 1000
+skillId = 7
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1254,6 +1376,7 @@ disabled = true
 title = "Test Skill 10"
 description = "Desc Desc"
 price = 1000
+skillId = 8
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1269,6 +1392,7 @@ disabled = true
 title = "Test Skill 5"
 description = "Desc Desc"
 price = 1000
+skillId = 9
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1284,6 +1408,7 @@ disabled = true
 title = "Test Skill 8"
 description = "Desc Desc"
 price = 1000
+skillId = 10
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/FossilTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -1299,6 +1424,7 @@ disabled = true
 title = "Test Skill 11"
 description = "Desc Desc"
 price = 1000
+skillId = 11
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
