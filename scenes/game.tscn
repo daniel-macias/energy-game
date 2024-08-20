@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=9 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
-[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_wxrd0"]
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_wyxp4"]
 [ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
@@ -26,7 +25,6 @@ offset_bottom = 358.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-script = ExtResource("1_wxrd0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

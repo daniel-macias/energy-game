@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://hed4wco3yctu"]
+[gd_scene load_steps=2 format=3 uid="uid://hed4wco3yctu"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_mt6cq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,8 +9,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mt6cq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,6 +29,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Energy Game"
+horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,3 +42,7 @@ text = "Tutorial"
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Options"
+
+[node name="Debug" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Debug"

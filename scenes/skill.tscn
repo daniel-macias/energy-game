@@ -56,16 +56,19 @@ offset_right = 117.0
 offset_bottom = 117.0
 
 [node name="ColorRect4" type="ColorRect" parent="SelectRectangle"]
+layout_mode = 0
 offset_left = 112.0
 offset_right = 118.0
 offset_bottom = 82.0
 
 [node name="ColorRect2" type="ColorRect" parent="SelectRectangle"]
+layout_mode = 0
 offset_top = 1.0
 offset_right = 6.0
 offset_bottom = 112.0
 
 [node name="ColorRect3" type="ColorRect" parent="SelectRectangle"]
+layout_mode = 0
 offset_top = 111.0
 offset_right = 118.0
 offset_bottom = 117.0
