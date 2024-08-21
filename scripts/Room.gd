@@ -12,6 +12,11 @@ extends Control
 @export var cost_increase_per_plant = 100  # How much the cost increases per plant
 @export var id = -1
 
+#these are the default indexes the plants provide without modifications
+@export var contaminationIndex = 1;
+@export var happinessIndex = 1;
+@export var wattageIndex = 1;
+@export var costIndex = 1; #maybe
 
 # Node references
 @onready var notification_button = $Notification

@@ -36,7 +36,6 @@ var level : int = 0:
 func _ready():
 	# Wait until the layout is ready to calculate positions
 	pass
-	#call_deferred("_update_lines")
 
 func _update_lines():
 	print("Updating line")

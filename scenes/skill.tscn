@@ -17,12 +17,6 @@ texture_normal = ExtResource("1_drvdw")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_23eg1")
-title = null
-description = null
-price = null
-roomId = null
-skillId = null
-effects = null
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

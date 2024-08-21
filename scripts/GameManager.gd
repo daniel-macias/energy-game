@@ -257,7 +257,7 @@ func switch_tree(tree: Control):
 
 func force_update_lines():
 	# Get all skill nodes in the tree, including children, grandchildren, etc.
-	update_skill_lines_recursive(self)
+	update_skill_lines_recursive(skill_panel)
 	print("DSA")
 
 # Recursively updates all SkillNode children
@@ -418,6 +418,10 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 			#hola
 		#"room_clicker"
 			#hola
+		#"room_buy_price_mult"
+			#hola
+		#"room_refund_price_mult"
+			#hola
 
 # Save and Load functions
 func save_game():
@@ -527,4 +531,4 @@ func collect_skill_nodes(node, skills):
 func _notification(what):
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		save_game()  # Save the game before quitting
-		get_tree().quit()
+		#get_tree().quit()
