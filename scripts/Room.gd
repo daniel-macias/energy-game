@@ -13,10 +13,11 @@ extends Control
 @export var id = -1
 
 #these are the default indexes the plants provide without modifications
-@export var contaminationIndex = 1;
-@export var happinessIndex = 1;
-@export var wattageIndex = 1;
-@export var costIndex = 1; #maybe
+@export var contaminationIndex = 1.0;
+@export var happinessIndex = 1.0;
+@export var wattageIndex = 1.0;
+
+@export var costIndex = 1.0; #maybe
 
 # Node references
 @onready var notification_button = $Notification

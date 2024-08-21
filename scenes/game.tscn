@@ -98,34 +98,72 @@ columns = 3
 
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+clicker_reward = 15
 energy_type = "Central de Combustibles Fósiles"
 plant_amount = 1
 id = 0
+contaminationIndex = 1.5
+happinessIndex = -0.3
+wattageIndex = 1.5
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-energy_type = "Central Hydroeléctrica"
+notification_reward = 60
+clicker_reward = 20
+energy_type = "Central Hidroeléctrica"
+plant_cost = 1200
+remove_plant_refund = 800
 id = 1
+contaminationIndex = 0.3
+happinessIndex = 0.2
+wattageIndex = 1.2
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_reward = 40
 energy_type = "Central Eólica"
+plant_cost = 1000
+remove_plant_refund = 600
 id = 2
+contaminationIndex = 0.1
+happinessIndex = -0.1
+wattageIndex = 0.8
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_reward = 45
+clicker_reward = 12
 energy_type = "Central Solar"
+plant_cost = 1200
+remove_plant_refund = 800
 id = 3
+contaminationIndex = 0.05
+happinessIndex = 0.3
+wattageIndex = 0.7
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_reward = 55
+clicker_reward = 18
 energy_type = "Central Geotérmica"
+plant_cost = 2000
+remove_plant_refund = 1000
 id = 4
+contaminationIndex = 0.2
+happinessIndex = 0.1
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_reward = 80
+clicker_reward = 25
 energy_type = "Central Nuclear"
+plant_cost = 3500
+remove_plant_refund = 2000
+cost_increase_per_plant = 200
 id = 5
+contaminationIndex = 0.5
+happinessIndex = 0.2
+wattageIndex = 2.5
 
 [node name="TreeContainer" type="PanelContainer" parent="."]
 visible = false

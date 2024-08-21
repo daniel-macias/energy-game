@@ -8,7 +8,7 @@ var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 100  # 0 to 100
-var money = 10000
+var money = 100000000
 var cost = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
@@ -232,7 +232,7 @@ func _on_OpenTechTreeButton_pressed():
 	match energy_type:
 		"Central de Combustibles Fósiles":
 			switch_tree(fossilTree)
-		"Central Hydroeléctrica":
+		"Central Hidroeléctrica":
 			switch_tree(hydroTree)
 		"Central Eólica":
 			switch_tree(windTree)
