@@ -403,25 +403,43 @@ func on_invest_button_pressed():
 
 func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, level: int):
 	print("Applying: ", effect_type , "value: " , effect_value)
-	#match effect_type:
-		#"money_multiplier":
-			#money_multiplier += effect_value
-		#"tourist_multiplier":
-			#tourist_multiplier += effect_value
-		#"contamination_multiplier"
-			#hola
-		#"happpiness_multiplier"
-			#hola
-		#"room_notification_value"
-			#hola
-		#"room_notification_frequency"
-			#hola
-		#"room_clicker"
-			#hola
-		#"room_buy_price_mult"
-			#hola
-		#"room_refund_price_mult"
-			#hola
+	var room = rooms[roomId]
+	match effect_type:
+		"money_multiplier":
+			# Increase the clicker reward by the percentage, applying the skill level.
+			room.clicker_reward *= (1 + (effect_value * level))
+			
+		"tourist_multiplier":
+			# Placeholder for future use.
+			pass
+
+		"contamination_multiplier":
+			# Increase or decrease contamination index by the percentage.
+			room.contaminationIndex *= (1 + (effect_value * level))
+
+		"happiness_multiplier":
+			# Increase or decrease happiness index by the percentage.
+			room.happinessIndex *= (1 + (effect_value * level))
+		
+		"room_notification_value":
+			# Increase the reward when clicking notifications.
+			room.notification_reward *= (1 + (effect_value * level))
+		
+		"room_notification_frequency":
+			# Placeholder for now as it depends on notification system.
+			pass
+		
+		"room_clicker":
+			# Increase the clicker reward by the percentage.
+			room.clicker_reward *= (1 + (effect_value * level))
+
+		"room_buy_price_mult":
+			# Increase the plant cost by the percentage.
+			room.plant_cost *= (1 + (effect_value * level))
+		
+		"room_refund_price_mult":
+			# Increase the refund amount by the percentage.
+			room.remove_plant_refund *= (1 + (effect_value * level))
 
 # Save and Load functions
 func save_game():
