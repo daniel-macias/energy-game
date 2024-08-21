@@ -401,14 +401,23 @@ func on_invest_button_pressed():
 		selected_skill_node.activate_skill()  # Activate the selected skill
 		save_game()
 
-func apply_skill_effect(effect_type: String, effect_value: float):
+func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, level: int):
 	print("Applying: ", effect_type , "value: " , effect_value)
 	#match effect_type:
 		#"money_multiplier":
 			#money_multiplier += effect_value
 		#"tourist_multiplier":
 			#tourist_multiplier += effect_value
-		# Add other effects here
+		#"contamination_multiplier"
+			#hola
+		#"happpiness_multiplier"
+			#hola
+		#"room_notification_value"
+			#hola
+		#"room_notification_frequency"
+			#hola
+		#"room_clicker"
+			#hola
 
 # Save and Load functions
 func save_game():
@@ -457,12 +466,22 @@ func load_game():
 			money = save_data.get("money", 1000)
 			cost = save_data.get("cost", 0)
 
-			#update_happiness_image()
-			#update_tourists(tourists)
-			#update_wattage(wattage)
-			#update_cleanliness(wattage_capacity)
-			#update_money(money)
-			#update_cost(cost)
+			update_happiness_image()
+			update_tourists(tourists)
+			update_wattage(wattage)
+			update_cleanliness(wattage_capacity)
+			update_money(money)
+			update_cost(cost)
+			
+			#Load room amount
+			var roomsTemp = save_data.get("roomAmount", [])
+			rooms[0].plant_amount = roomsTemp[0]
+			rooms[1].plant_amount = roomsTemp[1]
+			rooms[2].plant_amount = roomsTemp[2]
+			rooms[3].plant_amount = roomsTemp[3]
+			rooms[4].plant_amount = roomsTemp[4]
+			rooms[5].plant_amount = roomsTemp[5]
+			
 			
 			# Load the state of all skills
 			var skills_data = save_data.get("skills", [])

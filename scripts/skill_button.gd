@@ -82,7 +82,7 @@ func activate_skill():
 		
 		# Apply each effect in the array to the GameManager
 		for effect in effects:
-			GameManager.apply_skill_effect(effect["type"], effect["value"])
+			GameManager.apply_skill_effect(effect["type"], effect["value"], roomId, level)
 			
 # Save skill state
 func save_state() -> Dictionary:
@@ -101,5 +101,5 @@ func load_state(data: Dictionary):
 	if activated:
 		disabled = true
 		for effect in effects:
-			GameManager.apply_skill_effect(effect["type"],effect["value"])
+			GameManager.apply_skill_effect(effect["type"],effect["value"], roomId, level)
 
