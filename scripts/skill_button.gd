@@ -11,6 +11,8 @@ class_name SkillNode
 @export var title: String
 @export var description: String
 @export var price: int
+@export var price_increment: float
+
 @export var unlocked = false
 
 #Skill Meta
@@ -24,7 +26,7 @@ class_name SkillNode
 	},
 		{
 		"type": "tourist_increase",
-		"value": 50  # This adds 50 more tourists when activated
+		"value": 0.1  # This adds 50 more tourists when activated
 	}]
 
 var activated: bool = false  # Track if the skill has been activated
