@@ -5,11 +5,13 @@ class_name SkillNode
 @onready var line_2d = $Line2D
 @onready var label = $MarginContainer/Label
 @onready var selector = $SelectRectangle
+@onready var lock = $Lock
 
 # Skill attributes
 @export var title: String
 @export var description: String
 @export var price: int
+@export var unlocked = false
 
 #Skill Meta
 @export var roomId: int
@@ -35,6 +37,8 @@ var level : int = 0:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Wait until the layout is ready to calculate positions
+	if unlocked:
+		lock.visible = false
 	pass
 
 func _update_lines():
@@ -67,7 +71,7 @@ func select():
 	selector.visible = true
 
 func activate_skill():
-	if level < 3 and GameManager.money >= price:
+	if level < 3 and GameManager.money >= price and unlocked:
 		line_2d.default_color = Color(0,0,0.25)
 		panel.show_behind_parent = true
 		GameManager.update_money(-price)
@@ -77,7 +81,8 @@ func activate_skill():
 		var skills = get_children()
 		for skill in skills:
 			if skill is SkillNode and level == 1:
-				skill.disabled = false
+				skill.unlocked = true
+				skill.lock.visible = false
 		
 		# Apply each effect in the array to the GameManager
 		for effect in effects:
