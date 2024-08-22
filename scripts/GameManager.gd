@@ -35,11 +35,12 @@ var line_update_timer: Timer = null
 var skill_panel: Control = null
 var energy_tree_title: Label = null
 var title_label: Label = null
-var description_label: Label = null
+var description_label: RichTextLabel = null
 var price_label: Label = null
 var invest_button: Button = null
 var tech_image: TextureRect = null
 var tree_exit: TextureButton = null
+var open_dec_button: Button = null;
 
 # Tech Trees - initialize as null
 var fossilTree: Control = null
@@ -78,6 +79,7 @@ func initialize_game_logic():
 	invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
 	tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
 	tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
+	open_dec_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Info")
 
 	# Tech Trees
 	fossilTree = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/FossilTree")
@@ -215,6 +217,7 @@ func clear_sidebar():
 	description_label.text = ""
 	price_label.text = ""
 	invest_button.disabled = true
+	open_dec_button.disabled = true
 	#tech_image.texture = null
 
 # Show the appropriate tech tree and hide the main panel
@@ -392,9 +395,55 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 	# Connect the Invest button to the skill's activate function
 	invest_button.connect("pressed", Callable(self, "on_invest_button_pressed"))
 	# Display or log the effects for debugging or visualization
+	description_label.clear()
 	for effect in effects:
-		print("Effect Type: %s, Value: %f" % [effect["type"], effect["value"]])
+		var effect_type = effect["type"]
+		var effect_value = effect["value"]
+	
+		var display_text = ""
+		var color = Color(1, 1, 1)  # Default color (white)
+	
+		# Translate effect types to Spanish
+		match effect_type:
+			"wattage_multiplier":
+				display_text = "Energía: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact (more energy is good)
 		
+			"happiness_multiplier":
+				display_text = "Felicidad: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact
+		
+			"money_multiplier":
+				display_text = "Dinero: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact
+		
+			"contamination_multiplier":
+				display_text = "Contaminación: +%0.1f%%" % [effect_value * 100]
+				color = Color(1, 0, 0)  # Red for negative impact (more contamination is bad)
+		
+			"room_buy_price_mult":
+				display_text = "Precio de Planta: +%0.1f%%" % [effect_value * 100]
+				color = Color(1, 0, 0)  # Red for negative impact (higher prices are bad)
+		
+			"room_refund_price_mult":
+				display_text = "Reembolso de Planta: %0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0) if effect_value > 0 else Color(1, 0, 0)  # Green for higher refunds, red for lower refunds
+			
+			"room_notification_value":
+				display_text = "Dinero de recompensa: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact
+			
+			"room_notification_frequency":
+				display_text = "Frecuencia de recompensa: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact
+				
+			"room_clicker":
+				display_text = "Dinero al presionar trabajador: +%0.1f%%" % [effect_value * 100]
+				color = Color(0, 1, 0)  # Green for positive impact
+		# Add text with the appropriate color
+		description_label.push_color(color)
+		description_label.add_text(display_text + "\n")
+		description_label.pop()  # Reset color
 
 func on_invest_button_pressed():
 	if selected_skill_node:
@@ -409,8 +458,8 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 			# Increase the clicker reward by the percentage, applying the skill level.
 			room.clicker_reward *= (1 + (effect_value * level))
 			
-		"tourist_multiplier":
-			# Placeholder for future use.
+		"wattage_multiplier":
+			# TODO: Placeholder for future use.
 			pass
 
 		"contamination_multiplier":
@@ -427,7 +476,7 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 		
 		"room_notification_frequency":
 			# Placeholder for now as it depends on notification system.
-			pass
+			room.notification_interval *= (1 + ((-1) * effect_value * level))
 		
 		"room_clicker":
 			# Increase the clicker reward by the percentage.

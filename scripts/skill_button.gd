@@ -74,22 +74,30 @@ func select():
 
 func activate_skill():
 	if level < 3 and GameManager.money >= price and unlocked:
-		line_2d.default_color = Color(0,0,0.25)
-		panel.show_behind_parent = true
 		GameManager.update_money(-price)
-		activated = true
+		activate_without_purchase()
+
+# Activate
+func activate_without_purchase():
+	price += price_increment
+	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
+	
+	line_2d.default_color = Color(0,0,0.25)
+	panel.show_behind_parent = true
+	activated = true
+	
+	level = min(level+1, 3)
+	var skills = get_children()
+	for skill in skills:
+		if skill is SkillNode and level == 1:
+			skill.unlocked = true
+			skill.lock.visible = false
 		
-		level = min(level+1, 3)
-		var skills = get_children()
-		for skill in skills:
-			if skill is SkillNode and level == 1:
-				skill.unlocked = true
-				skill.lock.visible = false
+	# Apply each effect in the array to the GameManager
+	for effect in effects:
+		GameManager.apply_skill_effect(effect["type"], effect["value"], roomId, level)
 		
-		# Apply each effect in the array to the GameManager
-		for effect in effects:
-			GameManager.apply_skill_effect(effect["type"], effect["value"], roomId, level)
-			
+	
 # Save skill state
 func save_state() -> Dictionary:
 	return {

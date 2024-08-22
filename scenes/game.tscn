@@ -218,12 +218,17 @@ layout_mode = 2
 texture = ExtResource("1_wyxp4")
 stretch_mode = 3
 
-[node name="TechDesc" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Info" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
+text = "¿Qué es?"
+
+[node name="TechDesc" type="RichTextLabel" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
 text = "Selecione una tecnología para ver detalles"
-horizontal_alignment = 1
+fit_content = true
 autowrap_mode = 2
 
 [node name="TechPrice" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
@@ -1923,7 +1928,7 @@ price = 500
 price_increment = 200.0
 skillId = 10
 effects = [{
-"type": "tourist_multiplier",
+"type": "room_clicker",
 "value": 0.1
 }, {
 "type": "contamination_multiplier",
