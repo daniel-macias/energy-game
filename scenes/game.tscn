@@ -253,9 +253,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Energía Nuclear"
 description = "Desc Desc"
-price = 1000
+price = 2400
+price_increment = 600.0
 unlocked = true
 roomId = 5
+effects = [{
+"type": "room_notification_frequency",
+"value": 0.1
+}, {
+"type": "money_multiplier",
+"value": 0.1
+}]
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -269,9 +277,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Radioactividad"
 description = "Desc"
-price = 1000
+price = 2000
+price_increment = 700.0
 roomId = 5
 skillId = 1
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.4
+}, {
+"type": "contamination_multiplier",
+"value": 0.3
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -285,9 +301,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Uranio y Plutonio"
 description = "Desc Desc"
-price = 1000
+price = 2200
+price_increment = 750.0
 roomId = 5
 skillId = 2
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.3
+}, {
+"type": "room_buy_price_mult",
+"value": 0.15
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -304,6 +328,13 @@ description = "Desc Desc"
 price = 1000
 roomId = 5
 skillId = 3
+effects = [{
+"type": "room_clicker",
+"value": 0.3
+}, {
+"type": "contamination_multiplier",
+"value": 0.2
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -317,9 +348,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Neutrón"
 description = "Desc Desc"
-price = 1000
+price = 2500
+price_increment = 850.0
 roomId = 5
 skillId = 4
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.35
+}, {
+"type": "room_notification_value",
+"value": 0.25
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -333,9 +372,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Fisión Nuclear"
 description = "Desc"
-price = 1000
+price = 2500
+price_increment = 600.0
 roomId = 5
 skillId = 5
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.15
+}, {
+"type": "happiness_multiplier",
+"value": 0.05
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -349,9 +396,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Reacción Nuclear"
 description = "Desc Desc"
-price = 1000
+price = 2600
+price_increment = 900.0
 roomId = 5
 skillId = 6
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.4
+}, {
+"type": "happiness_multiplier",
+"value": -0.1
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -365,9 +420,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Planta de Energía Nuclear"
 description = "Desc Desc"
-price = 1000
+price = 3000
+price_increment = 850.0
 roomId = 5
 skillId = 7
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.5
+}, {
+"type": "contamination_multiplier",
+"value": 0.3
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -381,9 +444,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Reactor Agua a Presión"
 description = "Desc Desc"
-price = 1000
+price = 3000
+price_increment = 1000.0
 roomId = 5
 skillId = 8
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.4
+}, {
+"type": "contamination_multiplier",
+"value": -0.2
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -397,9 +468,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Pequeños Reactores Modulares"
 description = "Desc Desc"
-price = 1000
+price = 3100
+price_increment = 1050.0
 roomId = 5
 skillId = 9
+effects = [{
+"type": "room_buy_price_mult",
+"value": -0.15
+}, {
+"type": "room_notification_frequency",
+"value": 0.2
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -413,9 +492,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Reactores Avanzados"
 description = "Desc Desc"
-price = 1000
+price = 4500
+price_increment = 1800.0
 roomId = 5
 skillId = 10
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.5
+}, {
+"type": "happiness_multiplier",
+"value": 0.1
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/NuclearTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -429,9 +516,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Gestión Eficiente de Residuos"
 description = "Desc Desc"
-price = 1000
+price = 3400
+price_increment = 1300.0
 roomId = 5
 skillId = 11
+effects = [{
+"type": "contamination_multiplier",
+"value": -0.4
+}, {
+"type": "happiness_multiplier",
+"value": 0.2
+}]
 
 [node name="GeoTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
@@ -450,9 +545,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Energía Geotérmica"
 description = "Desc Desc"
-price = 1000
+price = 950
+price_increment = 285.0
 unlocked = true
 roomId = 4
+effects = [{
+"type": "room_notification_frequency",
+"value": 0.1
+}, {
+"type": "money_multiplier",
+"value": 0.1
+}]
 
 [node name="Skill2" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -466,9 +569,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Ciclo Binario"
 description = "Desc"
-price = 1000
+price = 1350
+price_increment = 600.0
 roomId = 4
 skillId = 1
+effects = [{
+"type": "contamination_multiplier",
+"value": -0.2
+}, {
+"type": "wattage_multiplier",
+"value": 0.2
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -482,9 +593,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Intercambiadores de Calor"
 description = "Intercambiadores de Calor"
-price = 1000
+price = 1400
+price_increment = 650.0
 roomId = 4
 skillId = 2
+effects = [{
+"type": "room_notification_frequency",
+"value": 0.1
+}, {
+"type": "room_buy_price_mult",
+"value": -0.1
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -498,9 +617,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Monitoreo Avanzado"
 description = "Desc Desc"
-price = 1000
+price = 1450
+price_increment = 700.0
 roomId = 4
 skillId = 3
+effects = [{
+"type": "happiness_multiplier",
+"value": 0.15
+}, {
+"type": "room_refund_price_mult",
+"value": 0.1
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill2/Skill4/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -514,9 +641,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Almacenamiento de Calor"
 description = "Desc Desc"
-price = 1000
+price = 1500
+price_increment = 750.0
 roomId = 4
 skillId = 4
+effects = [{
+"type": "room_notification_value",
+"value": 0.2
+}, {
+"type": "wattage_multiplier",
+"value": 0.25
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -530,9 +665,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Volcán"
 description = "Desc"
-price = 1000
+price = 1150
+price_increment = 500.0
 roomId = 4
 skillId = 5
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.35
+}, {
+"type": "contamination_multiplier",
+"value": 0.15
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -546,9 +689,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Generadores de Vapor"
 description = "Desc Desc"
-price = 1000
+price = 950
+price_increment = 350.0
 roomId = 4
 skillId = 6
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.2
+}, {
+"type": "contamination_multiplier",
+"value": 0.1
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -563,8 +714,16 @@ grow_vertical = 1
 title = "Máquina de Vapor"
 description = "Desc Desc"
 price = 1000
+price_increment = 400.0
 roomId = 4
 skillId = 7
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.25
+}, {
+"type": "room_clicker",
+"value": 0.15
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill3/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -578,9 +737,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Perforaciones"
 description = "Desc Desc"
-price = 1000
+price = 1100
+price_increment = 450.0
 roomId = 4
 skillId = 8
+effects = [{
+"type": "room_buy_price_mult",
+"value": 0.15
+}, {
+"type": "wattage_multiplier",
+"value": 0.3
+}]
 
 [node name="Skill4" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -594,9 +761,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Planta Geotérmica"
 description = "Desc Desc"
-price = 1000
+price = 1200
+price_increment = 500.0
 roomId = 4
 skillId = 9
+effects = [{
+"type": "room_notification_value",
+"value": 0.2
+}, {
+"type": "happiness_multiplier",
+"value": 0.1
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -610,9 +785,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Turbinas de Vapor"
 description = "Desc Desc"
-price = 1000
+price = 1250
+price_increment = 550.0
 roomId = 4
 skillId = 10
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.3
+}, {
+"type": "room_clicker",
+"value": 0.2
+}]
 
 [node name="Skill3" parent="TreeContainer/VBoxContainer/Menu/GeoTree/Skill/Skill3/Skill4/Skill3" instance=ExtResource("6_ph5yp")]
 layout_mode = 0
@@ -626,9 +809,17 @@ grow_horizontal = 1
 grow_vertical = 1
 title = "Generador Geotérmico"
 description = "Desc Desc"
-price = 1000
+price = 1300
+price_increment = 600.0
 roomId = 4
 skillId = 11
+effects = [{
+"type": "wattage_multiplier",
+"value": 0.4
+}, {
+"type": "happiness_multiplier",
+"value": 0.1
+}]
 
 [node name="SolarTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
 visible = false
