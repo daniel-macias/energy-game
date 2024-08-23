@@ -1407,7 +1407,7 @@ unlocked = true
 roomId = 1
 effects = [{
 "type": "room_notification_frequency",
-"value": 1.2
+"value": 0.1
 }, {
 "type": "money_multiplier",
 "value": 0.1

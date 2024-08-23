@@ -1,8 +1,8 @@
 extends Control
 
 # Parameters for the room instance
-@export var notification_interval = 5.0  # Base time interval in seconds for the notification to show up
-@export var notification_interval_randomness = 2.0  # Random factor to add variability
+@export var notification_interval = 30.0  # Base time interval in seconds for the notification to show up
+@export var notification_interval_randomness = 10.0  # Random factor to add variability
 @export var notification_reward = 50  # Reward when clicking the notification
 @export var clicker_reward = 10  # Reward when clicking the Clicker button
 @export var energy_type = "Fossil Fuels"
@@ -78,11 +78,4 @@ func remove_plant():
 		GameManager.update_money(remove_plant_refund)
 		plant_cost -= cost_increase_per_plant  # Optional: Decrease the cost after selling
 		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
-
-# Update the room every frame
-func _process(delta):
-	notification_timer += delta
-	if notification_timer >= notification_time_target:
-		notification_button.visible = true
-		reset_notification_timer()  # Reset the timer after showing the notification
 

@@ -364,14 +364,43 @@ func calculate_cleanliness_factors():
 	# Placeholder for future logic
 	pass
 
-# Process function to handle updates over time
 func _process(delta):
-	update_cleanliness(-0.1 * delta)  # Decrease cleanliness over time
-	update_wattage(-0.05 * delta)  # Decrease wattage slowly over time
+	var total_contamination = 0.0
+	var total_wattage = 0.0
+	var total_happiness = 0.0
+	
+	for room in rooms:
+		var num_plants = room.plant_amount
+		
+		if num_plants > 0:
+			# Apply room-specific contamination and wattage effects
+			total_contamination += room.contaminationIndex * num_plants * delta
+			total_wattage += room.wattageIndex * num_plants * delta
+			total_happiness += room.happinessIndex * num_plants * delta
+			
+			# Handle room notification timers or other specific room logic
+			room.notification_timer -= delta
+			if room.notification_timer <= 0:
+				trigger_notification(room)
+				room.notification_timer = room.notification_interval  # Reset the timer for next notification
+
+	# Apply contamination effect (e.g., decreasing cleanliness)
+	update_cleanliness(-total_contamination)
+	
+	# Apply wattage effect (e.g., modifying wattage capacity)
+	update_wattage(total_wattage)
+
+	# Adjust happiness globally based on room effects
+	#adjust_happiness(total_happiness) NOT EXISTENT
+	
+	# Now apply the global updates based on the combined effects
 	calculate_happiness_based_on_cleanliness()
 	calculate_tourists_based_on_happiness()
-	calculate_wattage_usage()
+	calculate_wattage_usage()  # Could use total_wattage in the calculation
 	calculate_cleanliness_factors()
+
+func trigger_notification(room):
+	room.notification_button.visible = true
 
 # Update the skill panel with the selected skill details
 func update_skill_panel(title: String, description: String, price: int, effects: Array, skill_node: SkillNode):
