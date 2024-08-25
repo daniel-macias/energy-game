@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=23 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -7,7 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
+[ext_resource type="Texture2D" uid="uid://bmce8rjew8dcm" path="res://sprites/techs/nuclear/radioactivida.PNG" id="7_k44sv"]
 [ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
+[ext_resource type="Texture2D" uid="uid://l8rn436oqdlg" path="res://sprites/techs/fossil/fosil.png" id="8_5v7rw"]
+[ext_resource type="Texture2D" uid="uid://b0g6s70p3k7k0" path="res://sprites/techs/fossil/ambiental.png" id="9_hkumq"]
+[ext_resource type="Texture2D" uid="uid://te78ivqxi3wu" path="res://sprites/techs/fossil/filtro.png" id="10_04q4x"]
+[ext_resource type="Texture2D" uid="uid://c03totuf6wmhd" path="res://sprites/techs/fossil/carboncapture.png" id="11_qe6t6"]
+[ext_resource type="Texture2D" uid="uid://4d4k10tkypqt" path="res://sprites/techs/fossil/clean.png" id="12_tl8tn"]
+[ext_resource type="Texture2D" uid="uid://b1clq6ckbfnin" path="res://sprites/techs/fossil/carbon.png" id="13_qcv3f"]
+[ext_resource type="Texture2D" uid="uid://csbgohg4656up" path="res://sprites/techs/fossil/vapor.png" id="14_e77ia"]
+[ext_resource type="Texture2D" uid="uid://djhln0ubbxjn" path="res://sprites/techs/fossil/petroloe.png" id="15_psa37"]
+[ext_resource type="Texture2D" uid="uid://d25ghdc2w8x8e" path="res://sprites/techs/fossil/combustion.png" id="16_bfp3u"]
+[ext_resource type="Texture2D" uid="uid://dtjl76p7c5hlb" path="res://sprites/techs/fossil/electricida.png" id="17_n5ywh"]
+[ext_resource type="Texture2D" uid="uid://cox1oxm4srpp8" path="res://sprites/techs/fossil/diesel.png" id="18_53ntk"]
+[ext_resource type="Texture2D" uid="uid://dk7x6bee2ein0" path="res://sprites/techs/fossil/fracking.png" id="19_m3o17"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ljl"]
 bg_color = Color(0.397915, 0.390726, 0.39622, 0.929412)
@@ -73,24 +86,24 @@ value = 50.0
 nine_patch_stretch = true
 texture_progress = ExtResource("1_wyxp4")
 
+[node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Capacity: 0
+"
+
 [node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Money: 1000"
 
-[node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "Cost: 999
-"
-
 [node name="City" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 32
-text = "City"
+text = "Clean Up"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -280,6 +293,7 @@ offset_right = 334.0
 offset_bottom = -4.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("7_k44sv")
 title = "Radioactividad"
 description = "Desc"
 price = 2000
@@ -1692,6 +1706,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("8_5v7rw")
 title = "Combistibles Fósiles"
 description = "Desc Desc"
 price = 1000
@@ -1715,6 +1730,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("9_hkumq")
 title = "Controles Ambientales"
 description = "Desc"
 price = 700
@@ -1738,6 +1754,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("10_04q4x")
 title = "Filtros de Emisiones"
 description = "Desc Desc"
 price = 600
@@ -1761,6 +1778,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_qe6t6")
 title = "Captura de Carbono"
 description = "Desc Desc"
 price = 1000
@@ -1784,6 +1802,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("12_tl8tn")
 title = "Combustibles Limpios"
 description = "Desc Desc"
 price = 900
@@ -1807,6 +1826,7 @@ offset_right = 328.0
 offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("13_qcv3f")
 title = "Carbón"
 description = "Desc"
 price = 300
@@ -1830,6 +1850,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_e77ia")
 title = "Máquina de Vapor"
 description = "Desc Desc"
 price = 500
@@ -1853,6 +1874,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("15_psa37")
 title = "Pozos de Petróleo"
 description = "Desc Desc"
 price = 600
@@ -1876,6 +1898,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("16_bfp3u")
 title = "Motor de Combustión Interna"
 description = "Desc Desc"
 price = 400
@@ -1899,6 +1922,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("17_n5ywh")
 title = "Central Eléctrica de Carbón"
 description = "Desc Desc"
 price = 450
@@ -1922,6 +1946,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("18_53ntk")
 title = "Motor Diesel"
 description = "Desc Desc"
 price = 500
@@ -1945,6 +1970,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("19_m3o17")
 title = "Fracturación Hidráulica"
 description = "Desc Desc"
 price = 800

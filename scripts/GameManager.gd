@@ -9,7 +9,7 @@ var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 100  # 0 to 100
 var money = 100000000
-var cost = 0
+var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
 var skill_states = {}  # Dictionary to store skill states
@@ -306,8 +306,13 @@ func update_happiness(value):
 	happiness = clamp(happiness + value, 0, 100)
 	update_happiness_image()
 
-func update_cleanliness(value):
-	cleanliness = clamp(cleanliness + value, 0, 100)
+func update_cleanliness(contamination_value):
+	if contamination_value < 0:  # Active contamination, cleanliness decreases
+		cleanliness = clamp(cleanliness + contamination_value, 0, 100)
+	elif contamination_value > 0:  # No contamination or low contamination, cleanliness improves
+		var cleanliness_recovery_rate = contamination_value * 0.1  # The lower the contamination, the better the recovery
+		cleanliness = clamp(cleanliness + cleanliness_recovery_rate, 0, 100)
+
 	cleanliness_bar.value = cleanliness
 	calculate_happiness_based_on_cleanliness()
 
@@ -324,9 +329,9 @@ func update_money(value):
 	money = max(money + value, 0)
 	money_label.text = "Money: " + str(money)
 
-func update_cost(value):
-	cost = max(cost + value, 0)
-	cost_label.text = "Cost: " + str(cost)
+func update_CC(value):
+	contaminationCapacity = max(contaminationCapacity + value, 0)
+	cost_label.text = "Cost: " + str(contaminationCapacity)
 
 # Update happiness image based on the current happiness value
 func update_happiness_image():
@@ -529,7 +534,7 @@ func save_game():
 		"wattage_capacity": wattage_capacity,
 		"cleanliness": cleanliness,
 		"money": money,
-		"cost": cost,
+		"contaminationCapacity": contaminationCapacity,
 		"roomAmount":[rooms[0].plant_amount,
 		rooms[1].plant_amount,
 		rooms[2].plant_amount,
@@ -564,14 +569,14 @@ func load_game():
 			wattage_capacity = save_data.get("wattage_capacity", 100)
 			cleanliness = save_data.get("cleanliness", 100)
 			money = save_data.get("money", 1000)
-			cost = save_data.get("cost", 0)
+			contaminationCapacity = save_data.get("contaminationCapacity", 0)
 
 			update_happiness_image()
 			update_tourists(tourists)
 			update_wattage(wattage)
-			update_cleanliness(wattage_capacity)
+			update_cleanliness(cleanliness)
 			update_money(money)
-			update_cost(cost)
+			update_CC(contaminationCapacity)
 			
 			#Load room amount
 			var roomsTemp = save_data.get("roomAmount", [])
