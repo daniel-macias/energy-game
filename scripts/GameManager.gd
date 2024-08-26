@@ -14,6 +14,8 @@ var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
 var skill_states = {}  # Dictionary to store skill states
 
+var main_game_scene: Node = null
+
 # Image paths for happiness states
 var happiness_images = [
 	"res://sprites/happy0.png",
@@ -85,10 +87,16 @@ var animal_info : Label = null
 var energy_panel_animal_pic : TextureRect = null
 var open_animal_info_button : Button = null
 
+var fish_button : Button = null
+
+var main_game_root : Control = null
+
 @onready var auto_save_timer = Timer.new()
 # Initialize the game logic and nodes only when the game scene is active
 func initialize_game_logic():
 	# Initialize the nodes manually
+	main_game_root = get_node("/root/Control")
+	
 	skill_panel = get_node("/root/Control/TreeContainer")
 	energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopColor/TopBar/Title Lable")
 	title_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechTitle")
@@ -142,12 +150,14 @@ func initialize_game_logic():
 	
 	energy_panel_animal_pic = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/AnimalPic")
 	open_animal_info_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenAnimalInfo")
+	
+	fish_button = get_node("/root/Control/VBoxContainer/HBoxContainer/GoToFish")
 	# Set the process function to true to start updating every frame
 	set_process(true)
 	
 	# Initially hide the energy panel
-	energy_panel.visible = false
-	hide_tech_trees()
+	#energy_panel.visible = false
+	#hide_tech_trees()
 
 	# Connect buttons to their respective functions
 	exit_button.pressed.connect(hide_energy_panel)
@@ -162,6 +172,8 @@ func initialize_game_logic():
 	
 	open_dec_button.pressed.connect(on_open_skill_window_pressed)
 	tech_exit.pressed.connect(close_skill_window)
+	
+	fish_button.pressed.connect(goToFishGame)
 	
 	# Initialize rooms (assumed setup for room nodes)
 	rooms = [
@@ -207,11 +219,14 @@ func disable_game_logic():
 
 func _ready():
 	# Check if we are in the game scene
+	print(get_tree().current_scene.name)
+	var scene = get_tree().current_scene.name
+	print(scene)
 	set_process(false)
 	if not is_initialized:
 		is_initialized = true
 		print(get_tree().current_scene.name)
-		if get_tree().current_scene.name != "MainMenu":
+		if get_tree().current_scene.name != "MainMenu" && get_tree().current_scene.name != "Fish":
 			initialize_game_logic()
 		else:
 			print("disable")
@@ -668,6 +683,39 @@ func load_game():
 		
 		file.close()
 
+func goToFishGame():
+	# Pause the GameManager by setting process mode
+	var main_game_scene = get_tree().current_scene
+	
+	self.set_process(false)
+	self.set_physics_process(false)
+	
+	# Switch to the fish game scene
+	var fish_scene = load("res://scenes/fish.tscn").instantiate()
+	get_tree().root.add_child(fish_scene)
+	get_tree().set_current_scene(fish_scene)
+	print("Switched to fish game")
+	main_game_root.visible = false
+
+# Unpause the GameManager by setting process mode back to true
+func unpauseMainGame():
+	self.set_process(true)
+	self.set_physics_process(true)
+	main_game_root.visible = true
+	# Remove the fish game scene from the tree
+	var current_scene = get_tree().current_scene
+	
+	# Ensure the current scene is the fish game scene and remove it
+	if current_scene.name == "Fish":
+		current_scene.queue_free()  # Remove the fish game scene from the tree
+	
+	# Load and switch back to the main game scene
+	if main_game_scene == null:
+		get_tree().set_current_scene(main_game_scene)
+	
+	print("Switched back to main game and unpaused")
+
+
 func get_all_skills():
 	# Return a list of all SkillNodes in all tech trees
 	var skills = []
@@ -700,6 +748,6 @@ func collect_skill_nodes(node, skills):
 		collect_skill_nodes(child, skills)
 
 func _notification(what):
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT && get_tree().current_scene && get_tree().current_scene.name != "Fish":
 		save_game()  # Save the game before quitting
 		#get_tree().quit()
