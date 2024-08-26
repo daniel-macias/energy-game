@@ -72,13 +72,13 @@ var open_tech_tree_button: Button = null
 func initialize_game_logic():
 	# Initialize the nodes manually
 	skill_panel = get_node("/root/Control/TreeContainer")
-	energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/Title Lable")
+	energy_tree_title = get_node("/root/Control/TreeContainer/VBoxContainer/TopColor/TopBar/Title Lable")
 	title_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechTitle")
 	description_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechDesc")
 	price_label = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TechPrice")
 	invest_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Investigar")
 	tech_image = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/TextureRect")
-	tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopBar/ExitButton")
+	tree_exit = get_node("/root/Control/TreeContainer/VBoxContainer/TopColor/TopBar/ExitButton")
 	open_dec_button = get_node("/root/Control/TreeContainer/VBoxContainer/Menu/TechInfo/Info")
 
 	# Tech Trees
@@ -99,8 +99,8 @@ func initialize_game_logic():
 
 	# Panel and Button Nodes
 	energy_panel = get_node("/root/Control/PanelContainer")
-	energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/EnergyType")
-	exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopBar/ExitButton")
+	energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopColor/TopBar/EnergyType")
+	exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopColor/TopBar/ExitButton")
 	plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
 	create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
 	remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")

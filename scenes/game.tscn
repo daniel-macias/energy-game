@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=27 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -22,14 +22,19 @@
 [ext_resource type="Texture2D" uid="uid://cox1oxm4srpp8" path="res://sprites/techs/fossil/diesel.png" id="18_53ntk"]
 [ext_resource type="Texture2D" uid="uid://dk7x6bee2ein0" path="res://sprites/techs/fossil/fracking.png" id="19_m3o17"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypk78"]
-bg_color = Color(0.94902, 0.807843, 0.682353, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0pj"]
+bg_color = Color(0.510468, 0.616279, 0.696423, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpcy"]
+bg_color = Color(0.213734, 0.385952, 0.191647, 1)
 
 [sub_resource type="Theme" id="Theme_bfd6m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ljl"]
 bg_color = Color(0.397915, 0.390726, 0.39622, 0.929412)
 border_color = Color(0.566965, 0.86243, 0.861618, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ithfo"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -193,24 +198,32 @@ offset_right = 1445.5
 offset_bottom = 638.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ypk78")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dh0pj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TreeContainer"]
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="TreeContainer/VBoxContainer"]
+[node name="TopColor" type="Panel" parent="TreeContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 60)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylpcy")
+
+[node name="TopBar" type="HBoxContainer" parent="TreeContainer/VBoxContainer/TopColor"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1371.0
+offset_bottom = 59.0
 theme = SubResource("Theme_bfd6m")
 alignment = 1
 
-[node name="Title Lable" type="Label" parent="TreeContainer/VBoxContainer/TopBar"]
+[node name="Title Lable" type="Label" parent="TreeContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Fossil Tree"
 horizontal_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="TreeContainer/VBoxContainer/TopBar"]
+[node name="ExitButton" type="TextureButton" parent="TreeContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_chb1t")
@@ -2010,18 +2023,29 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_h7ljl")
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="TopColor" type="Panel" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TopColor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -685.5
+offset_right = 685.5
+offset_bottom = 64.0
+grow_horizontal = 2
 alignment = 1
 
-[node name="EnergyType" type="Label" parent="PanelContainer/VBoxContainer/TopBar"]
+[node name="EnergyType" type="Label" parent="PanelContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 46
 text = "Energy Type"
 horizontal_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="PanelContainer/VBoxContainer/TopBar"]
+[node name="ExitButton" type="TextureButton" parent="PanelContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_chb1t")
@@ -2170,18 +2194,30 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="InfoAboutTech"]
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="InfoAboutTech/VBoxContainer"]
+[node name="Panel" type="Panel" parent="InfoAboutTech/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ithfo")
+
+[node name="TopBar" type="HBoxContainer" parent="InfoAboutTech/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -353.5
+offset_right = 353.5
+offset_bottom = 64.0
+grow_horizontal = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="InfoAboutTech/VBoxContainer/TopBar"]
+[node name="Title" type="Label" parent="InfoAboutTech/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 46
+theme_override_font_sizes/font_size = 44
 text = "¿Qué es esto?"
 horizontal_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="InfoAboutTech/VBoxContainer/TopBar"]
+[node name="ExitButton" type="TextureButton" parent="InfoAboutTech/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_chb1t")
@@ -2191,5 +2227,68 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimalInfo" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.5
+offset_top = -282.5
+offset_right = 599.5
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimalInfo"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="AnimalInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ithfo")
+
+[node name="TopBar" type="HBoxContainer" parent="AnimalInfo/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -597.5
+offset_right = 597.5
+offset_bottom = 64.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 44
+text = "¿Qué es esto?"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_chb1t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnimalInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+expand_mode = 3
+
+[node name="InfoText" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales. "
 horizontal_alignment = 1
 autowrap_mode = 2
