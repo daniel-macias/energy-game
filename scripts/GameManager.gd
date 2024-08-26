@@ -56,7 +56,7 @@ var tourists_label: Label = null
 var wattage_bar: TextureProgressBar = null
 var cleanliness_bar: TextureProgressBar = null
 var money_label: Label = null
-var cost_label: Label = null
+var CC_label: Label = null
 
 # Panel and Button Nodes - initialize as null
 var energy_panel: Control = null
@@ -95,7 +95,7 @@ func initialize_game_logic():
 	wattage_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Wattage")
 	cleanliness_bar = get_node("/root/Control/VBoxContainer/HBoxContainer/Cleanliness")
 	money_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Money")
-	cost_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Cost")
+	CC_label = get_node("/root/Control/VBoxContainer/HBoxContainer/Cost")
 
 	# Panel and Button Nodes
 	energy_panel = get_node("/root/Control/PanelContainer")
@@ -331,7 +331,7 @@ func update_money(value):
 
 func update_CC(value):
 	contaminationCapacity = max(contaminationCapacity + value, 0)
-	cost_label.text = "Cost: " + str(contaminationCapacity)
+	CC_label.text = "Capacidad: " + str(contaminationCapacity)
 
 # Update happiness image based on the current happiness value
 func update_happiness_image():
