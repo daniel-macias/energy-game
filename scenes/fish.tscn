@@ -12,7 +12,6 @@ offset_bottom = -720.0
 script = ExtResource("1_1vfep")
 
 [node name="StartMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,8 +107,25 @@ grow_vertical = 2
 text = "Return to game"
 
 [node name="Game" type="Node2D" parent="."]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Game"]
+visible = false
+
+[node name="StartsIn" type="Label" parent="Game/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -27.5
+offset_right = 51.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Inicia en 3.."
 
 [node name="GameTimer" type="Label" parent="Game/CanvasLayer"]
 anchors_preset = 5
