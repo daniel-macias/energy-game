@@ -2176,6 +2176,116 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Ver Árbol Tecnológico"
 
+[node name="AnimalPic" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+expand_mode = 4
+
+[node name="OpenAnimalInfo" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "¿Quién Soy?"
+
+[node name="PanelCover" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0299342
+anchor_top = -0.049581
+anchor_right = 1.02993
+anchor_bottom = 1.04958
+offset_right = 0.00012207
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimalInfo" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.5
+offset_top = -282.5
+offset_right = 599.5
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimalInfo"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="AnimalInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ithfo")
+
+[node name="TopBar" type="HBoxContainer" parent="AnimalInfo/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -597.5
+offset_right = 597.5
+offset_bottom = 64.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 44
+text = "Acerca de este animal"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_chb1t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnimalInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+expand_mode = 5
+
+[node name="Name" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Nombre: EEEEEEEE"
+
+[node name="Species" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Lepidochelys olivacea
+"
+
+[node name="Scientific" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Lepidochelys olivacea
+"
+
+[node name="InfoText" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales. "
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="InfoAboutTech" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -2227,68 +2337,5 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="AnimalInfo" type="PanelContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -599.5
-offset_top = -282.5
-offset_right = 599.5
-offset_bottom = 282.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AnimalInfo"]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="AnimalInfo/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ithfo")
-
-[node name="TopBar" type="HBoxContainer" parent="AnimalInfo/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -597.5
-offset_right = 597.5
-offset_bottom = 64.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="Title" type="Label" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 44
-text = "¿Qué es esto?"
-horizontal_alignment = 1
-
-[node name="ExitButton" type="TextureButton" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AnimalInfo/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_wyxp4")
-expand_mode = 3
-
-[node name="InfoText" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales. "
 horizontal_alignment = 1
 autowrap_mode = 2

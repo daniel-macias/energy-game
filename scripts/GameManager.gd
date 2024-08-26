@@ -67,6 +67,24 @@ var create_plant_button: Button = null
 var remove_plant_button: Button = null
 var open_tech_tree_button: Button = null
 
+var panel_cover : Panel = null
+
+var tech_container : PanelContainer = null
+var tech_exit : TextureButton = null
+var tech_title : Label = null
+var tech_info : Label = null
+
+var animal_container : PanelContainer = null
+var exit_animal : TextureButton = null
+var animal_pic : TextureRect = null
+var animal_name : Label = null
+var animal_species : Label = null
+var animal_scientific : Label = null
+var animal_info : Label = null
+
+var energy_panel_animal_pic : TextureRect = null
+var open_animal_info_button : Button = null
+
 @onready var auto_save_timer = Timer.new()
 # Initialize the game logic and nodes only when the game scene is active
 func initialize_game_logic():
@@ -106,7 +124,24 @@ func initialize_game_logic():
 	remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
 	open_tech_tree_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenTechTree")
 
-
+	panel_cover = get_node("/root/Control/PanelCover")
+	#Tech Info Nodes
+	tech_container = get_node("/root/Control/InfoAboutTech")
+	tech_exit = get_node("/root/Control/InfoAboutTech/VBoxContainer/Panel/TopBar/ExitButton")
+	tech_title = get_node("/root/Control/InfoAboutTech/VBoxContainer/Panel/TopBar/Title")
+	tech_info = get_node("/root/Control/InfoAboutTech/VBoxContainer/InfoText")
+	
+	#Animal Info Nodes
+	animal_container = get_node("/root/Control/AnimalInfo")
+	exit_animal = get_node("/root/Control/AnimalInfo/VBoxContainer/Panel/TopBar/ExitButton")
+	animal_pic = get_node("/root/Control/AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect")
+	animal_name = get_node("/root/Control/AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer/Name")
+	animal_species = get_node("/root/Control/AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer/Species")
+	animal_scientific = get_node("/root/Control/AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer/Scientific")
+	animal_info = get_node("/root/Control/AnimalInfo/VBoxContainer/HBoxContainer/InfoText")
+	
+	energy_panel_animal_pic = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/AnimalPic")
+	open_animal_info_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenAnimalInfo")
 	# Set the process function to true to start updating every frame
 	set_process(true)
 	

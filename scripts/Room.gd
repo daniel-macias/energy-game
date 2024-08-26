@@ -19,6 +19,12 @@ extends Control
 
 @export var costIndex = 1.0; #maybe
 
+#animal info
+@export var animal_name = "A"
+@export var animal_species = "B"
+@export var animal_scientific = "C"
+@export var animal_info = "D"
+
 # Node references
 @onready var notification_button = $Notification
 @onready var clicker_button = $Clicker
