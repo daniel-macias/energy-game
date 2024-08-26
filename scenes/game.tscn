@@ -2188,6 +2188,7 @@ text = "¿Quién Soy?"
 
 [node name="PanelCover" type="Panel" parent="."]
 visible = false
+z_index = 20
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0299342
@@ -2202,6 +2203,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimalInfo" type="PanelContainer" parent="."]
 visible = false
+z_index = 25
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2288,6 +2290,7 @@ autowrap_mode = 2
 
 [node name="InfoAboutTech" type="PanelContainer" parent="."]
 visible = false
+z_index = 25
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2323,7 +2326,7 @@ alignment = 1
 [node name="Title" type="Label" parent="InfoAboutTech/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 36
 text = "¿Qué es esto?"
 horizontal_alignment = 1
 

@@ -157,6 +157,12 @@ func initialize_game_logic():
 	create_plant_button.pressed.connect(_on_CreatePlantButton_pressed)
 	remove_plant_button.pressed.connect(_on_RemovePlantButton_pressed)
 	
+	open_animal_info_button.pressed.connect(on_open_animal_window_pressed)
+	exit_animal.pressed.connect(close_animal_window)
+	
+	open_dec_button.pressed.connect(on_open_skill_window_pressed)
+	tech_exit.pressed.connect(close_skill_window)
+	
 	# Initialize rooms (assumed setup for room nodes)
 	rooms = [
 		get_node("/root/Control/VBoxContainer/GridContainer/Control"),
@@ -233,6 +239,18 @@ func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
 	plant_amount_label.text = str(plant_amount)
 	create_plant_button.text = str(plant_cost) + " Gold"
 	remove_plant_button.text = str(remove_plant_refund) + " Gold"
+
+func update_animal_info(name, species, scientific, info):
+	animal_info.text = info
+	animal_name.text = name
+	animal_species.text = species
+	animal_scientific.text = scientific
+	#TODO: photo
+
+func update_skill_info(name,info):
+	tech_title.text = name
+	tech_info.text = info
+	
 
 func get_selected_room():
 	# Logic to get the currently selected room based on the UI, e.g., a variable tracking the active room
@@ -518,6 +536,23 @@ func on_invest_button_pressed():
 	if selected_skill_node:
 		selected_skill_node.activate_skill()  # Activate the selected skill
 		save_game()
+		
+
+func on_open_animal_window_pressed():
+	panel_cover.visible = true
+	animal_container.visible = true
+
+func close_animal_window():
+	panel_cover.visible = false
+	animal_container.visible = false
+
+func on_open_skill_window_pressed():
+	panel_cover.visible = true
+	tech_container.visible = true
+
+func close_skill_window():
+	panel_cover.visible = false
+	tech_container.visible = false
 
 func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, level: int):
 	print("Applying: ", effect_type , "value: " , effect_value)

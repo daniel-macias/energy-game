@@ -57,6 +57,7 @@ func _on_RoomButton_pressed():
 	print("Plant amount: ", plant_amount)
 	GameManager.show_energy_panel(energy_type)
 	GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+	GameManager.update_animal_info(animal_name,animal_species,animal_scientific,animal_info)
 
 # Function to handle the Notification button press
 func _on_Notification_pressed():

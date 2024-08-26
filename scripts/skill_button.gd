@@ -63,6 +63,8 @@ func _update_lines():
 func _on_pressed():
 	_update_lines()
 	GameManager.update_skill_panel(title, description, price, effects if effects else [], self)
+	GameManager.update_skill_info(title,description)
+	GameManager.open_dec_button.disabled = false
 
 func deselect():
 	# When this skill is deselected, hide the selection rectangle
