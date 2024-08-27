@@ -8,6 +8,8 @@ extends Node
 @onready var startsInLabel = $Game/CanvasLayer/StartsIn
 @onready var gameTimeLabel = $Game/CanvasLayer/GameTimer
 
+@onready var player = $Game/Player
+
 @onready var game_timer = Timer.new()
 @onready var start_timer = Timer.new()
 @onready var transition_timer = Timer.new()
@@ -18,6 +20,7 @@ extends Node
 var score = 0
 var countdown_time := 3
 var game_time := 15
+var game_active := false
 
 @onready var start_nodes = [$Game/StartNode0, $Game/StartNode1, $Game/StartNode2, $Game/StartNode3]
 @onready var end_nodes = [$Game/EndNode0, $Game/EndNode1, $Game/EndNode2, $Game/EndNode3]
@@ -81,6 +84,7 @@ func on_countdown_tick():
 		start_game()
 
 func start_game():
+	game_active = true 
 	game.visible = true
 	game_time = 15  # Reset game time
 	score = 0  # Reset score
@@ -108,6 +112,7 @@ func on_start_countdown_finished():
 	game_timer.start()  # Start the 15-second game timer
 
 func on_game_finished():
+	game_active = false
 	game_timer.stop()
 	game.visible = false
 	startsInLabel.text = "Terminado!"
@@ -122,10 +127,13 @@ func show_results():
 
 
 func spawn_trash():
+	if not game_active:  # Stop spawning if the game is not active
+		return
 	# Spawns trash at random start nodes
 	var random_start_index = randi() % start_nodes.size()
+	var random_end_index = randi() % end_nodes.size()
 	var start_node = start_nodes[random_start_index]
-	var end_node = end_nodes[random_start_index]
+	var end_node = end_nodes[random_end_index]
 	
 	# Instance the trash scene
 	var trash_instance = trash_scene.instantiate()
@@ -141,7 +149,32 @@ func spawn_trash():
 	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
 	spawn_trash()
 
-func shoot_bullet():
-	var bullet_instance = bullet_scene.instantiate()
-	add_child(bullet_instance)
-	bullet_instance.global_position = $Player.global_position  # Start the bullet from the player's position
+func shoot_bullet(target_position: Vector2):
+	var bullet_instance = bullet_scene.instantiate()  # No need to cast
+	
+	if bullet_instance != null:
+		print("Bullet instance created successfully")
+		add_child(bullet_instance)
+
+		# Ensure player exists before using its global position
+		if player != null:
+			bullet_instance.global_position = player.global_position
+		else:
+			print("Player is not initialized!")
+
+		# Set bullet's direction towards the target position
+		if bullet_instance.has_method("set_direction"):
+			var direction = (target_position - bullet_instance.global_position).normalized()
+			bullet_instance.call("set_direction", direction)  # Safely set direction using method
+		else:
+			print("Bullet instance does not have set_direction method!")
+	else:
+		print("Failed to create bullet instance")
+
+# Detect input to shoot a bullet
+func _input(event):
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		if game_active:
+			# Get the global position where the player tapped/clicked
+			var target_position = event.global_position
+			shoot_bullet(target_position)

@@ -1,14 +1,17 @@
 extends Area2D
 
+@export var min_move_speed: float = 100.0
+@export var max_move_speed: float = 250.0
 @export var move_speed: float = 150.0
 var target_position: Vector2
-var squiggle_amplitude: float = 50.0
-var squiggle_frequency: float = 5.0
+var squiggle_amplitude: float = 20.0
+var squiggle_frequency: float = 20.0
 var start_position: Vector2
 
 func _ready():
 	start_position = position
-
+	#Assign a random speed within the range of min_move_speed and max_move_speed
+	move_speed = randf_range(min_move_speed, max_move_speed)
 	# Call the function to randomly select one of the sprites
 	select_random_sprite()
 
@@ -28,9 +31,9 @@ func _process(delta):
 	var direction = (target_position - position).normalized()
 
 	# Create a squiggly effect
-	var offset_x = sin(position.y / squiggle_frequency) * squiggle_amplitude
+	var offset_y = sin(position.x / squiggle_frequency) * squiggle_amplitude
 	var new_position = position + direction * move_speed * delta
-	new_position.x += offset_x
+	new_position.y += offset_y
 
 	position = new_position
 
