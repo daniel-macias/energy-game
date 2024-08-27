@@ -184,6 +184,10 @@ id = 0
 contaminationIndex = 1.5
 happinessIndex = -0.3
 wattageIndex = 1.5
+animal_name = "Alba"
+animal_species = "Murciélago Blanco"
+animal_scientific = "Ectophylla alba"
+animal_info = "Micro-murciélago blanco hondureño de la familia Phyllostomatidae. Mide apenas 3-4 centímetros, tiene pelaje blanco y orejas amarillas. Está distribuido principalmente en los bosques de las Moskitia, las áreas protegidas de la Biósfera del Río Plátano, las montañas de Warunta y Mocorón y en los territorios indígenas de Mabita y Rus Rus. "
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -196,6 +200,10 @@ id = 1
 contaminationIndex = 0.3
 happinessIndex = 0.2
 wattageIndex = 1.2
+animal_name = "Oliv"
+animal_species = "Tortuga Golfina"
+animal_scientific = "Lepidochelys olivacea"
+animal_info = "Tortuga marina de tamaño mediano reconocida por su capazón con estructura suave y color verde oliva. Cuentan con aletas en lugar de patas y miden hasta 70 centímetros. Son omnivoras y se alimentan de diferentes peces y organismos marinos, incluyendo medusas y algas. Honduras cuenta con leyes para su protección debido a su vulnerabilidad y la cantidad de amenazas que la rodean. Las comunidades locales y varias organizaciones también se suman a la lucha para su conservación. Suele anidar principalmente en platas como las del Golfo de Fonseca y Punta Ratón."
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -207,6 +215,10 @@ id = 2
 contaminationIndex = 0.1
 happinessIndex = -0.1
 wattageIndex = 0.8
+animal_name = "Rua"
+animal_species = "Guatusa"
+animal_scientific = "Dasyprocta ruatanica"
+animal_info = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales."
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -219,6 +231,10 @@ id = 3
 contaminationIndex = 0.05
 happinessIndex = 0.3
 wattageIndex = 0.7
+animal_name = "Yago"
+animal_species = "Jaguarundi"
+animal_scientific = "Puma yagouaroundi"
+animal_info = "Felino de mediano tamaño, con cuerpo alargado, patas cortas y cabeza pequeña y aplastada. Tiene un pelaje que varia entre los colores marrón óxido, gris carbón, rojo y negro. Tienen orejas pequeñas y redondeadas, diferentes a las de otros felinos en que no tienen un color de contraste. Sus ojos son pequeños y están muy cerca entre sí."
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -230,6 +246,10 @@ remove_plant_refund = 1000
 id = 4
 contaminationIndex = 0.2
 happinessIndex = 0.1
+animal_name = "Daisy"
+animal_species = "Cusuco"
+animal_scientific = "Dasypus novemcinctus"
+animal_info = "Armadillos conocidos en Honduras como Cusucos o Piteros. Cuentan con un caparazón  de placas óseas que le brindan protección contra depredadores. Su coloración varía entre gris y marrón y la superficie de sus placas óseas tiene tonos grisáceos o beiges. En Honduras se pueden encontrar en diversos departamentos y áreas protegidas que varían desde bosques tropicales hasta áreas de cultivo y campos agrícolas. "
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -243,6 +263,10 @@ id = 5
 contaminationIndex = 0.5
 happinessIndex = 0.2
 wattageIndex = 2.5
+animal_name = "Rosy"
+animal_species = "Boa Rosada"
+animal_scientific = "Lichanura trivirgata"
+animal_info = "Especie única de boa constrictor encontrada exclusivamente en Cayos Cochinos. Cuentan con una pigmentación rosada que puede cambiar dependiendo de la luz, temperatura y dieta en la que se encuentren. Tiene un cuerpo alargado y una distintiva coloración, que se ha especulado como el resultado de una adaptación a su entorno. Habitan una selva tropical y se reconocen por su comportamiento dócil."
 
 [node name="TreeContainer" type="PanelContainer" parent="."]
 visible = false
@@ -2449,6 +2473,61 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("5_chb1t")
 
 [node name="InfoText" type="Label" parent="InfoAboutTech/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CustomDialog" type="PanelContainer" parent="."]
+visible = false
+z_index = 25
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -171.0
+offset_right = 353.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomDialog"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CustomDialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ithfo")
+
+[node name="TopBar" type="HBoxContainer" parent="CustomDialog/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -353.5
+offset_right = 353.5
+offset_bottom = 64.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "¿Qué es esto?"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_chb1t")
+
+[node name="InfoText" type="Label" parent="CustomDialog/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28

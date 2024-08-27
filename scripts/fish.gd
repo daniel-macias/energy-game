@@ -56,11 +56,13 @@ func _on_StartGame_pressed():
 
 func start_countdown():
 	startsInLabel.visible = true
+	canvas_layer.visible = true
 	startsInLabel.text = "Inicia en " + str(countdown_time) + "..."
 	start_timer.start()
 
 func on_countdown_tick():
 	countdown_time -= 1
+	print(countdown_time)
 	if countdown_time > 0:
 		startsInLabel.text = "Inicia en " + str(countdown_time) + "..."
 		start_timer.start()  # Continue countdown
@@ -90,6 +92,7 @@ func on_game_tick():
 
 func update_game_timer():
 	gameTimeLabel.text = str(game_time)
+	print(game_time)
 
 
 func on_start_countdown_finished():
@@ -108,6 +111,7 @@ func on_game_finished():
 func show_results():
 	startsInLabel.visible = false
 	results_menu.visible = true
+	canvas_layer.visible = false
 	#display_results()
 
 
