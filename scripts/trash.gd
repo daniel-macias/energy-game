@@ -43,4 +43,5 @@ func _process(delta):
 
 func destroy():
 	# Logic to handle the destruction of the trash
+	GameManager.trash_shot += 1
 	queue_free()

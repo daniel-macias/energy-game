@@ -1,7 +1,10 @@
 extends Area2D
 
-@export var speed: float = 300.0
+@export var speed: float = 1000.0
 var direction = Vector2.ZERO  # Bullet's direction
+
+func _ready():
+	connect("area_entered", Callable(self, "_on_bullet_collide"))
 
 func _process(delta):
 	# Move the bullet in the set direction
@@ -16,6 +19,6 @@ func set_direction(new_direction: Vector2):
 
 func _on_bullet_collide(area):
 	# Handle bullet collision with trash
-	if area.name == "Trash":
-		area.destroy()  # Call the destroy function on the trash node
-		queue_free()  # Destroy the bullet as well
+	print("Bullet Col")
+	area.destroy()  # Call the destroy function on the trash node
+	queue_free()  # Destroy the bullet as well

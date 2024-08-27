@@ -91,6 +91,9 @@ var fish_button : Button = null
 
 var main_game_root : Control = null
 
+#Fish game var
+var trash_shot := 0;
+
 @onready var auto_save_timer = Timer.new()
 # Initialize the game logic and nodes only when the game scene is active
 func initialize_game_logic():

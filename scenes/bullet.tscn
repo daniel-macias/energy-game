@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhcr1"]
 
 [node name="Bullet" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_sywii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

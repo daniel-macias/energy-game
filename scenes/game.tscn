@@ -1,10 +1,12 @@
-[gd_scene load_steps=82 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=85 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_wyxp4"]
 [ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
+[ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="5_28okl"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
+[ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="5_hkpeo"]
 [ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
 [ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
@@ -12,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://blnhojneqtshn" path="res://sprites/techs/nuclear/Radiactividad .png" id="8_dvcph"]
 [ext_resource type="Texture2D" uid="uid://3uu1q02xx2va" path="res://sprites/techs/geo/energia.png" id="8_fsrwm"]
 [ext_resource type="Texture2D" uid="uid://bmr004ceo0pul" path="res://sprites/techs/wind/energia.png" id="8_l0w4v"]
+[ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="8_rwo8v"]
 [ext_resource type="Texture2D" uid="uid://b48esen7gnj2x" path="res://sprites/techs/hydro/hydro.png" id="8_uibp2"]
 [ext_resource type="Texture2D" uid="uid://dt10edyb645ek" path="res://sprites/techs/fossil/fososo.png" id="8_y7287"]
 [ext_resource type="Texture2D" uid="uid://dh3t21oone3nx" path="res://sprites/techs/wind/moden.png" id="9_bhlq0"]
@@ -77,19 +80,35 @@
 [ext_resource type="Texture2D" uid="uid://d1362fa8078gw" path="res://sprites/techs/solar/fotoelectrico.png" id="29_td53n"]
 [ext_resource type="Texture2D" uid="uid://tdn5jfu5i23q" path="res://sprites/techs/solar/irridanci.png" id="30_ot7bn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0pj"]
-bg_color = Color(0.510468, 0.616279, 0.696423, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpcy"]
-bg_color = Color(0.213734, 0.385952, 0.191647, 1)
+bg_color = Color(0.929412, 0.466667, 0.0235294, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_bfd6m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ljl"]
-bg_color = Color(0.397915, 0.390726, 0.39622, 0.929412)
-border_color = Color(0.566965, 0.86243, 0.861618, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebaa1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64glk"]
+bg_color = Color(0.956863, 0.454902, 0.0313726, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ithfo"]
+bg_color = Color(0.956863, 0.454902, 0.0313726, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -218,7 +237,7 @@ wattageIndex = 0.8
 animal_name = "Rua"
 animal_species = "Guatusa"
 animal_scientific = "Dasyprocta ruatanica"
-animal_info = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales."
+animal_info = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales."
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
@@ -277,7 +296,7 @@ offset_right = 1445.5
 offset_bottom = 638.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dh0pj")
+theme_override_styles/panel = ExtResource("5_28okl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TreeContainer"]
 layout_mode = 2
@@ -298,6 +317,7 @@ alignment = 1
 [node name="Title Lable" type="Label" parent="TreeContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 40
 text = "Fossil Tree"
 horizontal_alignment = 1
@@ -320,6 +340,8 @@ layout_mode = 2
 [node name="TechTitle" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Investigación"
 horizontal_alignment = 1
@@ -332,25 +354,35 @@ stretch_mode = 3
 
 [node name="Info" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_ebaa1")
 text = "¿Qué es?"
 
 [node name="TechDesc" type="RichTextLabel" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/normal_font = ExtResource("5_hkpeo")
+theme_override_font_sizes/normal_font_size = 22
 text = "Selecione una tecnología para ver detalles"
 fit_content = true
 autowrap_mode = 2
 
 [node name="TechPrice" type="Label" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Investigar" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "Investigar"
 
 [node name="NuclearTree" type="Control" parent="TreeContainer/VBoxContainer/Menu"]
@@ -2155,7 +2187,7 @@ offset_right = 685.5
 offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h7ljl")
+theme_override_styles/panel = ExtResource("5_28okl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -2163,6 +2195,7 @@ layout_mode = 2
 [node name="TopColor" type="Panel" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_64glk")
 
 [node name="TopBar" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TopColor"]
 layout_mode = 1
@@ -2178,6 +2211,8 @@ alignment = 1
 [node name="EnergyType" type="Label" parent="PanelContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 46
 text = "Energy Type"
 horizontal_alignment = 1
@@ -2197,12 +2232,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "Cantidad de Plantas"
 horizontal_alignment = 1
 
 [node name="PlantAmount" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 60
 text = "0
 "
@@ -2210,24 +2249,34 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "Crear Planta"
 horizontal_alignment = 1
 
 [node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "999 Gold"
 
 [node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "Quitar Planta"
 horizontal_alignment = 1
 
 [node name="DeletePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "999 Gold"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
@@ -2304,13 +2353,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "Tecnología"
 horizontal_alignment = 1
 
 [node name="OpenTechTree" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "Ver Árbol Tecnológico"
 
 [node name="AnimalPic" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
@@ -2320,7 +2374,10 @@ expand_mode = 4
 
 [node name="OpenAnimalInfo" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "¿Quién Soy?"
 
 [node name="PanelCover" type="Panel" parent="."]
@@ -2353,6 +2410,7 @@ offset_right = 599.5
 offset_bottom = 282.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_28okl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AnimalInfo"]
 layout_mode = 2
@@ -2376,6 +2434,8 @@ alignment = 1
 [node name="Title" type="Label" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 44
 text = "Acerca de este animal"
 horizontal_alignment = 1
@@ -2402,17 +2462,20 @@ expand_mode = 5
 
 [node name="Name" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Nombre: EEEEEEEE"
 
 [node name="Species" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Lepidochelys olivacea
 "
 
 [node name="Scientific" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Lepidochelys olivacea
 "
@@ -2420,8 +2483,10 @@ text = "Lepidochelys olivacea
 [node name="InfoText" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 28
-text = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia in the family Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales. "
+text = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales. "
 horizontal_alignment = 1
 autowrap_mode = 2
 

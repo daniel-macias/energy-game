@@ -21,6 +21,7 @@ var score = 0
 var countdown_time := 3
 var game_time := 15
 var game_active := false
+var total_trash := 0
 
 @onready var start_nodes = [$Game/StartNode0, $Game/StartNode1, $Game/StartNode2, $Game/StartNode3]
 @onready var end_nodes = [$Game/EndNode0, $Game/EndNode1, $Game/EndNode2, $Game/EndNode3]
@@ -84,6 +85,8 @@ func on_countdown_tick():
 		start_game()
 
 func start_game():
+	total_trash = 0
+	GameManager.trash_shot = 0
 	game_active = true 
 	game.visible = true
 	game_time = 15  # Reset game time
@@ -130,6 +133,7 @@ func spawn_trash():
 	if not game_active:  # Stop spawning if the game is not active
 		return
 	# Spawns trash at random start nodes
+	total_trash += 1
 	var random_start_index = randi() % start_nodes.size()
 	var random_end_index = randi() % end_nodes.size()
 	var start_node = start_nodes[random_start_index]
@@ -176,5 +180,5 @@ func _input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if game_active:
 			# Get the global position where the player tapped/clicked
-			var target_position = event.global_position
+			var target_position = event.position
 			shoot_bullet(target_position)
