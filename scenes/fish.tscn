@@ -141,3 +141,27 @@ text = "00:00"
 [node name="Player" type="Sprite2D" parent="Game"]
 position = Vector2(87, 368)
 texture = ExtResource("2_6ecw1")
+
+[node name="StartNode0" type="Node2D" parent="Game"]
+position = Vector2(1624, 63)
+
+[node name="StartNode1" type="Node2D" parent="Game"]
+position = Vector2(1624, 200)
+
+[node name="StartNode2" type="Node2D" parent="Game"]
+position = Vector2(1626, 522)
+
+[node name="StartNode3" type="Node2D" parent="Game"]
+position = Vector2(1613, 658)
+
+[node name="EndNode0" type="Node2D" parent="Game"]
+position = Vector2(-136, 56)
+
+[node name="EndNode1" type="Node2D" parent="Game"]
+position = Vector2(-136, 193)
+
+[node name="EndNode2" type="Node2D" parent="Game"]
+position = Vector2(-134, 515)
+
+[node name="EndNode3" type="Node2D" parent="Game"]
+position = Vector2(-147, 651)

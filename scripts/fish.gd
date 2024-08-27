@@ -12,9 +12,15 @@ extends Node
 @onready var start_timer = Timer.new()
 @onready var transition_timer = Timer.new()
 
+@export var trash_scene = preload("res://scenes/trash.tscn")
+@export var bullet_scene = preload("res://scenes/bullet.tscn")
+
 var score = 0
 var countdown_time := 3
 var game_time := 15
+
+@onready var start_nodes = [$Game/StartNode0, $Game/StartNode1, $Game/StartNode2, $Game/StartNode3]
+@onready var end_nodes = [$Game/EndNode0, $Game/EndNode1, $Game/EndNode2, $Game/EndNode3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -98,7 +104,7 @@ func update_game_timer():
 func on_start_countdown_finished():
 	# Start the actual game
 	game.visible = true
-	spawn_trash()  # Function to start spawning trash
+	#spawn_trash()  # Function to start spawning trash
 	game_timer.start()  # Start the 15-second game timer
 
 func on_game_finished():
@@ -116,6 +122,26 @@ func show_results():
 
 
 func spawn_trash():
-	# Function to spawn trash continuously
-	# Use Random intervals and speeds to spawn trash objects
-	pass
+	# Spawns trash at random start nodes
+	var random_start_index = randi() % start_nodes.size()
+	var start_node = start_nodes[random_start_index]
+	var end_node = end_nodes[random_start_index]
+	
+	# Instance the trash scene
+	var trash_instance = trash_scene.instantiate()
+	add_child(trash_instance)
+	
+	# Set the position to the start node's position
+	trash_instance.global_position = start_node.global_position
+	
+	# Set the target position for the trash to the end node
+	trash_instance.target_position = end_node.global_position
+
+	# Continue spawning trash after a short delay
+	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
+	spawn_trash()
+
+func shoot_bullet():
+	var bullet_instance = bullet_scene.instantiate()
+	add_child(bullet_instance)
+	bullet_instance.global_position = $Player.global_position  # Start the bullet from the player's position
