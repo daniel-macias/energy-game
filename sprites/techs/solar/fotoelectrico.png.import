@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://d1362fa8078gw"
+path="res://.godot/imported/fotoelectrico.png-4cca7c07b65d7d95fea595d2020f14b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/solar/fotoelectrico.png"
+dest_files=["res://.godot/imported/fotoelectrico.png-4cca7c07b65d7d95fea595d2020f14b4.ctex"]
 
 [params]
 

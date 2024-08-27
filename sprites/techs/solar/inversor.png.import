@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://46x7qe7xg0qa"
+path="res://.godot/imported/inversor.png-621e3913662e14af8accbe236c7f2a66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/solar/inversor.png"
+dest_files=["res://.godot/imported/inversor.png-621e3913662e14af8accbe236c7f2a66.ctex"]
 
 [params]
 

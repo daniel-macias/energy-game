@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://bahulsf0rvqa6"
+path="res://.godot/imported/Residuos.png-263f2f28e490ca4011b0c549405c65bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/nuclear/Residuos.png"
+dest_files=["res://.godot/imported/Residuos.png-263f2f28e490ca4011b0c549405c65bc.ctex"]
 
 [params]
 

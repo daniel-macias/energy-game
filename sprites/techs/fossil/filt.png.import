@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://cjsntyuf4ybf6"
+path="res://.godot/imported/filt.png-32168e9df41bbbc236be0a713ffed0ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/fossil/filt.png"
+dest_files=["res://.godot/imported/filt.png-32168e9df41bbbc236be0a713ffed0ae.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://dtjl76p7c5hlb"
+path="res://.godot/imported/electricida.png-766ce616d5df4d505a36482bf0087b79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/fossilOLD/electricida.png"
+dest_files=["res://.godot/imported/electricida.png-766ce616d5df4d505a36482bf0087b79.ctex"]
 
 [params]
 

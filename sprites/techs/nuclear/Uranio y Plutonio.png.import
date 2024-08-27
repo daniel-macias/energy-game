@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://drch8obuy6gt1"
+path="res://.godot/imported/Uranio y Plutonio.png-71ddec2b72e1ba2d57cdd0d2ac45f32a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/nuclear/Uranio y Plutonio.png"
+dest_files=["res://.godot/imported/Uranio y Plutonio.png-71ddec2b72e1ba2d57cdd0d2ac45f32a.ctex"]
 
 [params]
 

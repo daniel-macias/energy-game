@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=82 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -7,20 +7,75 @@
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
-[ext_resource type="Texture2D" uid="uid://bmce8rjew8dcm" path="res://sprites/techs/nuclear/radioactivida.PNG" id="7_k44sv"]
 [ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
-[ext_resource type="Texture2D" uid="uid://l8rn436oqdlg" path="res://sprites/techs/fossil/fosil.png" id="8_5v7rw"]
-[ext_resource type="Texture2D" uid="uid://b0g6s70p3k7k0" path="res://sprites/techs/fossil/ambiental.png" id="9_hkumq"]
-[ext_resource type="Texture2D" uid="uid://te78ivqxi3wu" path="res://sprites/techs/fossil/filtro.png" id="10_04q4x"]
-[ext_resource type="Texture2D" uid="uid://c03totuf6wmhd" path="res://sprites/techs/fossil/carboncapture.png" id="11_qe6t6"]
-[ext_resource type="Texture2D" uid="uid://4d4k10tkypqt" path="res://sprites/techs/fossil/clean.png" id="12_tl8tn"]
-[ext_resource type="Texture2D" uid="uid://b1clq6ckbfnin" path="res://sprites/techs/fossil/carbon.png" id="13_qcv3f"]
-[ext_resource type="Texture2D" uid="uid://csbgohg4656up" path="res://sprites/techs/fossil/vapor.png" id="14_e77ia"]
-[ext_resource type="Texture2D" uid="uid://djhln0ubbxjn" path="res://sprites/techs/fossil/petroloe.png" id="15_psa37"]
-[ext_resource type="Texture2D" uid="uid://d25ghdc2w8x8e" path="res://sprites/techs/fossil/combustion.png" id="16_bfp3u"]
-[ext_resource type="Texture2D" uid="uid://dtjl76p7c5hlb" path="res://sprites/techs/fossil/electricida.png" id="17_n5ywh"]
-[ext_resource type="Texture2D" uid="uid://cox1oxm4srpp8" path="res://sprites/techs/fossil/diesel.png" id="18_53ntk"]
-[ext_resource type="Texture2D" uid="uid://dk7x6bee2ein0" path="res://sprites/techs/fossil/fracking.png" id="19_m3o17"]
+[ext_resource type="Texture2D" uid="uid://cvoo5s54aoch6" path="res://sprites/techs/nuclear/Energía Nuclear .png" id="7_utpjk"]
+[ext_resource type="Texture2D" uid="uid://blnhojneqtshn" path="res://sprites/techs/nuclear/Radiactividad .png" id="8_dvcph"]
+[ext_resource type="Texture2D" uid="uid://3uu1q02xx2va" path="res://sprites/techs/geo/energia.png" id="8_fsrwm"]
+[ext_resource type="Texture2D" uid="uid://bmr004ceo0pul" path="res://sprites/techs/wind/energia.png" id="8_l0w4v"]
+[ext_resource type="Texture2D" uid="uid://b48esen7gnj2x" path="res://sprites/techs/hydro/hydro.png" id="8_uibp2"]
+[ext_resource type="Texture2D" uid="uid://dt10edyb645ek" path="res://sprites/techs/fossil/fososo.png" id="8_y7287"]
+[ext_resource type="Texture2D" uid="uid://dh3t21oone3nx" path="res://sprites/techs/wind/moden.png" id="9_bhlq0"]
+[ext_resource type="Texture2D" uid="uid://wq6v71aw8qnw" path="res://sprites/techs/fossil/verd.png" id="9_dap7b"]
+[ext_resource type="Texture2D" uid="uid://drch8obuy6gt1" path="res://sprites/techs/nuclear/Uranio y Plutonio.png" id="9_dbnmq"]
+[ext_resource type="Texture2D" uid="uid://pemh4a6ach4g" path="res://sprites/techs/hydro/tierrr.png" id="9_jppfi"]
+[ext_resource type="Texture2D" uid="uid://cyewvd1kus877" path="res://sprites/techs/geo/binario.png" id="9_khvcq"]
+[ext_resource type="Texture2D" uid="uid://cx3l1o1ubi75s" path="res://sprites/techs/nuclear/Rutherford.png" id="10_cgpxk"]
+[ext_resource type="Texture2D" uid="uid://c8vm4yxnie2s5" path="res://sprites/techs/hydro/grav.png" id="10_lu6bv"]
+[ext_resource type="Texture2D" uid="uid://dt3fh3jug7glo" path="res://sprites/techs/geo/intercambio.png" id="10_nrrmu"]
+[ext_resource type="Texture2D" uid="uid://cjsntyuf4ybf6" path="res://sprites/techs/fossil/filt.png" id="10_t5l31"]
+[ext_resource type="Texture2D" uid="uid://bmk3o8vp6htv6" path="res://sprites/techs/wind/marina.png" id="10_tici5"]
+[ext_resource type="Texture2D" uid="uid://bcoeh2sm0xc8j" path="res://sprites/techs/nuclear/Neutron.png" id="11_6smjy"]
+[ext_resource type="Texture2D" uid="uid://ny6mo1j5t7k8" path="res://sprites/techs/hydro/arc.png" id="11_08uxm"]
+[ext_resource type="Texture2D" uid="uid://c6o1r2owqq8pd" path="res://sprites/techs/fossil/captura.png" id="11_d5v38"]
+[ext_resource type="Texture2D" uid="uid://sjhrqqb1w4q6" path="res://sprites/techs/geo/monitoreo.png" id="11_n2w0i"]
+[ext_resource type="Texture2D" uid="uid://dgo7s5brk5qog" path="res://sprites/techs/fossil/limp.png" id="12_1a0mx"]
+[ext_resource type="Texture2D" uid="uid://cuxo5xcnu1jm1" path="res://sprites/techs/wind/hibrida.png" id="12_27f3r"]
+[ext_resource type="Texture2D" uid="uid://mogqise1t74v" path="res://sprites/techs/nuclear/Fisión Nuclear .png" id="12_d5lhl"]
+[ext_resource type="Texture2D" uid="uid://dkb16cpyt7bn1" path="res://sprites/techs/geo/almacenamiento.png" id="12_rnh2y"]
+[ext_resource type="Texture2D" uid="uid://oa4wqx0njxfs" path="res://sprites/techs/hydro/verd.png" id="12_vudpo"]
+[ext_resource type="Texture2D" uid="uid://bxmrqr48vhry1" path="res://sprites/techs/nuclear/Reacción Nuclear.png" id="13_4oney"]
+[ext_resource type="Texture2D" uid="uid://drnprr0qd0tpv" path="res://sprites/techs/hydro/rerere.png" id="13_80be3"]
+[ext_resource type="Texture2D" uid="uid://dvhqi857k0a3m" path="res://sprites/techs/wind/molino.png" id="13_jl054"]
+[ext_resource type="Texture2D" uid="uid://cuygxsxq6eaa5" path="res://sprites/techs/geo/volcan.png" id="13_n3d6p"]
+[ext_resource type="Texture2D" uid="uid://bupj03o6krcax" path="res://sprites/techs/fossil/carbon.png" id="13_qcv3f"]
+[ext_resource type="Texture2D" uid="uid://bke5j66n6w432" path="res://sprites/techs/geo/generadorvapor.png" id="14_5ki1x"]
+[ext_resource type="Texture2D" uid="uid://b2pisyhud30h" path="res://sprites/techs/wind/turbina.png" id="14_8p3va"]
+[ext_resource type="Texture2D" uid="uid://dqsi2i3o4my6j" path="res://sprites/techs/hydro/aaaa.png" id="14_367kq"]
+[ext_resource type="Texture2D" uid="uid://dg18srqu00i37" path="res://sprites/techs/nuclear/Plantas Nucleares .png" id="14_c2em3"]
+[ext_resource type="Texture2D" uid="uid://782cvscw6ptj" path="res://sprites/techs/fossil/steam.png" id="14_pdws6"]
+[ext_resource type="Texture2D" uid="uid://cfirgib3fgwny" path="res://sprites/techs/nuclear/Reactor de Agua a Presión .png" id="15_d568y"]
+[ext_resource type="Texture2D" uid="uid://df202ajupn2e0" path="res://sprites/techs/hydro/nautilus.png" id="15_kc48o"]
+[ext_resource type="Texture2D" uid="uid://ddyw0p3bde0w6" path="res://sprites/techs/fossil/petro.png" id="15_ntldh"]
+[ext_resource type="Texture2D" uid="uid://cw40c43qlyko0" path="res://sprites/techs/wind/brush.png" id="15_yufgk"]
+[ext_resource type="Texture2D" uid="uid://3frcsqekfxxu" path="res://sprites/techs/wind/aspas.png" id="16_eg0xp"]
+[ext_resource type="Texture2D" uid="uid://2s2j6v5iqoc5" path="res://sprites/techs/hydro/spoon.png" id="16_h6g2s"]
+[ext_resource type="Texture2D" uid="uid://bkbhft6qcb12n" path="res://sprites/techs/fossil/comb.png" id="16_t6tcq"]
+[ext_resource type="Texture2D" uid="uid://b0wb7m0nnnkrn" path="res://sprites/techs/nuclear/Pequeños Reactores Modulares .png" id="16_uac0l"]
+[ext_resource type="Texture2D" uid="uid://dmio8u20w7psy" path="res://sprites/techs/geo/perforaciones.png" id="16_v1uo0"]
+[ext_resource type="Texture2D" uid="uid://etu75iroxpud" path="res://sprites/techs/fossil/eerere.png" id="17_l7dj2"]
+[ext_resource type="Texture2D" uid="uid://bf3tnwlaepfbq" path="res://sprites/techs/wind/granescala.png" id="17_nuux4"]
+[ext_resource type="Texture2D" uid="uid://b1xk8cleqa4l0" path="res://sprites/techs/geo/planta.png" id="17_s7mf2"]
+[ext_resource type="Texture2D" uid="uid://d0dthc8x5qvxj" path="res://sprites/techs/hydro/hmmplant.png" id="17_vqqwj"]
+[ext_resource type="Texture2D" uid="uid://dg3dvmxesdxuw" path="res://sprites/techs/nuclear/Reactores Avanzados .png" id="17_x065k"]
+[ext_resource type="Texture2D" uid="uid://6chw5sosv8p2" path="res://sprites/techs/hydro/ooo.png" id="18_1no6x"]
+[ext_resource type="Texture2D" uid="uid://om0p1x4043n0" path="res://sprites/techs/geo/turbinavapor.png" id="18_2vlx7"]
+[ext_resource type="Texture2D" uid="uid://bahulsf0rvqa6" path="res://sprites/techs/nuclear/Residuos.png" id="18_klbti"]
+[ext_resource type="Texture2D" uid="uid://iqrw7nciaarx" path="res://sprites/techs/wind/granja.png" id="18_m21rm"]
+[ext_resource type="Texture2D" uid="uid://dma1audewnpf3" path="res://sprites/techs/fossil/dies.png" id="18_ycur5"]
+[ext_resource type="Texture2D" uid="uid://dob7wcvm2dnq6" path="res://sprites/techs/fossil/frack.png" id="19_3nwew"]
+[ext_resource type="Texture2D" uid="uid://bob548fd34r1l" path="res://sprites/techs/geo/generador.png" id="19_q7yjq"]
+[ext_resource type="Texture2D" uid="uid://csfam2byr1iu8" path="res://sprites/techs/hydro/mini.png" id="19_rbuxj"]
+[ext_resource type="Texture2D" uid="uid://r6ehh6pm3a3f" path="res://sprites/techs/solar/energia.png" id="20_cujod"]
+[ext_resource type="Texture2D" uid="uid://1hlkv70ylsg0" path="res://sprites/techs/solar/costoyeficiencia.png" id="21_yitbf"]
+[ext_resource type="Texture2D" uid="uid://bno6a57ypxrd" path="res://sprites/techs/solar/arboles.png" id="22_54dct"]
+[ext_resource type="Texture2D" uid="uid://jnhaq745a5wm" path="res://sprites/techs/solar/pintura.png" id="23_c2pgy"]
+[ext_resource type="Texture2D" uid="uid://dd17xy11qeecb" path="res://sprites/techs/solar/perovstiva.png" id="24_vn5sv"]
+[ext_resource type="Texture2D" uid="uid://saal3ufcmefc" path="res://sprites/techs/solar/panel.png" id="25_ik8q1"]
+[ext_resource type="Texture2D" uid="uid://dg3lw4b1af6bw" path="res://sprites/techs/solar/fotovoltai.png" id="26_jfb2e"]
+[ext_resource type="Texture2D" uid="uid://46x7qe7xg0qa" path="res://sprites/techs/solar/inversor.png" id="27_y0e2k"]
+[ext_resource type="Texture2D" uid="uid://65vtgwu1048p" path="res://sprites/techs/solar/bateria.png" id="28_65x1m"]
+[ext_resource type="Texture2D" uid="uid://d1362fa8078gw" path="res://sprites/techs/solar/fotoelectrico.png" id="29_td53n"]
+[ext_resource type="Texture2D" uid="uid://tdn5jfu5i23q" path="res://sprites/techs/solar/irridanci.png" id="30_ot7bn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0pj"]
 bg_color = Color(0.510468, 0.616279, 0.696423, 1)
@@ -289,6 +344,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("7_utpjk")
 title = "Energía Nuclear"
 description = "Energía renovable que se obtiene al hacer cambios en el núcleo de un átomo que permitan su liberación."
 price = 2400
@@ -313,7 +369,7 @@ offset_right = 334.0
 offset_bottom = -4.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("7_k44sv")
+texture_normal = ExtResource("8_dvcph")
 title = "Radioactividad"
 description = "Descubierta por Henri Becquerel. Propiedad de los materiales radiactivos que les permite liberar energía en forma de radiación debido a sus núcleos inestables."
 price = 2000
@@ -338,6 +394,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("9_dbnmq")
 title = "Uranio y Plutonio"
 description = "Elementos número 92 y 94 de la tabla periódica. Pertenecen al grupo de actinoides en la tabla periódica, son radiactivos y liberan una gran cantidad de energía cuando son sometidos a fisión nuclear."
 price = 2200
@@ -362,6 +419,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("10_cgpxk")
 title = "Modelo Atómico"
 description = "Modelo propuesto por Ernest Rutherford en el que propone que los átomos tienen un núcleo en el cual se condensa la mayor parte de su masa y tiene carga positiva."
 price = 1000
@@ -385,6 +443,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_6smjy")
 title = "Neutrón"
 description = "Partícula subatómica encontrada en el núcleo de un átomo que no cuenta con carga positiva ni negativa. Toman un papel crucial en las reacciones nucleares debido a la estabilidad que proveen a los núcleos de distintos átomos."
 price = 2500
@@ -409,6 +468,7 @@ offset_right = 328.0
 offset_bottom = 200.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("12_d5lhl")
 title = "Fisión Nuclear"
 description = "Tipo de reacción nuclear que resulta en la división del núcleo de un átomo en dos o más núcleos de menor tamaño."
 price = 2500
@@ -433,6 +493,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("13_4oney")
 title = "Reacción Nuclear"
 description = "Interacciones de partículas subatómicas que provocan un cambio en el núcleo de un átomo. Estas interacciones pueden ser en la forma de fisión y fusión nuclear."
 price = 2600
@@ -457,6 +518,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_c2em3")
 title = "Planta de Energía Nuclear"
 description = "Centrales que utilizan fisión nuclear para producir vapor de agua e impulsar el movimiento de turbinas y generadores eléctricos."
 price = 3000
@@ -481,6 +543,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("15_d568y")
 title = "Reactor Agua a Presión"
 description = "Reactor que usa agua sometida a presión alta como refrigerante y regulador al momento de generar energía eléctrica. "
 price = 3000
@@ -505,6 +568,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("16_uac0l")
 title = "Pequeños Reactores Modulares"
 description = "Reactores más pequeños, flexibles y seguros."
 price = 3100
@@ -529,6 +593,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("17_x065k")
 title = "Reactores Avanzados"
 description = "Diseños de reactores mucho más seguros,baratos, eficientes y menos productores de residuos nucleares."
 price = 4500
@@ -553,6 +618,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("18_klbti")
 title = "Gestión Eficiente de Residuos"
 description = "Tecnologías que permiten hacer un manejo óptimo de los residuos radiactivos que deja la producción de energía nuclear."
 price = 3400
@@ -582,6 +648,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("8_fsrwm")
 title = "Energía Geotérmica"
 description = "Energía renovable que aprovecha el calor natural del interior de la tierra."
 price = 950
@@ -606,6 +673,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("9_khvcq")
 title = "Ciclo Binario"
 description = "Tecnología diseñada para optimizar las plantas geotérmicas que cuentan con recursos de mediana o baja temperatura. Se utiliza un fluido especial que logra optimizar aquellas fuentes de calor que no son lo suficientemente altas para ofrecer un rendimiento energético eficiente. "
 price = 1350
@@ -630,6 +698,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("10_nrrmu")
 title = "Intercambiadores de Calor"
 description = "Aparato diseñado para permitir un intercambio térmico entre dos medios o fluidos sin necesidad de contacto directo."
 price = 1400
@@ -654,6 +723,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_n2w0i")
 title = "Monitoreo Avanzado"
 description = "Mejoras al manejo del ciclo binario con las cuales se pueden manipular en tiempo real variables involucradas en el desempeño óptimo de plantas geotérmicas."
 price = 1450
@@ -678,6 +748,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("12_rnh2y")
 title = "Almacenamiento de Calor"
 description = "Mecanismos que permiten el almacenamiento de calor geotérmico para ser utilizado cuando sea necesario. Permite optimizar el tiempo de respuesta, estabilizar el flujo eléctrico y cuidar recursos.   "
 price = 1500
@@ -702,6 +773,7 @@ offset_right = 328.0
 offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("13_n3d6p")
 title = "Volcán"
 description = "Apertura en la corteza terrestre que permite el escape de lava, gases y vapor caliente."
 price = 1150
@@ -726,6 +798,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_5ki1x")
 title = "Generadores de Vapor"
 description = "Generador que aprovecha el calor geotérmico y lo convierte en energía mecánica. "
 price = 950
@@ -750,6 +823,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_pdws6")
 title = "Máquina de Vapor"
 description = "Utiliza calor geotérmico para convertir la energía producida por vapor en energía mecánica."
 price = 1000
@@ -774,6 +848,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("16_v1uo0")
 title = "Perforaciones"
 description = "Agujeros profundos en la corteza terrestre utilizados para acceder al calor almacenado en su interior. "
 price = 1100
@@ -798,6 +873,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("17_s7mf2")
 title = "Planta Geotérmica"
 description = "Centrales que aprovechan la transformación de energía geotérmica en electricidad que puede ser distribuida y generada a gran escala. "
 price = 1200
@@ -822,6 +898,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("18_2vlx7")
 title = "Turbinas de Vapor"
 description = "Dispositivos capaces de transformar la energía térmica del vapor en energía cinética y mecánica en un eje giratorio. "
 price = 1250
@@ -846,6 +923,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("19_q7yjq")
 title = "Generador Geotérmico"
 description = "En 1904 en Larderello, Italia, Piero Ginori Conti crea el primer generador geotérmico. Inicialmente, sus investigaciones fueron motivadas por la extracción de ácido bórico."
 price = 1300
@@ -875,6 +953,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("20_cujod")
 title = "Energía Solar"
 description = "Energía renovable que aprovecha la luz solar para generar electricidad. "
 price = 1100
@@ -899,6 +978,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("21_yitbf")
 title = "Costo y Eficiencia"
 description = "Estrategias e innovaciones que permiten que la producción con energía solar sea mucho más eficiente, estable y de bajo costo."
 price = 1600
@@ -923,6 +1003,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("22_54dct")
 title = "Árboles Solares"
 description = "Sistemas fotovoltaicos que cuentan con un arreglo de paneles solares y suelen imitar el aspecto de árboles u otras plantas."
 price = 3000
@@ -947,6 +1028,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("23_c2pgy")
 title = "Pintura Solar"
 description = "Tipo de pintura líquida que incluye pequeñas partículas de semiconductores que permiten la generación de electricidad al tener contacto con la luz solar. Puede colocarse en paredes, techos, calles o automóviles."
 price = 3500
@@ -971,6 +1053,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("24_vn5sv")
 title = "Perovskita"
 description = "Mineral inorgánico compuesto por titanio y calcio (titanato de calcio que muestra propiedades que permiten una conversión de luz solar en energía muy eficiente y de bajo costo. "
 price = 3200
@@ -995,6 +1078,7 @@ offset_right = 328.0
 offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("25_ik8q1")
 title = "Paneles Solares"
 description = "Dispositivos diseñados con células solares fotovoltaícas capaces de captar luz solar y convertirla en electricidad."
 price = 1500
@@ -1019,6 +1103,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("26_jfb2e")
 title = "Efecto Fotovoltaico"
 description = "Fenómeno que ocurre cuando los fotones en la luz tocan un material semiconductor que los absorbe. Esta absorción permite que el material pueda generar una corriente eléctrica. "
 price = 1800
@@ -1043,6 +1128,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("27_y0e2k")
 title = "Inversores Solares"
 description = "Dispositivos pertenecientes a un sistema de energía solar que se encargan de transformar la corriente directa generada por los paneles solares, en corriente alterna para uso comercial."
 price = 2200
@@ -1067,6 +1153,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("28_65x1m")
 title = "Baterías"
 description = "Estructuras que permiten almacenar el exceso de energía generada por paneles solares de manera que esta pueda utilizarse durante la noche o días muy nublados. "
 price = 2500
@@ -1091,6 +1178,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("29_td53n")
 title = "Efecto Fotoeléctrico"
 description = "Fenómeno físico que ocurre cuando un material absorbe radiación electromagnética cuando es iluminado con luz de alta frecuencia."
 price = 2000
@@ -1115,6 +1203,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_n2w0i")
 title = "Monitorización"
 description = "Sistemas que permiten supervisar el rendimiento de los paneles solares, su producción energética y estado, para poder optimizar su eficiencia. "
 price = 2700
@@ -1139,6 +1228,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("30_ot7bn")
 title = "Sensores de Irradancia"
 description = "Instrumentos que permiten medir cuánta radiación solar llega a una superficie en cierto periodo de tiempo. "
 price = 2300
@@ -1168,6 +1258,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("8_l0w4v")
 title = "Energía Eólica"
 description = "Energía renovable que aprovecha el movimiento del viento para hacer funcionar turbinas y generadores."
 price = 800
@@ -1192,6 +1283,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("9_bhlq0")
 title = "Eólicas Modernas"
 description = "Diseñadas con palas aerodinámicas, materiales robustos y mecanismos que permiten maximizar su eficiencia."
 price = 1000
@@ -1215,6 +1307,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("10_tici5")
 title = "Eólica Marina"
 description = "Energía renovable que aprovecha el movimiento de los vientos marítimos para hacer funcionar turbinas y generadores."
 price = 3500
@@ -1239,6 +1332,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_n2w0i")
 title = "Monitoreo Remoto"
 description = "Sistemas a larga distancia que permiten monitorear el desempeño de las turbinas y detectar y prevenir fallas. "
 price = 2700
@@ -1263,6 +1357,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("12_27f3r")
 title = "Turbinas Híbridas"
 description = "Turbinas que integran otros tipos de energías renovables, como la energía solar, para volver aumentar la eficiencia. "
 price = 3200
@@ -1287,6 +1382,7 @@ offset_right = 328.0
 offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("13_jl054")
 title = "Molinos Persas y Europeos"
 description = "Construcciones antiguas que utilizaban la fuerza del viento para hacer girar palas con las que podían moler granos o bombear agua."
 price = 1500
@@ -1311,6 +1407,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_8p3va")
 title = "Turbina Generadora"
 description = "Diseñada por James Blyth. Dispositivo capaz de transformar la energía del viento en energía cinética y mecánica."
 price = 2200
@@ -1335,6 +1432,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("15_yufgk")
 title = "Turbina de Charles Brush"
 description = "Turbina pionera en la generación de electricidad eólica. Tenía muchas palas y era de gran tamaño, con un diámetro de 17 metros."
 price = 2500
@@ -1356,6 +1454,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("16_eg0xp")
 title = "Aspas Aerodinámicas"
 description = "Conocidas también como palas. Estructuras diseñadas similares a las hélices de un avión de manera que estas puedan recoger la mayor cantidad de energía en el viento para que esta se transforme en energía rotacional. "
 price = 1800
@@ -1380,6 +1479,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("17_nuux4")
 title = "Turbina de Gran Escala"
 description = "Turbinas eólicas que son capaces de generar electricidad para uso comercial en grandes cantidades (megavatios)."
 price = 2500
@@ -1404,6 +1504,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("18_m21rm")
 title = "Parques Eólicos"
 description = "Parques que cuentan con varios aerogeneradores con los cuales la energía del viento se transforma  en electricidad para distribución y generación a gran escala."
 price = 3000
@@ -1433,6 +1534,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("8_uibp2")
 title = "Energía Hidroeléctrica"
 description = "Energía renovable que aprovecha el movimiento del agua para hacer funcionar turbinas y generadores."
 price = 900
@@ -1457,6 +1559,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("9_jppfi")
 title = "Presas de Tierra"
 description = "Construida con materiales naturales compactados en forma de terraplén. Permiten crear embalses útiles en la generación de energía hidroeléctrica."
 price = 750
@@ -1481,6 +1584,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("10_lu6bv")
 title = "Presas de Gravedad"
 description = "Estructuras generalmente de concreto que logran resistir la presión del agua haciendo uso de su propio peso."
 price = 1000
@@ -1505,6 +1609,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("11_08uxm")
 title = "Presas de Arco"
 description = "Represas con un diseño curvado con el que resisten el empuje del agua. Su diseño optimiza costos de construcción y permite que tengan una mejor distribución de la presión del agua. "
 price = 1200
@@ -1529,6 +1634,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("12_vudpo")
 title = "Presas de Bajo Impacto Ambiental"
 description = "Presas diseñadas para que su impacto ambiental negativo sea reducido.Incorporan materiales orgánicos, flujo ecológico y ayudan a preservar los ecosistemas marinos."
 price = 1300
@@ -1553,6 +1659,7 @@ offset_right = 328.0
 offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("13_80be3")
 title = "Rueda Hidráulica"
 description = "Máquina que permite la transformación de la energía de agua en movimiento en energía mecánica rotativa."
 price = 600
@@ -1577,6 +1684,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("14_367kq")
 title = "Turbina de Reacción"
 description = "Diseñada por Benoît Fourneyron. Turbina de alta eficiencia con flujo radial, compuesta por un rotor con palas colocadas alrededor de un eje central."
 price = 800
@@ -1601,6 +1709,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("15_kc48o")
 title = "Turbinas de Francis"
 description = "Tipo de turbina de reacción de alta eficiencia que combina el flujo radial y axial para convertir la energía cinética del agua en energía mecánica."
 price = 800
@@ -1625,6 +1734,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("16_h6g2s")
 title = "Turbina Pelton"
 description = "Turbina de impulso reconocida por sus palas en formas de cuchara. Utiliza la caída de agua en grandes alturas para convertir la energía cinética del agua en energía mecánica. "
 price = 950
@@ -1649,6 +1759,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("17_vqqwj")
 title = "Planta Hidroeléctrica"
 description = "Estaciones generalmente localizadas en represas que permiten la generación y distribución de electricidad a gran escala. "
 price = 1000
@@ -1673,6 +1784,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("18_1no6x")
 title = "Almacenamiento de Bombeo"
 description = "Sistemas de almacenamiento que permiten gestionar la energía, proporcionar un flujo estable y almacenar reservas para cuando sean necesarias."
 price = 1100
@@ -1697,6 +1809,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
+texture_normal = ExtResource("19_rbuxj")
 title = "Mini-hidroeléctricas"
 description = "Centrales con sistemas de turbinas y generadores que permiten aprovechar pequeñas corrientes de agua, ideales para zonas que no cuentan con la facilidad para instalar grandes represas. "
 price = 800
@@ -1726,7 +1839,7 @@ offset_right = 160.5
 offset_bottom = 277.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("8_5v7rw")
+texture_normal = ExtResource("8_y7287")
 title = "Combistibles Fósiles"
 description = "Energía no renovable generada por la quema de combustibles fósiles."
 price = 1000
@@ -1750,7 +1863,7 @@ offset_right = 329.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("9_hkumq")
+texture_normal = ExtResource("9_dap7b")
 title = "Controles Ambientales"
 description = "Las preocupaciones por el impacto negativo ambiental a partir del uso masivo de combustibles fósiles lleva a la creación de protocolos que permitan regular diversos factores  para la protección ambiental."
 price = 700
@@ -1774,7 +1887,7 @@ offset_right = 339.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("10_04q4x")
+texture_normal = ExtResource("10_t5l31")
 title = "Filtros de Emisiones"
 description = "Dispositivo que cumple el objetivo de reducir las emisiones provocadas por diversas sustancias contaminantes para el ambiente."
 price = 600
@@ -1798,7 +1911,7 @@ offset_right = 302.0
 offset_bottom = 116.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("11_qe6t6")
+texture_normal = ExtResource("11_d5v38")
 title = "Captura de Carbono"
 description = "Sistemas que permiten capturar y almacenar las emisiones de dioxido de carbono antes de que estas lleguen a la atmósfera."
 price = 1000
@@ -1822,7 +1935,7 @@ offset_right = 288.0
 offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("12_tl8tn")
+texture_normal = ExtResource("12_1a0mx")
 title = "Combustibles Limpios"
 description = "Combustibles que reducen significativamente las emisiones contaminantes."
 price = 900
@@ -1870,7 +1983,7 @@ offset_right = 341.0
 offset_bottom = 51.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("14_e77ia")
+texture_normal = ExtResource("14_pdws6")
 title = "Máquina de Vapor"
 description = "Utiliza combustibles fósiles para convertir la energía producida por vapor en energía mecánica. "
 price = 500
@@ -1894,7 +2007,7 @@ offset_right = 301.0
 offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("15_psa37")
+texture_normal = ExtResource("15_ntldh")
 title = "Pozos de Petróleo"
 description = "Agujeros o perforaciones en la tierra que permiten el bombeo de petróleo crudo y gas natural desde reservas subterráneas."
 price = 600
@@ -1918,7 +2031,7 @@ offset_right = 296.0
 offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("16_bfp3u")
+texture_normal = ExtResource("16_t6tcq")
 title = "Motor de Combustión Interna"
 description = "Aparato que utiliza una cámara de combustión para transformar la energía química en el petróleo y gasolina en energía mecánica. Patentado por Nikolaus Otto. "
 price = 400
@@ -1942,7 +2055,7 @@ offset_right = 340.0
 offset_bottom = 197.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("17_n5ywh")
+texture_normal = ExtResource("17_l7dj2")
 title = "Central Eléctrica de Carbón"
 description = "Planta de producción de energía que permite la generación y distribución masiva de electricidad con el uso de carbón."
 price = 450
@@ -1966,7 +2079,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("18_53ntk")
+texture_normal = ExtResource("18_ycur5")
 title = "Motor Diesel"
 description = "Mejora del motor de combustión interna que permite el uso de diésel como combustible. Desarrollado por Rudolf Diesel."
 price = 500
@@ -1990,7 +2103,7 @@ offset_right = 300.0
 offset_bottom = 118.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("19_m3o17")
+texture_normal = ExtResource("19_3nwew")
 title = "Fracturación Hidráulica"
 description = "Técnica que estimula una mayor eficiencia en la extracción de petroleo y gas natural."
 price = 800

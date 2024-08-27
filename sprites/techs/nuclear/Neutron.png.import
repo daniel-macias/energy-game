@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://bcoeh2sm0xc8j"
+path="res://.godot/imported/Neutron.png-ce7d7f3ace7a3b139354d5cc4001ff0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/nuclear/Neutron.png"
+dest_files=["res://.godot/imported/Neutron.png-ce7d7f3ace7a3b139354d5cc4001ff0a.ctex"]
 
 [params]
 

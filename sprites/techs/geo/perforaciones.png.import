@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupj03o6krcax"
-path="res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"
+uid="uid://dmio8u20w7psy"
+path="res://.godot/imported/perforaciones.png-a87964bd7154003b49a00ce69370619a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/techs/fossil/carbon.png"
-dest_files=["res://.godot/imported/carbon.png-88506dc4953b1b24bc336314b31a94bb.ctex"]
+source_file="res://sprites/techs/geo/perforaciones.png"
+dest_files=["res://.godot/imported/perforaciones.png-a87964bd7154003b49a00ce69370619a.ctex"]
 
 [params]
 
