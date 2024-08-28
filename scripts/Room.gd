@@ -30,6 +30,9 @@ extends Control
 @onready var clicker_button = $Clicker
 @onready var room_button = $Computer
 @onready var background = $TextureRect
+@onready var dark_panel = $DarkPanel
+
+@onready var animation_player = $AnimationPlayer
 
 # To track the time for notifications
 var notification_timer = 0.0
@@ -43,6 +46,9 @@ var notification_time_target = 0.0
 @export var background_5: Texture2D
 
 @export var animal_portraits : Array[Texture2D]
+@export var animal_bodies : Array[Texture2D]
+@export var computer_on : Texture2D
+@export var computer_off : Texture2D
 
 func _ready():
 	# Hide the notification button at the start
@@ -56,6 +62,9 @@ func _ready():
 	
 	room_button.pressed.connect(_on_RoomButton_pressed)
 	change_background()
+	clicker_button.texture_normal = animal_bodies[id]
+	
+	update_room_state()
 	
 func change_background():
 	match id:
@@ -71,6 +80,20 @@ func change_background():
 			background.texture = background_4
 		5:
 			background.texture = background_5
+
+func update_room_state():
+	if plant_amount > 0:
+		dark_panel.visible = false  # Hide the dark panel
+		clicker_button.visible = true
+		room_button.texture_normal = computer_on
+		animation_player.play("ComputerOn")
+		#animation_player.play("room_active")  # Play an animation to show room is active
+	else:
+		dark_panel.visible = true  # Show the dark panel
+		clicker_button.visible = false
+		room_button.texture_normal = computer_off
+		animation_player.stop()
+		#animation_player.stop()  # Stop any running animations
 
 # Function to handle the Clicker button press
 func _on_Clicker_pressed():
@@ -99,14 +122,27 @@ func create_plant():
 	print("Creating plant, current before ", plant_amount)
 	if GameManager.money >= plant_cost:
 		plant_amount += 1
+		update_room_state()
 		GameManager.update_money(-plant_cost)
 		plant_cost += cost_increase_per_plant  # Increase the cost after purchasing
 		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
 	print("Creating plant, current after ", plant_amount)
 	
 func remove_plant():
+	var total_plants = 0
+	
+	# Count the total number of plants across all rooms
+	for room in GameManager.rooms:
+		total_plants += room.plant_amount
+	
+	if total_plants <= 1:
+		print("Cannot remove the last plant.")
+		GameManager.open_custom_dialog("¡No dejes al pueblo sin energía!","No puedes quitar la última planta")
+		return  # Prevent removal of the last plant
+	
 	if plant_amount > 0:
 		plant_amount -= 1
+		update_room_state()
 		GameManager.update_money(remove_plant_refund)
 		plant_cost -= cost_increase_per_plant  # Optional: Decrease the cost after selling
 		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)

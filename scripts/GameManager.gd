@@ -93,6 +93,12 @@ var fish_button : Button = null
 
 var main_game_root : Control = null
 
+#Custom Dialog
+var custom_dialog : PanelContainer = null
+var custom_dialog_title : Label = null
+var custom_dialog_desc : Label = null
+var custom_dialog_exit : TextureButton = null
+
 #Fish game var
 var trash_shot := 0;
 
@@ -160,6 +166,13 @@ func initialize_game_logic():
 	# Set the process function to true to start updating every frame
 	set_process(true)
 	
+	#Custom Dialog
+	custom_dialog = get_node("/root/Control/CustomDialog")
+	custom_dialog_title = get_node("/root/Control/CustomDialog/VBoxContainer/Panel/TopBar/Title")
+	custom_dialog_desc = get_node("/root/Control/CustomDialog/VBoxContainer/InfoText")
+	custom_dialog_exit = get_node("/root/Control/CustomDialog/VBoxContainer/Panel/TopBar/ExitButton")
+	
+	
 	# Initially hide the energy panel
 	#energy_panel.visible = false
 	#hide_tech_trees()
@@ -179,6 +192,8 @@ func initialize_game_logic():
 	tech_exit.pressed.connect(close_skill_window)
 	
 	fish_button.pressed.connect(goToFishGame)
+	
+	custom_dialog_exit.pressed.connect(close_custom_dialog)
 	
 	# Initialize rooms (assumed setup for room nodes)
 	rooms = [
@@ -239,6 +254,16 @@ func _ready():
 			#disable_game_logic()
 	else:
 		print("GM already initialized")
+
+func close_custom_dialog():
+	custom_dialog.visible = false
+	panel_cover.visible = false
+
+func open_custom_dialog(title, desc):
+	custom_dialog.visible = true
+	panel_cover.visible = true
+	custom_dialog_title.text = title
+	custom_dialog_desc.text = desc
 
 func _on_CreatePlantButton_pressed():
 	var room = get_selected_room()
@@ -678,6 +703,9 @@ func load_game():
 			rooms[3].plant_amount = roomsTemp[3]
 			rooms[4].plant_amount = roomsTemp[4]
 			rooms[5].plant_amount = roomsTemp[5]
+			
+			for room in GameManager.rooms:
+				room.update_room_state()
 			
 			
 			# Load the state of all skills

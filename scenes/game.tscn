@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=107 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -69,21 +69,29 @@
 [ext_resource type="Texture2D" uid="uid://bkbhft6qcb12n" path="res://sprites/techs/fossil/comb.png" id="16_t6tcq"]
 [ext_resource type="Texture2D" uid="uid://b0wb7m0nnnkrn" path="res://sprites/techs/nuclear/Pequeños Reactores Modulares .png" id="16_uac0l"]
 [ext_resource type="Texture2D" uid="uid://dmio8u20w7psy" path="res://sprites/techs/geo/perforaciones.png" id="16_v1uo0"]
+[ext_resource type="Texture2D" uid="uid://dcob1npxqqhcw" path="res://sprites/Animalito finales/Murcielago.png" id="17_3d43e"]
 [ext_resource type="Texture2D" uid="uid://etu75iroxpud" path="res://sprites/techs/fossil/eerere.png" id="17_l7dj2"]
 [ext_resource type="Texture2D" uid="uid://bf3tnwlaepfbq" path="res://sprites/techs/wind/granescala.png" id="17_nuux4"]
 [ext_resource type="Texture2D" uid="uid://b1xk8cleqa4l0" path="res://sprites/techs/geo/planta.png" id="17_s7mf2"]
+[ext_resource type="Texture2D" uid="uid://d1u6pxmgq703g" path="res://sprites/ui/computer/compu_on.png" id="17_t8v6e"]
 [ext_resource type="Texture2D" uid="uid://d0dthc8x5qvxj" path="res://sprites/techs/hydro/hmmplant.png" id="17_vqqwj"]
 [ext_resource type="Texture2D" uid="uid://dg3dvmxesdxuw" path="res://sprites/techs/nuclear/Reactores Avanzados .png" id="17_x065k"]
 [ext_resource type="Texture2D" uid="uid://6chw5sosv8p2" path="res://sprites/techs/hydro/ooo.png" id="18_1no6x"]
 [ext_resource type="Texture2D" uid="uid://om0p1x4043n0" path="res://sprites/techs/geo/turbinavapor.png" id="18_2vlx7"]
+[ext_resource type="Texture2D" uid="uid://ckhq8vcaaros0" path="res://sprites/Animalito finales/Tortuga.png" id="18_5pobt"]
+[ext_resource type="Texture2D" uid="uid://barketkbt1d3i" path="res://sprites/ui/computer/compu_off.png" id="18_ae7hp"]
 [ext_resource type="Texture2D" uid="uid://bahulsf0rvqa6" path="res://sprites/techs/nuclear/Residuos.png" id="18_klbti"]
 [ext_resource type="Texture2D" uid="uid://iqrw7nciaarx" path="res://sprites/techs/wind/granja.png" id="18_m21rm"]
 [ext_resource type="Texture2D" uid="uid://dma1audewnpf3" path="res://sprites/techs/fossil/dies.png" id="18_ycur5"]
 [ext_resource type="Texture2D" uid="uid://dob7wcvm2dnq6" path="res://sprites/techs/fossil/frack.png" id="19_3nwew"]
+[ext_resource type="Texture2D" uid="uid://qg0ex6rbe7vb" path="res://sprites/Animalito finales/Watusa.png" id="19_3qklw"]
 [ext_resource type="Texture2D" uid="uid://bob548fd34r1l" path="res://sprites/techs/geo/generador.png" id="19_q7yjq"]
 [ext_resource type="Texture2D" uid="uid://csfam2byr1iu8" path="res://sprites/techs/hydro/mini.png" id="19_rbuxj"]
+[ext_resource type="Texture2D" uid="uid://dcm4tsyg1x87l" path="res://sprites/Animalito finales/Jaguarundi1.png" id="20_20ijs"]
 [ext_resource type="Texture2D" uid="uid://r6ehh6pm3a3f" path="res://sprites/techs/solar/energia.png" id="20_cujod"]
+[ext_resource type="Texture2D" uid="uid://d1d8noinb7584" path="res://sprites/Animalito finales/CUcusco.png" id="21_hsllo"]
 [ext_resource type="Texture2D" uid="uid://1hlkv70ylsg0" path="res://sprites/techs/solar/costoyeficiencia.png" id="21_yitbf"]
+[ext_resource type="Texture2D" uid="uid://f2oo4us6r0lg" path="res://sprites/Animalito finales/Boa.png" id="22_5s7hf"]
 [ext_resource type="Texture2D" uid="uid://bno6a57ypxrd" path="res://sprites/techs/solar/arboles.png" id="22_54dct"]
 [ext_resource type="Texture2D" uid="uid://jnhaq745a5wm" path="res://sprites/techs/solar/pintura.png" id="23_c2pgy"]
 [ext_resource type="Texture2D" uid="uid://dd17xy11qeecb" path="res://sprites/techs/solar/perovstiva.png" id="24_vn5sv"]
@@ -210,20 +218,13 @@ columns = 3
 
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
-notification_reward = 50
 clicker_reward = 15
 energy_type = "Central de Combustibles Fósiles"
 plant_amount = 1
-plant_cost = 500
-remove_plant_refund = 300
-cost_increase_per_plant = 100
 id = 0
 contaminationIndex = 1.5
 happinessIndex = -0.3
 wattageIndex = 1.5
-costIndex = 1.0
 animal_name = "Alba"
 animal_species = "Murciélago Blanco"
 animal_scientific = "Ectophylla alba"
@@ -235,23 +236,21 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
 notification_reward = 60
 clicker_reward = 20
 energy_type = "Central Hidroeléctrica"
-plant_amount = 0
 plant_cost = 1200
 remove_plant_refund = 800
-cost_increase_per_plant = 100
 id = 1
 contaminationIndex = 0.3
 happinessIndex = 0.2
 wattageIndex = 1.2
-costIndex = 1.0
 animal_name = "Oliv"
 animal_species = "Tortuga Golfina"
 animal_scientific = "Lepidochelys olivacea"
@@ -263,23 +262,20 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
 notification_reward = 40
-clicker_reward = 10
 energy_type = "Central Eólica"
-plant_amount = 0
 plant_cost = 1000
 remove_plant_refund = 600
-cost_increase_per_plant = 100
 id = 2
 contaminationIndex = 0.1
 happinessIndex = -0.1
 wattageIndex = 0.8
-costIndex = 1.0
 animal_name = "Rua"
 animal_species = "Guatusa"
 animal_scientific = "Dasyprocta ruatanica"
@@ -291,23 +287,21 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
 notification_reward = 45
 clicker_reward = 12
 energy_type = "Central Solar"
-plant_amount = 0
 plant_cost = 1200
 remove_plant_refund = 800
-cost_increase_per_plant = 100
 id = 3
 contaminationIndex = 0.05
 happinessIndex = 0.3
 wattageIndex = 0.7
-costIndex = 1.0
 animal_name = "Yago"
 animal_species = "Jaguarundi"
 animal_scientific = "Puma yagouaroundi"
@@ -319,23 +313,20 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
 notification_reward = 55
 clicker_reward = 18
 energy_type = "Central Geotérmica"
-plant_amount = 0
 plant_cost = 2000
 remove_plant_refund = 1000
-cost_increase_per_plant = 100
 id = 4
 contaminationIndex = 0.2
 happinessIndex = 0.1
-wattageIndex = 1.0
-costIndex = 1.0
 animal_name = "Daisy"
 animal_species = "Cusuco"
 animal_scientific = "Dasypus novemcinctus"
@@ -347,15 +338,15 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_interval = 30.0
-notification_interval_randomness = 10.0
 notification_reward = 80
 clicker_reward = 25
 energy_type = "Central Nuclear"
-plant_amount = 0
 plant_cost = 3500
 remove_plant_refund = 2000
 cost_increase_per_plant = 200
@@ -363,7 +354,6 @@ id = 5
 contaminationIndex = 0.5
 happinessIndex = 0.2
 wattageIndex = 2.5
-costIndex = 1.0
 animal_name = "Rosy"
 animal_species = "Boa Rosada"
 animal_scientific = "Lichanura trivirgata"
@@ -375,6 +365,9 @@ background_3 = ExtResource("8_vqcmp")
 background_4 = ExtResource("9_artt4")
 background_5 = ExtResource("10_n0m51")
 animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
+animal_bodies = Array[Texture2D]([ExtResource("17_3d43e"), ExtResource("18_5pobt"), ExtResource("19_3qklw"), ExtResource("20_20ijs"), ExtResource("21_hsllo"), ExtResource("22_5s7hf")])
+computer_on = ExtResource("17_t8v6e")
+computer_off = ExtResource("18_ae7hp")
 
 [node name="TreeContainer" type="PanelContainer" parent="."]
 visible = false

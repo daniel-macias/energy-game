@@ -66,6 +66,21 @@ offset_bottom = 520.0
 theme_override_font_sizes/font_size = 40
 text = "Iniciar Juego"
 
+[node name="ReturnToEnergyManager" type="Button" parent="StartMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 197.0
+offset_right = 54.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return to game"
+
 [node name="Results" type="Control" parent="."]
 visible = false
 layout_mode = 1

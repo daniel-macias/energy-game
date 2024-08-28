@@ -31,6 +31,9 @@ func _ready():
 	var return_button = $Results/Panel/ReturnToEnergyManager
 	return_button.pressed.connect(_on_return_button_pressed)
 	
+	var return_button_main_menu = $StartMenu/Panel/ReturnToEnergyManager
+	return_button_main_menu.pressed.connect(_on_return_button_pressed)
+	
 	var start_button = $StartMenu/Panel/StartGame
 	start_button.pressed.connect(_on_StartGame_pressed)
 	

@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://m20qguwbdhdt"]
+[gd_scene load_steps=9 format=3 uid="uid://m20qguwbdhdt"]
 
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_4sh66"]
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_xqrcf"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="2_wbds3"]
+[ext_resource type="Texture2D" uid="uid://d1u6pxmgq703g" path="res://sprites/ui/computer/compu_on.png" id="3_e4pch"]
+[ext_resource type="Texture2D" uid="uid://f2oo4us6r0lg" path="res://sprites/Animalito finales/Boa.png" id="5_qch48"]
+[ext_resource type="Texture2D" uid="uid://dohlmdi7gbs51" path="res://sprites/Animalito finales/Casco.png" id="6_nuv04"]
+
+[sub_resource type="Animation" id="Animation_344kl"]
+resource_name = "ComputerOn"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muawn"]
+_data = {
+"ComputerOn": SubResource("Animation_344kl")
+}
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(500, 320)
@@ -29,11 +54,15 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.869
-offset_left = 184.0
-offset_top = 9.0
-offset_right = -188.0
-offset_bottom = -141.08
-texture_normal = ExtResource("1_4sh66")
+offset_left = 180.0
+offset_top = 16.0
+offset_right = -187.0
+offset_bottom = -88.08
+grow_horizontal = 2
+pivot_offset = Vector2(0, 174)
+texture_normal = ExtResource("3_e4pch")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Notification" type="TextureButton" parent="."]
 layout_mode = 0
@@ -50,5 +79,20 @@ offset_left = 316.0
 offset_top = 101.0
 offset_right = 481.0
 offset_bottom = 265.0
-texture_normal = ExtResource("1_4sh66")
+texture_normal = ExtResource("5_qch48")
 stretch_mode = 0
+flip_h = true
+
+[node name="Helmet" type="TextureRect" parent="Clicker"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 1.0
+offset_right = 141.0
+offset_bottom = 75.0
+texture = ExtResource("6_nuv04")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_muawn")
+}
