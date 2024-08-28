@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://rnnp6armamg3"]
+[gd_scene load_steps=5 format=3 uid="uid://rnnp6armamg3"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_1vfep"]
-[ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="2_6ecw1"]
+[ext_resource type="Texture2D" uid="uid://dsqirwk4ck61h" path="res://sprites/fish/Todo junto.png" id="2_lgl7b"]
+[ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="3_dlg1i"]
+[ext_resource type="Texture2D" uid="uid://bl1lac5w7alwo" path="res://sprites/fish/Don Octavio.png" id="4_ugico"]
 
 [node name="Fish" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1520.0
@@ -113,16 +116,140 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.5
-offset_top = -15.5
-offset_right = 64.5
-offset_bottom = 15.5
+offset_left = -204.0
+offset_top = 197.0
+offset_right = 214.0
+offset_bottom = 262.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Return to game"
+theme_override_font_sizes/font_size = 32
+text = "Regresar al juego principal"
+
+[node name="Label" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -239.0
+offset_right = 107.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Resultados"
+
+[node name="Label6" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 4.0
+offset_right = 107.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Puntaje"
+horizontal_alignment = 1
+
+[node name="finalScore" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 76.0
+offset_right = 107.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Test"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 148.0
+offset_top = -157.0
+offset_right = 518.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Amigos Lastimados"
+
+[node name="Label3" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.5
+offset_top = -161.0
+offset_right = -87.5
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Basura Eliminada"
+
+[node name="trashEliminated" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -106.0
+offset_right = -87.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
+
+[node name="friendsHurt" type="Label" parent="Results/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 158.0
+offset_top = -106.0
+offset_right = 490.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
 
 [node name="Game" type="Node2D" parent="."]
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Game"]
+z_index = -10
+offset_right = 1519.0
+offset_bottom = 720.0
+texture = ExtResource("2_lgl7b")
+expand_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Game"]
 visible = false
@@ -139,6 +266,7 @@ offset_right = 51.5
 offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Inicia en 3.."
 
@@ -146,16 +274,20 @@ text = "Inicia en 3.."
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -51.5
-offset_right = 51.5
-offset_bottom = 55.0
+offset_left = -60.0
+offset_top = 64.0
+offset_right = 43.0
+offset_bottom = 119.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 50
 text = "00:00"
 
 [node name="Player" type="Sprite2D" parent="Game"]
-position = Vector2(87, 368)
-texture = ExtResource("2_6ecw1")
+position = Vector2(98, 381)
+scale = Vector2(0.705801, 0.705801)
+texture = ExtResource("4_ugico")
 
 [node name="StartNode0" type="Node2D" parent="Game"]
 position = Vector2(1624, 63)

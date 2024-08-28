@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=106 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -9,12 +9,10 @@
 [ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="5_28okl"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="5_hkpeo"]
-[ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
 [ext_resource type="Texture2D" uid="uid://btouefw37fdgu" path="res://sprites/animales portrait/tortuga.png" id="6_810w7"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
 [ext_resource type="Texture2D" uid="uid://cyfq742ekyu3x" path="res://sprites/Habitaciones/3 - Hidro.png" id="6_xkm50"]
 [ext_resource type="Texture2D" uid="uid://dm6ososcao56w" path="res://sprites/animales portrait/watusa.png" id="7_qu4h5"]
-[ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
 [ext_resource type="Texture2D" uid="uid://cvoo5s54aoch6" path="res://sprites/techs/nuclear/Energía Nuclear .png" id="7_utpjk"]
 [ext_resource type="Texture2D" uid="uid://fyhgwc8rwv2l" path="res://sprites/Habitaciones/4 - Eolica.png" id="7_yfb08"]
 [ext_resource type="Texture2D" uid="uid://77tmdn8xpunc" path="res://sprites/animales portrait/jaguarundi.png" id="8_8pa64"]
@@ -101,6 +99,7 @@
 [ext_resource type="Texture2D" uid="uid://65vtgwu1048p" path="res://sprites/techs/solar/bateria.png" id="28_65x1m"]
 [ext_resource type="Texture2D" uid="uid://d1362fa8078gw" path="res://sprites/techs/solar/fotoelectrico.png" id="29_td53n"]
 [ext_resource type="Texture2D" uid="uid://tdn5jfu5i23q" path="res://sprites/techs/solar/irridanci.png" id="30_ot7bn"]
+[ext_resource type="Texture2D" uid="uid://dydv8kacdvw5l" path="res://sprites/happy0.png" id="99_lfs07"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpcy"]
 bg_color = Color(0.929412, 0.466667, 0.0235294, 1)
@@ -176,8 +175,9 @@ expand_mode = 3
 [node name="Tourists" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
-text = "Tourists: 999"
+text = "Turistas: 999"
 
 [node name="Wattage" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -194,6 +194,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("1_wyxp4")
 
 [node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
@@ -203,14 +204,16 @@ text = "Capacity: 0
 [node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Money: 1000"
 
 [node name="GoToFish" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
-text = "Clean Up"
+text = "Limpiar"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -2269,9 +2272,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -685.0
-offset_top = -282.0
+offset_top = -285.0
 offset_right = 686.0
-offset_bottom = 319.0
+offset_bottom = 337.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_28okl")
@@ -2366,74 +2369,136 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "999 Gold"
 
+[node name="Label6" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "Contaminación por planta"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "00"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("99_lfs07")
+
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "Energía por planta"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "00"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("99_lfs07")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "Resumen"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
-text = "Energía"
+text = "Capacidad de Contaminación"
 horizontal_alignment = 1
 
-[node name="EnergyBars" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="Negative" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/EnergyBars"]
+[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-value = 50.0
-fill_mode = 1
-texture_progress = ExtResource("6_3ovbx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "00"
+horizontal_alignment = 1
 
-[node name="Positive" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/EnergyBars"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-value = 50.0
-texture_progress = ExtResource("7_udmlx")
+texture = ExtResource("99_lfs07")
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
-text = "Contaminación"
+text = "Contaminación Total"
 horizontal_alignment = 1
 
-[node name="PolutionBars" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="Negative" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/PolutionBars"]
+[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
-value = 50.0
-fill_mode = 1
-texture_progress = ExtResource("6_3ovbx")
-
-[node name="Positive" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/PolutionBars"]
-layout_mode = 2
-value = 50.0
-texture_progress = ExtResource("7_udmlx")
-
-[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
-layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
-text = "Felicidad"
+text = "00"
 horizontal_alignment = 1
 
-[node name="HappynessBar" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
+texture = ExtResource("99_lfs07")
 
-[node name="Negative" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HappynessBar"]
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-value = 50.0
-fill_mode = 1
-texture_progress = ExtResource("6_3ovbx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "Energía Total"
+horizontal_alignment = 1
 
-[node name="Positive" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HappynessBar"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
-value = 50.0
-texture_progress = ExtResource("7_udmlx")
+size_flags_horizontal = 4
+
+[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "00"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("99_lfs07")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
 layout_mode = 2
@@ -2647,6 +2712,7 @@ offset_right = 353.5
 offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_28okl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CustomDialog"]
 layout_mode = 2
@@ -2670,6 +2736,8 @@ alignment = 1
 [node name="Title" type="Label" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "¿Qué es esto?"
 horizontal_alignment = 1
@@ -2677,11 +2745,13 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="InfoText" type="Label" parent="CustomDialog/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 28
 text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
 horizontal_alignment = 1
@@ -2702,6 +2772,7 @@ offset_right = 353.5
 offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_28okl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tip"]
 layout_mode = 2
@@ -2725,6 +2796,8 @@ alignment = 1
 [node name="Title" type="Label" parent="Tip/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 36
 text = "¿Qué es esto?"
 horizontal_alignment = 1
@@ -2732,11 +2805,13 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="Tip/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="InfoText" type="Label" parent="Tip/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 28
 text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
 horizontal_alignment = 1

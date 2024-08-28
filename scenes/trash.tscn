@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbt2i6w7tmf5m"]
+[gd_scene load_steps=7 format=3 uid="uid://dbt2i6w7tmf5m"]
 
 [ext_resource type="Script" path="res://scripts/trash.gd" id="1_ajp4r"]
-[ext_resource type="Texture2D" uid="uid://c6o1r2owqq8pd" path="res://sprites/techs/fossil/captura.png" id="2_gmkqp"]
-[ext_resource type="Texture2D" uid="uid://bupj03o6krcax" path="res://sprites/techs/fossil/carbon.png" id="3_ak6c1"]
-[ext_resource type="Texture2D" uid="uid://dma1audewnpf3" path="res://sprites/techs/fossil/dies.png" id="4_v3be4"]
+[ext_resource type="Texture2D" uid="uid://vlvp63khjj4m" path="res://sprites/fish/Nuclear.png" id="2_0fh3l"]
+[ext_resource type="Texture2D" uid="uid://cpcyf7eg3mjcp" path="res://sprites/fish/Oil.png" id="3_rxwfr"]
+[ext_resource type="Texture2D" uid="uid://ddtoudyqhljqt" path="res://sprites/fish/Panel.png" id="4_rb5dp"]
+[ext_resource type="Texture2D" uid="uid://ccfqww6i6wmpb" path="res://sprites/fish/Turbina.png" id="5_rfp6x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfj1k"]
 radius = 57.36
@@ -18,14 +19,19 @@ shape = SubResource("CircleShape2D_qfj1k")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_gmkqp")
+texture = ExtResource("2_0fh3l")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_ak6c1")
+texture = ExtResource("3_rxwfr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_v3be4")
+texture = ExtResource("4_rb5dp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_rfp6x")

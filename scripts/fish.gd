@@ -8,6 +8,10 @@ extends Node
 @onready var startsInLabel = $Game/CanvasLayer/StartsIn
 @onready var gameTimeLabel = $Game/CanvasLayer/GameTimer
 
+@onready var trashEliminatedLabel = $Results/Panel/trashEliminated
+@onready var friendsHurtLabel = $Results/Panel/friendsHurt
+@onready var finalScoreLabel = $Results/Panel/finalScore
+
 @onready var player = $Game/Player
 
 @onready var game_timer = Timer.new()
@@ -15,11 +19,12 @@ extends Node
 @onready var transition_timer = Timer.new()
 
 @export var trash_scene = preload("res://scenes/trash.tscn")
+@export var friend_scene = preload("res://scenes/friend.tscn")
 @export var bullet_scene = preload("res://scenes/bullet.tscn")
 
 var score = 0
 var countdown_time := 3
-var game_time := 15
+var game_time := 20
 var game_active := false
 var total_trash := 0
 
@@ -90,6 +95,7 @@ func on_countdown_tick():
 func start_game():
 	total_trash = 0
 	GameManager.trash_shot = 0
+	GameManager.friend_shot = 0
 	game_active = true 
 	game.visible = true
 	game_time = 15  # Reset game time
@@ -129,6 +135,17 @@ func show_results():
 	startsInLabel.visible = false
 	results_menu.visible = true
 	canvas_layer.visible = false
+	trashEliminatedLabel.text = str(GameManager.trash_shot)
+	friendsHurtLabel.text = str(GameManager.friend_shot)
+	
+	var totalShot = GameManager.trash_shot + GameManager.friend_shot
+	var awarded = 0
+
+	if totalShot != 0:
+		var currentCleanliness = GameManager.cleanliness
+		awarded = (100 - currentCleanliness) * (float(GameManager.trash_shot) / float(totalShot))
+		GameManager.set_cleanliness(currentCleanliness + awarded)
+	
 	#display_results()
 
 
@@ -142,15 +159,20 @@ func spawn_trash():
 	var start_node = start_nodes[random_start_index]
 	var end_node = end_nodes[random_end_index]
 	
-	# Instance the trash scene
-	var trash_instance = trash_scene.instantiate()
-	add_child(trash_instance)
+	var instance = null
+
+	# Randomly choose between spawning trash or friend
+	if randf() < 0.7:  # 70% chance to spawn trash, adjust this probability as needed
+		instance = trash_scene.instantiate()
+	else:
+		instance = friend_scene.instantiate()
+	add_child(instance)
 	
 	# Set the position to the start node's position
-	trash_instance.global_position = start_node.global_position
+	instance.global_position = start_node.global_position
 	
 	# Set the target position for the trash to the end node
-	trash_instance.target_position = end_node.global_position
+	instance.target_position = end_node.global_position
 
 	# Continue spawning trash after a short delay
 	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout

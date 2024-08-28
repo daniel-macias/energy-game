@@ -7,7 +7,7 @@ var happiness = 100  # 0 to 100
 var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
-var cleanliness = 100  # 0 to 100
+var cleanliness = 50  # 0 to 100
 var money = 100000000
 #var contaminationCapacity = 0
 var rooms = []
@@ -100,7 +100,8 @@ var custom_dialog_desc : Label = null
 var custom_dialog_exit : TextureButton = null
 
 #Fish game var
-var trash_shot := 0;
+var trash_shot := 0
+var friend_shot := 0
 
 @onready var auto_save_timer = Timer.new()
 # Initialize the game logic and nodes only when the game scene is active
@@ -405,6 +406,10 @@ func update_happiness(value):
 	happiness = clamp(happiness + value, 0, 100)
 	update_happiness_image()
 
+func set_cleanliness(value):
+	cleanliness = value
+	cleanliness_bar.value = value
+
 func contaminate(contamination_value: float):
 	var whole = - contamination_value / 100
 	# Decrease cleanliness based on the contamination value
@@ -424,7 +429,7 @@ func update_cleanliness(contamination_value):
 
 func update_tourists(value):
 	tourists = max(tourists + value, 0)
-	tourists_label.text = "Tourists: " + str(tourists)
+	tourists_label.text = "Turistas: " + str(tourists)
 	calculate_wattage_usage()
 
 func update_wattage(value):

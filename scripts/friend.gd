@@ -1,11 +1,11 @@
 extends Area2D
 
-@export var min_move_speed: float = 100.0
-@export var max_move_speed: float = 250.0
+@export var min_move_speed: float = 200.0
+@export var max_move_speed: float = 450.0
 @export var move_speed: float = 150.0
 var target_position: Vector2
-var squiggle_amplitude: float = 20.0
-var squiggle_frequency: float = 20.0
+var squiggle_amplitude: float = 10.0
+var squiggle_frequency: float = 15.0
 var start_position: Vector2
 
 func _ready():
@@ -17,7 +17,7 @@ func _ready():
 
 func select_random_sprite():
 	# Get all sprite nodes in this node
-	var sprites = [$Sprite2D, $Sprite2D2,$Sprite2D3,$Sprite2D4]
+	var sprites = [$Sprite2D, $Sprite2D2,$Sprite2D3]
 
 	# Choose a random index
 	var random_index = randi() % sprites.size()
@@ -43,5 +43,5 @@ func _process(delta):
 
 func destroy():
 	# Logic to handle the destruction of the trash
-	GameManager.trash_shot += 1
+	GameManager.friend_shot += 1
 	queue_free()
