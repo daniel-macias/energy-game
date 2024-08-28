@@ -6,6 +6,7 @@ class_name SkillNode
 @onready var label = $MarginContainer/Label
 @onready var selector = $SelectRectangle
 @onready var lock = $Lock
+@onready var textured_button = $"."
 
 # Skill attributes
 @export var title: String

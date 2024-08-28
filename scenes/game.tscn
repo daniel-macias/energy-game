@@ -1,22 +1,32 @@
-[gd_scene load_steps=85 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=99 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_wyxp4"]
 [ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
+[ext_resource type="Texture2D" uid="uid://dj0dunamm67me" path="res://sprites/Habitaciones/1 - Fosil.png" id="5_1ciuj"]
+[ext_resource type="Texture2D" uid="uid://ciyydi8u75asa" path="res://sprites/animales portrait/murcielado.png" id="5_3qr5y"]
 [ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="5_28okl"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="5_hkpeo"]
 [ext_resource type="Texture2D" uid="uid://dg8xsl0g7grmg" path="res://bar_red.png" id="6_3ovbx"]
+[ext_resource type="Texture2D" uid="uid://btouefw37fdgu" path="res://sprites/animales portrait/tortuga.png" id="6_810w7"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
+[ext_resource type="Texture2D" uid="uid://cyfq742ekyu3x" path="res://sprites/Habitaciones/3 - Hidro.png" id="6_xkm50"]
+[ext_resource type="Texture2D" uid="uid://dm6ososcao56w" path="res://sprites/animales portrait/watusa.png" id="7_qu4h5"]
 [ext_resource type="Texture2D" uid="uid://0nouyg7lop5u" path="res://bar_green.png" id="7_udmlx"]
 [ext_resource type="Texture2D" uid="uid://cvoo5s54aoch6" path="res://sprites/techs/nuclear/Energía Nuclear .png" id="7_utpjk"]
+[ext_resource type="Texture2D" uid="uid://fyhgwc8rwv2l" path="res://sprites/Habitaciones/4 - Eolica.png" id="7_yfb08"]
+[ext_resource type="Texture2D" uid="uid://77tmdn8xpunc" path="res://sprites/animales portrait/jaguarundi.png" id="8_8pa64"]
 [ext_resource type="Texture2D" uid="uid://blnhojneqtshn" path="res://sprites/techs/nuclear/Radiactividad .png" id="8_dvcph"]
 [ext_resource type="Texture2D" uid="uid://3uu1q02xx2va" path="res://sprites/techs/geo/energia.png" id="8_fsrwm"]
 [ext_resource type="Texture2D" uid="uid://bmr004ceo0pul" path="res://sprites/techs/wind/energia.png" id="8_l0w4v"]
 [ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="8_rwo8v"]
 [ext_resource type="Texture2D" uid="uid://b48esen7gnj2x" path="res://sprites/techs/hydro/hydro.png" id="8_uibp2"]
+[ext_resource type="Texture2D" uid="uid://h1hmisf2rgf4" path="res://sprites/Habitaciones/5 - Solar.png" id="8_vqcmp"]
 [ext_resource type="Texture2D" uid="uid://dt10edyb645ek" path="res://sprites/techs/fossil/fososo.png" id="8_y7287"]
+[ext_resource type="Texture2D" uid="uid://cvwlc38655dek" path="res://sprites/animales portrait/cusuco.png" id="9_35kax"]
+[ext_resource type="Texture2D" uid="uid://bxsad3uclugf8" path="res://sprites/Habitaciones/2 - Geotermica.png" id="9_artt4"]
 [ext_resource type="Texture2D" uid="uid://dh3t21oone3nx" path="res://sprites/techs/wind/moden.png" id="9_bhlq0"]
 [ext_resource type="Texture2D" uid="uid://wq6v71aw8qnw" path="res://sprites/techs/fossil/verd.png" id="9_dap7b"]
 [ext_resource type="Texture2D" uid="uid://drch8obuy6gt1" path="res://sprites/techs/nuclear/Uranio y Plutonio.png" id="9_dbnmq"]
@@ -24,7 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://cyewvd1kus877" path="res://sprites/techs/geo/binario.png" id="9_khvcq"]
 [ext_resource type="Texture2D" uid="uid://cx3l1o1ubi75s" path="res://sprites/techs/nuclear/Rutherford.png" id="10_cgpxk"]
 [ext_resource type="Texture2D" uid="uid://c8vm4yxnie2s5" path="res://sprites/techs/hydro/grav.png" id="10_lu6bv"]
+[ext_resource type="Texture2D" uid="uid://bwcxhxnhurvq3" path="res://sprites/Habitaciones/6 - Nuclear.png" id="10_n0m51"]
 [ext_resource type="Texture2D" uid="uid://dt3fh3jug7glo" path="res://sprites/techs/geo/intercambio.png" id="10_nrrmu"]
+[ext_resource type="Texture2D" uid="uid://do0u64a1qjiwc" path="res://sprites/animales portrait/boa.png" id="10_snswy"]
 [ext_resource type="Texture2D" uid="uid://cjsntyuf4ybf6" path="res://sprites/techs/fossil/filt.png" id="10_t5l31"]
 [ext_resource type="Texture2D" uid="uid://bmk3o8vp6htv6" path="res://sprites/techs/wind/marina.png" id="10_tici5"]
 [ext_resource type="Texture2D" uid="uid://bcoeh2sm0xc8j" path="res://sprites/techs/nuclear/Neutron.png" id="11_6smjy"]
@@ -41,6 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://dvhqi857k0a3m" path="res://sprites/techs/wind/molino.png" id="13_jl054"]
 [ext_resource type="Texture2D" uid="uid://cuygxsxq6eaa5" path="res://sprites/techs/geo/volcan.png" id="13_n3d6p"]
 [ext_resource type="Texture2D" uid="uid://bupj03o6krcax" path="res://sprites/techs/fossil/carbon.png" id="13_qcv3f"]
+[ext_resource type="Texture2D" uid="uid://ccwfje1syuktf" path="res://x-black-side.png" id="13_vm3tp"]
+[ext_resource type="Texture2D" uid="uid://bu8xxyoewg46v" path="res://sprites/techs/empty_tech.png" id="14_2yi35"]
 [ext_resource type="Texture2D" uid="uid://bke5j66n6w432" path="res://sprites/techs/geo/generadorvapor.png" id="14_5ki1x"]
 [ext_resource type="Texture2D" uid="uid://b2pisyhud30h" path="res://sprites/techs/wind/turbina.png" id="14_8p3va"]
 [ext_resource type="Texture2D" uid="uid://dqsi2i3o4my6j" path="res://sprites/techs/hydro/aaaa.png" id="14_367kq"]
@@ -196,85 +210,152 @@ columns = 3
 
 [node name="Control" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
+notification_reward = 50
 clicker_reward = 15
 energy_type = "Central de Combustibles Fósiles"
 plant_amount = 1
+plant_cost = 500
+remove_plant_refund = 300
+cost_increase_per_plant = 100
 id = 0
 contaminationIndex = 1.5
 happinessIndex = -0.3
 wattageIndex = 1.5
+costIndex = 1.0
 animal_name = "Alba"
 animal_species = "Murciélago Blanco"
 animal_scientific = "Ectophylla alba"
 animal_info = "Micro-murciélago blanco hondureño de la familia Phyllostomatidae. Mide apenas 3-4 centímetros, tiene pelaje blanco y orejas amarillas. Está distribuido principalmente en los bosques de las Moskitia, las áreas protegidas de la Biósfera del Río Plátano, las montañas de Warunta y Mocorón y en los territorios indígenas de Mabita y Rus Rus. "
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="Control2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
 notification_reward = 60
 clicker_reward = 20
 energy_type = "Central Hidroeléctrica"
+plant_amount = 0
 plant_cost = 1200
 remove_plant_refund = 800
+cost_increase_per_plant = 100
 id = 1
 contaminationIndex = 0.3
 happinessIndex = 0.2
 wattageIndex = 1.2
+costIndex = 1.0
 animal_name = "Oliv"
 animal_species = "Tortuga Golfina"
 animal_scientific = "Lepidochelys olivacea"
 animal_info = "Tortuga marina de tamaño mediano reconocida por su capazón con estructura suave y color verde oliva. Cuentan con aletas en lugar de patas y miden hasta 70 centímetros. Son omnivoras y se alimentan de diferentes peces y organismos marinos, incluyendo medusas y algas. Honduras cuenta con leyes para su protección debido a su vulnerabilidad y la cantidad de amenazas que la rodean. Las comunidades locales y varias organizaciones también se suman a la lucha para su conservación. Suele anidar principalmente en platas como las del Golfo de Fonseca y Punta Ratón."
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
 notification_reward = 40
+clicker_reward = 10
 energy_type = "Central Eólica"
+plant_amount = 0
 plant_cost = 1000
 remove_plant_refund = 600
+cost_increase_per_plant = 100
 id = 2
 contaminationIndex = 0.1
 happinessIndex = -0.1
 wattageIndex = 0.8
+costIndex = 1.0
 animal_name = "Rua"
 animal_species = "Guatusa"
 animal_scientific = "Dasyprocta ruatanica"
 animal_info = "Agutí endémica de la isla Roatán en Islas de la Bahía proveniente de la familia Dasyproctidae. Son más pequeñas que los otros tipos de agutíes en Honduras y Centroamérica, los Dasyprocta punctata. Tienen un pelaje color café-anaranjado y dos manchas distintivas, una blanca en la barbilla y otra amarilla en el vientre. Pocos estudios se han realizado sobre su comportamiento pero muestran ser especies tímidas, activas durante el día y la noche y no territoriales."
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
 notification_reward = 45
 clicker_reward = 12
 energy_type = "Central Solar"
+plant_amount = 0
 plant_cost = 1200
 remove_plant_refund = 800
+cost_increase_per_plant = 100
 id = 3
 contaminationIndex = 0.05
 happinessIndex = 0.3
 wattageIndex = 0.7
+costIndex = 1.0
 animal_name = "Yago"
 animal_species = "Jaguarundi"
 animal_scientific = "Puma yagouaroundi"
 animal_info = "Felino de mediano tamaño, con cuerpo alargado, patas cortas y cabeza pequeña y aplastada. Tiene un pelaje que varia entre los colores marrón óxido, gris carbón, rojo y negro. Tienen orejas pequeñas y redondeadas, diferentes a las de otros felinos en que no tienen un color de contraste. Sus ojos son pequeños y están muy cerca entre sí."
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
 notification_reward = 55
 clicker_reward = 18
 energy_type = "Central Geotérmica"
+plant_amount = 0
 plant_cost = 2000
 remove_plant_refund = 1000
+cost_increase_per_plant = 100
 id = 4
 contaminationIndex = 0.2
 happinessIndex = 0.1
+wattageIndex = 1.0
+costIndex = 1.0
 animal_name = "Daisy"
 animal_species = "Cusuco"
 animal_scientific = "Dasypus novemcinctus"
 animal_info = "Armadillos conocidos en Honduras como Cusucos o Piteros. Cuentan con un caparazón  de placas óseas que le brindan protección contra depredadores. Su coloración varía entre gris y marrón y la superficie de sus placas óseas tiene tonos grisáceos o beiges. En Honduras se pueden encontrar en diversos departamentos y áreas protegidas que varían desde bosques tropicales hasta áreas de cultivo y campos agrícolas. "
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
+notification_interval = 30.0
+notification_interval_randomness = 10.0
 notification_reward = 80
 clicker_reward = 25
 energy_type = "Central Nuclear"
+plant_amount = 0
 plant_cost = 3500
 remove_plant_refund = 2000
 cost_increase_per_plant = 200
@@ -282,10 +363,18 @@ id = 5
 contaminationIndex = 0.5
 happinessIndex = 0.2
 wattageIndex = 2.5
+costIndex = 1.0
 animal_name = "Rosy"
 animal_species = "Boa Rosada"
 animal_scientific = "Lichanura trivirgata"
 animal_info = "Especie única de boa constrictor encontrada exclusivamente en Cayos Cochinos. Cuentan con una pigmentación rosada que puede cambiar dependiendo de la luz, temperatura y dieta en la que se encuentren. Tiene un cuerpo alargado y una distintiva coloración, que se ha especulado como el resultado de una adaptación a su entorno. Habitan una selva tropical y se reconocen por su comportamiento dócil."
+background_0 = ExtResource("5_1ciuj")
+background_1 = ExtResource("6_xkm50")
+background_2 = ExtResource("7_yfb08")
+background_3 = ExtResource("8_vqcmp")
+background_4 = ExtResource("9_artt4")
+background_5 = ExtResource("10_n0m51")
+animal_portraits = Array[Texture2D]([ExtResource("5_3qr5y"), ExtResource("6_810w7"), ExtResource("7_qu4h5"), ExtResource("8_8pa64"), ExtResource("9_35kax"), ExtResource("10_snswy")])
 
 [node name="TreeContainer" type="PanelContainer" parent="."]
 visible = false
@@ -325,7 +414,7 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="TreeContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="Menu" type="HBoxContainer" parent="TreeContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 450)
@@ -349,7 +438,7 @@ autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
-texture = ExtResource("1_wyxp4")
+texture = ExtResource("14_2yi35")
 stretch_mode = 3
 
 [node name="Info" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
@@ -2181,10 +2270,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -685.5
-offset_top = -280.0
-offset_right = 685.5
-offset_bottom = 280.0
+offset_left = -685.0
+offset_top = -282.0
+offset_right = 686.0
+offset_bottom = 319.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_28okl")
@@ -2220,7 +2309,7 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="PanelContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="Menu" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -2443,7 +2532,7 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="AnimalInfo/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AnimalInfo/VBoxContainer"]
 layout_mode = 2

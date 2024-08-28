@@ -18,6 +18,12 @@ offset_right = 500.0
 offset_bottom = 320.0
 texture = ExtResource("1_4sh66")
 
+[node name="DarkPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 503.0
+offset_bottom = 321.0
+
 [node name="Computer" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1

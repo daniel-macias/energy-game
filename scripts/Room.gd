@@ -29,11 +29,20 @@ extends Control
 @onready var notification_button = $Notification
 @onready var clicker_button = $Clicker
 @onready var room_button = $Computer
+@onready var background = $TextureRect
 
 # To track the time for notifications
 var notification_timer = 0.0
 var notification_time_target = 0.0
 
+@export var background_0: Texture2D
+@export var background_1: Texture2D
+@export var background_2: Texture2D
+@export var background_3: Texture2D
+@export var background_4: Texture2D
+@export var background_5: Texture2D
+
+@export var animal_portraits : Array[Texture2D]
 
 func _ready():
 	# Hide the notification button at the start
@@ -46,6 +55,22 @@ func _ready():
 	set_process(true)
 	
 	room_button.pressed.connect(_on_RoomButton_pressed)
+	change_background()
+	
+func change_background():
+	match id:
+		0:
+			background.texture = background_0
+		1:
+			background.texture = background_1
+		2:
+			background.texture = background_2
+		3:
+			background.texture = background_3
+		4:
+			background.texture = background_4
+		5:
+			background.texture = background_5
 
 # Function to handle the Clicker button press
 func _on_Clicker_pressed():
@@ -57,7 +82,7 @@ func _on_RoomButton_pressed():
 	print("Plant amount: ", plant_amount)
 	GameManager.show_energy_panel(energy_type)
 	GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
-	GameManager.update_animal_info(animal_name,animal_species,animal_scientific,animal_info)
+	GameManager.update_animal_info(animal_name,animal_species,animal_scientific,animal_info,animal_portraits[id])
 
 # Function to handle the Notification button press
 func _on_Notification_pressed():

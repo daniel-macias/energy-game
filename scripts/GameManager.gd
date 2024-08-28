@@ -25,6 +25,8 @@ var happiness_images = [
 	"res://sprites/happy4.png"
 ]
 
+var empty_tech := "res://sprites/techs/empty_tech.png"
+
 # Multipliers for balancing
 @export var cleanliness_to_happiness_multiplier = 1.0
 @export var happiness_to_tourists_multiplier = 1.0
@@ -258,12 +260,13 @@ func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
 	create_plant_button.text = str(plant_cost) + " Gold"
 	remove_plant_button.text = str(remove_plant_refund) + " Gold"
 
-func update_animal_info(name, species, scientific, info):
+func update_animal_info(name, species, scientific, info, animal_portrait):
 	animal_info.text = info
 	animal_name.text = name
 	animal_species.text = species
 	animal_scientific.text = scientific
-	#TODO: photo
+	animal_pic.texture = animal_portrait
+	energy_panel_animal_pic.texture = animal_portrait
 
 func update_skill_info(name,info):
 	tech_title.text = name
@@ -289,7 +292,7 @@ func clear_sidebar():
 	price_label.text = ""
 	invest_button.disabled = true
 	open_dec_button.disabled = true
-	#tech_image.texture = null
+	tech_image.texture = load(empty_tech)
 
 # Show the appropriate tech tree and hide the main panel
 func _on_OpenTechTreeButton_pressed():
@@ -484,6 +487,7 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 	description_label.text = description
 	price_label.text = str(price) + " Gold"
 	invest_button.disabled = money < price  # Disable if not enough money
+	tech_image.texture = skill_node.texture_normal  
 
 	# Deselect the previous skill (if any)
 	if selected_skill_node != null:
