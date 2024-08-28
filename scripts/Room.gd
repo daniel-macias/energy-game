@@ -16,6 +16,8 @@ extends Control
 @export var contaminationIndex = 1.0;
 @export var happinessIndex = 1.0;
 @export var wattageIndex = 1.0;
+@export var contaminationCapacity = 1000;
+
 
 @export var costIndex = 1.0; #maybe
 

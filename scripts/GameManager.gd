@@ -9,7 +9,7 @@ var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 100  # 0 to 100
 var money = 100000000
-var contaminationCapacity = 0
+#var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
 var skill_states = {}  # Dictionary to store skill states
@@ -28,9 +28,9 @@ var happiness_images = [
 var empty_tech := "res://sprites/techs/empty_tech.png"
 
 # Multipliers for balancing
-@export var cleanliness_to_happiness_multiplier = 1.0
-@export var happiness_to_tourists_multiplier = 1.0
-@export var tourists_to_wattage_multiplier = 1.0
+@export var cleanliness_to_happiness_multiplier = 4.0
+@export var happiness_to_tourists_multiplier = 10.0
+@export var tourists_to_wattage_multiplier = 10.0
 
 # Node references - initialize as null
 var selected_skill_node: SkillNode = null
@@ -405,6 +405,13 @@ func update_happiness(value):
 	happiness = clamp(happiness + value, 0, 100)
 	update_happiness_image()
 
+func contaminate(contamination_value: float):
+	var whole = - contamination_value / 100
+	# Decrease cleanliness based on the contamination value
+	cleanliness = clamp(cleanliness - whole, 0, 100)
+	cleanliness_bar.value = cleanliness
+	#calculate_happiness_based_on_cleanliness()
+
 func update_cleanliness(contamination_value):
 	if contamination_value < 0:  # Active contamination, cleanliness decreases
 		cleanliness = clamp(cleanliness + contamination_value, 0, 100)
@@ -428,9 +435,9 @@ func update_money(value):
 	money = max(money + value, 0)
 	money_label.text = "Money: " + str(money)
 
-func update_CC(value):
-	contaminationCapacity = max(contaminationCapacity + value, 0)
-	CC_label.text = "Capacidad: " + str(contaminationCapacity)
+#func update_CC(value):
+#	contaminationCapacity = max(contaminationCapacity + value, 0)
+#	CC_label.text = "Capacidad: " + str(contaminationCapacity)
 
 # Update happiness image based on the current happiness value
 func update_happiness_image():
@@ -445,19 +452,22 @@ func calculate_happiness_based_on_cleanliness():
 
 func calculate_tourists_based_on_happiness():
 	var happiness_factor = happiness / 100.0  # Normalize happiness to 0-1
-	var adjustment = lerp(-1.0, 1.0, happiness_factor)  # Gradual adjustment based on happiness
+	var adjustment = 0.0
 	
-	if adjustment < 0:  # If happiness is low, decrease tourists
-		update_tourists(int(adjustment * 5 * happiness_to_tourists_multiplier))
-	else:  # If happiness is high, increase tourists
-		update_tourists(int(adjustment * happiness_to_tourists_multiplier))
+	# If happiness is above 0.5, increase tourists, if below, decrease them
+	if happiness_factor > 0.5:
+		adjustment = (happiness_factor - 0.5) * 2  # Scale from 0 to 1
+	elif happiness_factor < 0.5:
+		adjustment = (happiness_factor - 0.5) * 2  # Scale from 0 to -1
+
+	# Apply the adjustment to tourists
+	update_tourists(int(adjustment * happiness_to_tourists_multiplier))
 
 	
 # Calculate wattage usage based on tourists with Lerp
 func calculate_wattage_usage():
 	var required_wattage = tourists * tourists_to_wattage_multiplier
 	wattage = clamp(wattage_capacity - required_wattage, 0, wattage_capacity) / wattage_capacity * 100
-	update_wattage(0)
 
 	var wattage_factor = wattage / 100.0  # Normalize wattage to 0-1
 	var happiness_adjustment = lerp(-1.0, 1.0, wattage_factor)  # Gradual adjustment based on wattage
@@ -467,6 +477,8 @@ func calculate_wattage_usage():
 func calculate_cleanliness_factors():
 	# Placeholder for future logic
 	pass
+
+
 
 func _process(delta):
 	var total_contamination = 0.0
@@ -478,10 +490,19 @@ func _process(delta):
 		
 		if num_plants > 0:
 			# Apply room-specific contamination and wattage effects
-			total_contamination += room.contaminationIndex * num_plants * delta
-			total_wattage += room.wattageIndex * num_plants * delta
-			total_happiness += room.happinessIndex * num_plants * delta
+			var room_total_contamination = room.contaminationIndex * num_plants * 100  # Calculate total contamination per room
+			total_contamination += room_total_contamination
+
+			# Check if the room's total contamination exceeds its capacity
+			if room_total_contamination > room.contaminationCapacity:
+				# Apply the excess contamination to cleanliness
+				contaminate(-(room_total_contamination - room.contaminationCapacity))
 			
+			wattage_capacity  = room.wattageIndex * num_plants * 1000
+			print(wattage_capacity * 1000)
+			
+			total_happiness += room.happinessIndex * num_plants * delta
+			print(total_happiness)
 			# Handle room notification timers or other specific room logic
 			room.notification_timer -= delta
 			if room.notification_timer <= 0:
@@ -489,7 +510,7 @@ func _process(delta):
 				room.notification_timer = room.notification_interval  # Reset the timer for next notification
 
 	# Apply contamination effect (e.g., decreasing cleanliness)
-	update_cleanliness(-total_contamination)
+	#update_cleanliness(-total_contamination)
 	
 	# Apply wattage effect (e.g., modifying wattage capacity)
 	update_wattage(total_wattage)
@@ -651,7 +672,7 @@ func save_game():
 		"wattage_capacity": wattage_capacity,
 		"cleanliness": cleanliness,
 		"money": money,
-		"contaminationCapacity": contaminationCapacity,
+		#"contaminationCapacity": contaminationCapacity,
 		"roomAmount":[rooms[0].plant_amount,
 		rooms[1].plant_amount,
 		rooms[2].plant_amount,
@@ -686,14 +707,15 @@ func load_game():
 			wattage_capacity = save_data.get("wattage_capacity", 100)
 			cleanliness = save_data.get("cleanliness", 100)
 			money = save_data.get("money", 1000)
-			contaminationCapacity = save_data.get("contaminationCapacity", 0)
+			#contaminationCapacity = save_data.get("contaminationCapacity", 0)
 
 			update_happiness_image()
 			update_tourists(tourists)
 			update_wattage(wattage)
-			update_cleanliness(cleanliness)
+			#TODO: LOAD CLEANLINESS WELL
+			#update_cleanliness(cleanliness)
 			update_money(money)
-			update_CC(contaminationCapacity)
+			#update_CC(contaminationCapacity)
 			
 			#Load room amount
 			var roomsTemp = save_data.get("roomAmount", [])
