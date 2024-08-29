@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=107 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
@@ -99,7 +99,8 @@
 [ext_resource type="Texture2D" uid="uid://65vtgwu1048p" path="res://sprites/techs/solar/bateria.png" id="28_65x1m"]
 [ext_resource type="Texture2D" uid="uid://d1362fa8078gw" path="res://sprites/techs/solar/fotoelectrico.png" id="29_td53n"]
 [ext_resource type="Texture2D" uid="uid://tdn5jfu5i23q" path="res://sprites/techs/solar/irridanci.png" id="30_ot7bn"]
-[ext_resource type="Texture2D" uid="uid://dydv8kacdvw5l" path="res://sprites/happy0.png" id="99_lfs07"]
+[ext_resource type="Texture2D" uid="uid://dqm7m8qnedvbc" path="res://sprites/ui/contamination.png" id="99_g7gaj"]
+[ext_resource type="Texture2D" uid="uid://jug0vxchmc3d" path="res://sprites/ui/energy_icon.png" id="100_35xoh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpcy"]
 bg_color = Color(0.929412, 0.466667, 0.0235294, 1)
@@ -130,6 +131,8 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ithfo"]
 bg_color = Color(0.956863, 0.454902, 0.0313726, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -175,6 +178,7 @@ expand_mode = 3
 [node name="Tourists" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.353479, 0.16286, 0.0259053, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Turistas: 999"
@@ -204,6 +208,7 @@ text = "Capacity: 0
 [node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.353479, 0.16286, 0.0259053, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Money: 1000"
@@ -225,6 +230,7 @@ clicker_reward = 15
 energy_type = "Central de Combustibles Fósiles"
 plant_amount = 1
 id = 0
+shorhand = "Fósiles"
 contaminationIndex = 1.5
 happinessIndex = -0.3
 wattageIndex = 1.5
@@ -252,6 +258,8 @@ energy_type = "Central Hidroeléctrica"
 plant_cost = 1200
 remove_plant_refund = 800
 id = 1
+unlocked = false
+shorhand = "Hidroeléctrica"
 contaminationIndex = 0.3
 happinessIndex = 0.2
 wattageIndex = 1.2
@@ -278,6 +286,8 @@ energy_type = "Central Eólica"
 plant_cost = 1000
 remove_plant_refund = 600
 id = 2
+unlocked = false
+shorhand = "Eólica"
 contaminationIndex = 0.1
 happinessIndex = -0.1
 wattageIndex = 0.8
@@ -305,6 +315,8 @@ energy_type = "Central Solar"
 plant_cost = 1200
 remove_plant_refund = 800
 id = 3
+unlocked = false
+shorhand = "Solar"
 contaminationIndex = 0.05
 happinessIndex = 0.3
 wattageIndex = 0.7
@@ -331,6 +343,8 @@ energy_type = "Central Geotérmica"
 plant_cost = 2000
 remove_plant_refund = 1000
 id = 4
+unlocked = false
+shorhand = "Geotérmica"
 contaminationIndex = 0.2
 happinessIndex = 0.1
 contaminationCapacity = 2000
@@ -358,6 +372,8 @@ plant_cost = 3500
 remove_plant_refund = 2000
 cost_increase_per_plant = 200
 id = 5
+unlocked = false
+shorhand = "Nuclear"
 contaminationIndex = 0.5
 happinessIndex = 0.2
 wattageIndex = 2.5
@@ -2315,16 +2331,18 @@ texture_normal = ExtResource("13_vm3tp")
 [node name="Menu" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 26
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 text = "Cantidad de Plantas"
 horizontal_alignment = 1
 
@@ -2332,12 +2350,15 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 72
 text = "0
 "
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+[node name="DataContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2345,15 +2366,19 @@ theme_override_font_sizes/font_size = 36
 text = "Crear Planta"
 horizontal_alignment = 1
 
-[node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+[node name="CreatePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("8_rwo8v")
 text = "999 Gold"
 
-[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+[node name="DataContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2361,8 +2386,9 @@ theme_override_font_sizes/font_size = 36
 text = "Quitar Planta"
 horizontal_alignment = 1
 
-[node name="DeletePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
+[node name="DeletePlant" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 30
@@ -2381,7 +2407,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3"]
+[node name="ContXPlanta" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2391,7 +2417,8 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("99_lfs07")
+texture = ExtResource("99_g7gaj")
+expand_mode = 2
 
 [node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer"]
 layout_mode = 2
@@ -2405,7 +2432,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4"]
+[node name="EnergXPlanta" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2415,16 +2442,51 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
-texture = ExtResource("99_lfs07")
+texture = ExtResource("100_35xoh")
+expand_mode = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 42
+text = "Tecnología"
+horizontal_alignment = 1
+
+[node name="OpenTechTree" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
+text = "Ver Árbol Tecnológico"
+
+[node name="AnimalPic" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_wyxp4")
+expand_mode = 4
+
+[node name="OpenAnimalInfo" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_rwo8v")
+text = "¿Quién Soy?"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 text = "Resumen"
 horizontal_alignment = 1
 
@@ -2450,7 +2512,8 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("99_lfs07")
+texture = ExtResource("99_g7gaj")
+expand_mode = 2
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
@@ -2464,7 +2527,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2"]
+[node name="ContTotal" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2474,7 +2537,33 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("99_lfs07")
+texture = ExtResource("99_g7gaj")
+expand_mode = 3
+
+[node name="BajoCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.486275, 0.129412, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "Estás bajo la capacidad"
+horizontal_alignment = 1
+
+[node name="SobreCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75183, 0, 0.170874, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "Estás sobre la capacidad"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 36
+text = "----------------------------------------"
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2"]
 layout_mode = 2
@@ -2488,7 +2577,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ContCap" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3"]
+[node name="EnergTotal" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
@@ -2498,39 +2587,8 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("99_lfs07")
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Menu"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 36
-text = "Tecnología"
-horizontal_alignment = 1
-
-[node name="OpenTechTree" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("8_rwo8v")
-text = "Ver Árbol Tecnológico"
-
-[node name="AnimalPic" type="TextureRect" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("1_wyxp4")
-expand_mode = 4
-
-[node name="OpenAnimalInfo" type="Button" parent="PanelContainer/VBoxContainer/Menu/VBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("8_rwo8v")
-text = "¿Quién Soy?"
+texture = ExtResource("100_35xoh")
+expand_mode = 3
 
 [node name="PanelCover" type="Panel" parent="."]
 visible = false
@@ -2615,12 +2673,14 @@ expand_mode = 5
 [node name="Name" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("5_hkpeo")
+theme_override_font_sizes/font_size = 32
 text = "Nombre: EEEEEEEE"
 
 [node name="Species" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 26
 text = "Lepidochelys olivacea
 "
@@ -2628,6 +2688,7 @@ text = "Lepidochelys olivacea
 [node name="Scientific" type="Label" parent="AnimalInfo/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 26
 text = "Lepidochelys olivacea
 "

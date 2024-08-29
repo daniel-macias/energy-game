@@ -11,6 +11,9 @@ extends Control
 @export var remove_plant_refund = 300  # Amount refunded when a plant is removed
 @export var cost_increase_per_plant = 100  # How much the cost increases per plant
 @export var id = -1
+@export var unlocked = true
+@export var unlock_price = 10000
+@export var shorhand = "energ"
 
 #these are the default indexes the plants provide without modifications
 @export var contaminationIndex = 1.0;
@@ -35,6 +38,12 @@ extends Control
 @onready var dark_panel = $DarkPanel
 
 @onready var animation_player = $AnimationPlayer
+@onready var animation_player_animal = $AnimationPlayerAnimal
+@onready var animation_player_bag = $AnimationPlayerBag
+
+@onready var lock_panel = $LockPanel
+@onready var shorthand_label = $LockPanel/Shorthand
+@onready var unlock_btn = $LockPanel/UnlockBtn
 
 # To track the time for notifications
 var notification_timer = 0.0
@@ -66,8 +75,18 @@ func _ready():
 	change_background()
 	clicker_button.texture_normal = animal_bodies[id]
 	
+	unlock_btn.pressed.connect(on_unlock_btn)
+	
 	update_room_state()
 	
+func on_unlock_btn():
+	if GameManager.money >= unlock_price:
+		unlocked = true
+		GameManager.update_money(-unlock_price)
+		lock_panel.visible = false
+	else:
+		print("Not enough money to unlock")
+
 func change_background():
 	match id:
 		0:
@@ -84,17 +103,27 @@ func change_background():
 			background.texture = background_5
 
 func update_room_state():
+	if unlocked:
+		lock_panel.visible = false
+	else:
+		lock_panel.visible = true
+		shorthand_label.text = shorhand
+		unlock_btn.text = "$ " + str(unlock_price)
+		
+	
 	if plant_amount > 0:
 		dark_panel.visible = false  # Hide the dark panel
 		clicker_button.visible = true
 		room_button.texture_normal = computer_on
 		animation_player.play("ComputerOn")
+		animation_player_animal.play("animal_scale")
 		#animation_player.play("room_active")  # Play an animation to show room is active
 	else:
 		dark_panel.visible = true  # Show the dark panel
 		clicker_button.visible = false
 		room_button.texture_normal = computer_off
 		animation_player.stop()
+		animation_player_animal.stop()
 		#animation_player.stop()  # Stop any running animations
 
 # Function to handle the Clicker button press
@@ -106,7 +135,7 @@ func _on_RoomButton_pressed():
 	 # Call the main scene's function to show the energy panel with this room's energy type
 	print("Plant amount: ", plant_amount)
 	GameManager.show_energy_panel(energy_type)
-	GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+	GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id, contaminationCapacity, contaminationIndex, wattageIndex)
 	GameManager.update_animal_info(animal_name,animal_species,animal_scientific,animal_info,animal_portraits[id])
 
 # Function to handle the Notification button press
@@ -127,7 +156,7 @@ func create_plant():
 		update_room_state()
 		GameManager.update_money(-plant_cost)
 		plant_cost += cost_increase_per_plant  # Increase the cost after purchasing
-		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id, contaminationCapacity, contaminationIndex, wattageIndex)
 	print("Creating plant, current after ", plant_amount)
 	
 func remove_plant():
@@ -146,6 +175,6 @@ func remove_plant():
 		plant_amount -= 1
 		update_room_state()
 		GameManager.update_money(remove_plant_refund)
-		plant_cost -= cost_increase_per_plant  # Optional: Decrease the cost after selling
-		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id)
+		plant_cost -= cost_increase_per_plant 
+		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id, contaminationCapacity, contaminationIndex, wattageIndex)
 

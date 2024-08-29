@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://m20qguwbdhdt"]
+[gd_scene load_steps=13 format=3 uid="uid://m20qguwbdhdt"]
 
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_4sh66"]
 [ext_resource type="Script" path="res://scripts/Room.gd" id="1_xqrcf"]
-[ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="2_wbds3"]
 [ext_resource type="Texture2D" uid="uid://d1u6pxmgq703g" path="res://sprites/ui/computer/compu_on.png" id="3_e4pch"]
+[ext_resource type="Texture2D" uid="uid://64o5v7jgnflh" path="res://sprites/ui/money_bad.png" id="4_fbbwv"]
 [ext_resource type="Texture2D" uid="uid://f2oo4us6r0lg" path="res://sprites/Animalito finales/Boa.png" id="5_qch48"]
 [ext_resource type="Texture2D" uid="uid://dohlmdi7gbs51" path="res://sprites/Animalito finales/Casco.png" id="6_nuv04"]
+[ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="7_nffjx"]
+[ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="8_0s2as"]
 
 [sub_resource type="Animation" id="Animation_344kl"]
 resource_name = "ComputerOn"
@@ -29,6 +31,28 @@ _data = {
 "ComputerOn": SubResource("Animation_344kl")
 }
 
+[sub_resource type="Animation" id="Animation_2jxe0"]
+resource_name = "animal_scale"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clicker:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh8r7"]
+_data = {
+"animal_scale": SubResource("Animation_2jxe0")
+}
+
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(500, 320)
 layout_mode = 3
@@ -44,10 +68,10 @@ offset_bottom = 320.0
 texture = ExtResource("1_4sh66")
 
 [node name="DarkPanel" type="Panel" parent="."]
-visible = false
 layout_mode = 0
+offset_left = -1.0
 offset_right = 503.0
-offset_bottom = 321.0
+offset_bottom = 350.0
 
 [node name="Computer" type="TextureButton" parent="."]
 layout_mode = 1
@@ -70,7 +94,7 @@ offset_left = 53.0
 offset_top = 177.0
 offset_right = 134.0
 offset_bottom = 258.0
-texture_normal = ExtResource("2_wbds3")
+texture_normal = ExtResource("4_fbbwv")
 stretch_mode = 0
 
 [node name="Clicker" type="TextureButton" parent="."]
@@ -79,11 +103,13 @@ offset_left = 316.0
 offset_top = 101.0
 offset_right = 481.0
 offset_bottom = 265.0
+pivot_offset = Vector2(0, 210)
 texture_normal = ExtResource("5_qch48")
 stretch_mode = 0
 flip_h = true
 
 [node name="Helmet" type="TextureRect" parent="Clicker"]
+visible = false
 layout_mode = 0
 offset_left = 61.0
 offset_top = 1.0
@@ -96,3 +122,69 @@ flip_h = true
 libraries = {
 "": SubResource("AnimationLibrary_muawn")
 }
+
+[node name="AnimationPlayerAnimal" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hh8r7")
+}
+
+[node name="AnimationPlayerBag" type="AnimationPlayer" parent="."]
+
+[node name="LockPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 322.0
+
+[node name="Label" type="Label" parent="LockPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -119.0
+offset_right = 136.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_nffjx")
+theme_override_font_sizes/font_size = 48
+text = "Desbloquea"
+
+[node name="Shorthand" type="Label" parent="LockPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -39.0
+offset_right = 172.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_nffjx")
+theme_override_font_sizes/font_size = 48
+text = "Hydroeléctrica"
+horizontal_alignment = 1
+
+[node name="UnlockBtn" type="Button" parent="LockPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 50.0
+offset_right = 106.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nffjx")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("8_0s2as")
+text = "100000"

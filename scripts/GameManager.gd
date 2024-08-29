@@ -18,11 +18,11 @@ var main_game_scene: Node = null
 
 # Image paths for happiness states
 var happiness_images = [
-	"res://sprites/happy0.png",
-	"res://sprites/happy1.png",
-	"res://sprites/happy2.png",
-	"res://sprites/happy3.png",
-	"res://sprites/happy4.png"
+	"res://sprites/ui/happy_0.png",
+	"res://sprites/ui/happy_1.png",
+	"res://sprites/ui/happy_2.png",
+	"res://sprites/ui/happy_3.png",
+	"res://sprites/ui/happy_4.png"
 ]
 
 var empty_tech := "res://sprites/techs/empty_tech.png"
@@ -70,6 +70,14 @@ var plant_amount_label: Label = null
 var create_plant_button: Button = null
 var remove_plant_button: Button = null
 var open_tech_tree_button: Button = null
+
+var bajo_cap : Label = null
+var sobre_cap : Label = null
+var energ_total : Label = null
+var cont_cap : Label = null
+var cont_total : Label = null
+var cont_x_planta : Label = null
+var energ_x_planta : Label = null
 
 var panel_cover : Panel = null
 
@@ -140,8 +148,8 @@ func initialize_game_logic():
 	energy_title = get_node("/root/Control/PanelContainer/VBoxContainer/TopColor/TopBar/EnergyType")
 	exit_button = get_node("/root/Control/PanelContainer/VBoxContainer/TopColor/TopBar/ExitButton")
 	plant_amount_label = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/PlantAmount")
-	create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/CreatePlant")
-	remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DeletePlant")
+	create_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer/CreatePlant")
+	remove_plant_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/DataContainer2/DeletePlant")
 	open_tech_tree_button = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer3/OpenTechTree")
 
 	panel_cover = get_node("/root/Control/PanelCover")
@@ -172,6 +180,15 @@ func initialize_game_logic():
 	custom_dialog_title = get_node("/root/Control/CustomDialog/VBoxContainer/Panel/TopBar/Title")
 	custom_dialog_desc = get_node("/root/Control/CustomDialog/VBoxContainer/InfoText")
 	custom_dialog_exit = get_node("/root/Control/CustomDialog/VBoxContainer/Panel/TopBar/ExitButton")
+	
+	#other panel info
+	bajo_cap = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer2/BajoCap")
+	sobre_cap = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer2/SobreCap")
+	energ_total = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer3/EnergTotal")
+	cont_cap = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer/ContCap")
+	cont_total = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer2/HBoxContainer2/ContTotal")
+	cont_x_planta = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3/ContXPlanta")
+	energ_x_planta = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4/EnergXPlanta")
 	
 	
 	# Initially hide the energy panel
@@ -278,13 +295,27 @@ func _on_RemovePlantButton_pressed():
 		room.remove_plant()
 		save_game()
 
-func update_panel(plant_amount, plant_cost, remove_plant_refund, id):
+func update_panel(plant_amount, plant_cost, remove_plant_refund, id, CC, contaminationI, wattageI):
 	print("updating panel")
 	currently_selected_room = id
 	print(plant_amount)
 	plant_amount_label.text = str(plant_amount)
-	create_plant_button.text = str(plant_cost) + " Gold"
-	remove_plant_button.text = str(remove_plant_refund) + " Gold"
+	create_plant_button.text = "- $ " + str(plant_cost)
+	remove_plant_button.text =  "+ $ " +str(remove_plant_refund)
+	
+	cont_cap.text = str(CC)
+	cont_total.text = str(contaminationI * 100 * plant_amount)
+	energ_total.text = str(wattageI * 1000 * plant_amount)
+	energ_x_planta.text = str(wattageI * 1000)
+	cont_x_planta.text = str(contaminationI * 100)
+	if CC > contaminationI * 100 * plant_amount:
+		bajo_cap.visible = true
+		sobre_cap.visible = false
+	else:
+		bajo_cap.visible = false
+		sobre_cap.visible = true
+	
+	
 
 func update_animal_info(name, species, scientific, info, animal_portrait):
 	animal_info.text = info
@@ -438,7 +469,7 @@ func update_wattage(value):
 
 func update_money(value):
 	money = max(money + value, 0)
-	money_label.text = "Money: " + str(money)
+	money_label.text = "$ " + str(money)
 
 #func update_CC(value):
 #	contaminationCapacity = max(contaminationCapacity + value, 0)
