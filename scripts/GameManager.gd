@@ -8,7 +8,7 @@ var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 50  # 0 to 100
-var money = 100000000
+var money = 90000000
 #var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
@@ -31,6 +31,13 @@ var empty_tech := "res://sprites/techs/empty_tech.png"
 @export var cleanliness_to_happiness_multiplier = 4.0
 @export var happiness_to_tourists_multiplier = 10.0
 @export var tourists_to_wattage_multiplier = 10.0
+
+@export var money_per_tourist: float = 10.0  # Money generated per tourist per minute
+@export var update_interval: float = 1.0  # Interval for updating money (in seconds)
+var total_money_generated: float = 0.0
+
+var money_generated_last_minute: float = 0.0  # To track money generated over the last minute
+var minute_timer: float = 0.0  # Timer to track the last minute for averaging
 
 # Node references - initialize as null
 var selected_skill_node: SkillNode = null
@@ -106,6 +113,8 @@ var custom_dialog : PanelContainer = null
 var custom_dialog_title : Label = null
 var custom_dialog_desc : Label = null
 var custom_dialog_exit : TextureButton = null
+
+var avg_money_label : Label = null
 
 #Fish game var
 var trash_shot := 0
@@ -190,6 +199,7 @@ func initialize_game_logic():
 	cont_x_planta = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer3/ContXPlanta")
 	energ_x_planta = get_node("/root/Control/PanelContainer/VBoxContainer/Menu/VBoxContainer/HBoxContainer4/EnergXPlanta")
 	
+	avg_money_label = get_node("/root/Control/VBoxContainer/HBoxContainer/IncomeAvg")
 	
 	# Initially hide the energy panel
 	#energy_panel.visible = false
@@ -469,7 +479,12 @@ func update_wattage(value):
 
 func update_money(value):
 	money = max(money + value, 0)
-	money_label.text = "$ " + str(money)
+	money_label.text = "$ " + str(int(money))
+	for room in rooms:
+		if room.unlock_price > money:
+			room.unlock_btn.disabled = true
+		else:
+			room.unlock_btn.disabled = false
 
 #func update_CC(value):
 #	contaminationCapacity = max(contaminationCapacity + value, 0)
@@ -521,6 +536,14 @@ func _process(delta):
 	var total_wattage = 0.0
 	var total_happiness = 0.0
 	
+	minute_timer += delta
+	if minute_timer >= 60.0:  # Every minute
+		minute_timer = 0.0
+		calculate_avg_money_per_minute()  # Calculate the average money per minute
+
+	if update_interval > 0.0:
+		generate_money(delta)
+	
 	for room in rooms:
 		var num_plants = room.plant_amount
 		
@@ -535,10 +558,8 @@ func _process(delta):
 				contaminate(-(room_total_contamination - room.contaminationCapacity))
 			
 			wattage_capacity  = room.wattageIndex * num_plants * 1000
-			print(wattage_capacity * 1000)
 			
 			total_happiness += room.happinessIndex * num_plants * delta
-			print(total_happiness)
 			# Handle room notification timers or other specific room logic
 			room.notification_timer -= delta
 			if room.notification_timer <= 0:
@@ -562,6 +583,27 @@ func _process(delta):
 
 func trigger_notification(room):
 	room.notification_button.visible = true
+
+func generate_money(delta):
+	# Calculate money generated during this interval
+	var money_generated = (tourists * money_per_tourist) * (delta / 60.0)  # delta is divided by 60 to normalize per minute
+	total_money_generated += money_generated
+	money_generated_last_minute += money_generated
+
+	# Update the player's money
+	update_money(money_generated)
+
+func calculate_avg_money_per_minute():
+	var avg_money_per_minute = money_generated_last_minute
+	money_generated_last_minute = 0.0  # Reset for the next minute
+	
+	# Display or store avg_money_per_minute as needed
+	update_avg_money_display(avg_money_per_minute)
+
+func update_avg_money_display(avg_money_per_minute):
+	# Assuming you have a label or UI element to display the average money per minute
+	avg_money_label.text = "$ por minuto: " + str(int(avg_money_per_minute))
+
 
 # Update the skill panel with the selected skill details
 func update_skill_panel(title: String, description: String, price: int, effects: Array, skill_node: SkillNode):
@@ -709,6 +751,12 @@ func save_game():
 		"cleanliness": cleanliness,
 		"money": money,
 		#"contaminationCapacity": contaminationCapacity,
+		"roomsUnlocked":[rooms[0].unlocked,
+		rooms[1].unlocked,
+		rooms[2].unlocked,
+		rooms[3].unlocked,
+		rooms[4].unlocked,
+		rooms[5].unlocked],
 		"roomAmount":[rooms[0].plant_amount,
 		rooms[1].plant_amount,
 		rooms[2].plant_amount,
@@ -743,24 +791,26 @@ func load_game():
 			wattage_capacity = save_data.get("wattage_capacity", 100)
 			cleanliness = save_data.get("cleanliness", 100)
 			money = save_data.get("money", 1000)
-			#contaminationCapacity = save_data.get("contaminationCapacity", 0)
 
 			update_happiness_image()
 			update_tourists(tourists)
 			update_wattage(wattage)
-			#TODO: LOAD CLEANLINESS WELL
-			#update_cleanliness(cleanliness)
-			update_money(money)
-			#update_CC(contaminationCapacity)
-			
+
 			#Load room amount
 			var roomsTemp = save_data.get("roomAmount", [])
+			var roomsUnlocked = save_data.get("roomsUnlocked", [])
 			rooms[0].plant_amount = roomsTemp[0]
+			rooms[0].unlocked = roomsUnlocked[0]
 			rooms[1].plant_amount = roomsTemp[1]
+			rooms[1].unlocked = roomsUnlocked[1]
 			rooms[2].plant_amount = roomsTemp[2]
+			rooms[2].unlocked = roomsUnlocked[2]
 			rooms[3].plant_amount = roomsTemp[3]
+			rooms[3].unlocked = roomsUnlocked[3]
 			rooms[4].plant_amount = roomsTemp[4]
+			rooms[4].unlocked = roomsUnlocked[4]
 			rooms[5].plant_amount = roomsTemp[5]
+			rooms[5].unlocked = roomsUnlocked[5]
 			
 			for room in GameManager.rooms:
 				room.update_room_state()
@@ -769,10 +819,19 @@ func load_game():
 			# Load the state of all skills
 			var skills_data = save_data.get("skills", [])
 			var all_skills = get_all_skills()
-
-			#TODO: Fix way skills are loaded
-			#for i in range(skills_data.size()):
-				#all_skills[i].load_state(skills_data[i])
+			
+			print(all_skills)
+			for i in range(all_skills.size()):
+				print("Button Values")
+				print("Room ID " + str(all_skills[i].roomId))
+				print("Skill ID " + str(all_skills[i].skillId))
+				print("Loaded Values")
+				print("Room ID " + str(skills_data[i].roomId))
+				print("Skill ID " + str(skills_data[i].skillId))
+				
+				
+			for i in range(skills_data.size()):
+				all_skills[i].load_state(skills_data[i])
 		
 		file.close()
 

@@ -92,7 +92,7 @@ func activate_without_purchase():
 	level = min(level+1, 3)
 	var skills = get_children()
 	for skill in skills:
-		if skill is SkillNode and level == 1:
+		if skill is SkillNode and (level == 1 or level == 2 or level == 3):
 			skill.unlocked = true
 			skill.lock.visible = false
 		
@@ -111,12 +111,14 @@ func save_state() -> Dictionary:
 		"skillId": skillId
 	}
 	
-# Load skill state
+#Loading skill
 func load_state(data: Dictionary):
 	activated = data.get("activated", false)
 	level = data.get("level", 0)
 	if activated:
-		disabled = true
+		activate_without_purchase()
+		unlocked = true
 		for effect in effects:
-			GameManager.apply_skill_effect(effect["type"],effect["value"], roomId, level)
-
+			for i in range(level):  # Loop through each level
+				GameManager.apply_skill_effect(effect["type"], effect["value"], roomId, level)
+	_update_lines()
