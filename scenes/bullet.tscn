@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctowiak2g7haf"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_sywii"]
-[ext_resource type="Texture2D" uid="uid://dn1xjicoqmodk" path="res://checkered_green.png" id="2_unmn8"]
+[ext_resource type="Texture2D" uid="uid://mwrhxffxy7c6" path="res://sprites/ui/bubble.png" id="2_2em0e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhcr1"]
 
@@ -14,4 +14,4 @@ shape = SubResource("CircleShape2D_uhcr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_unmn8")
+texture = ExtResource("2_2em0e")

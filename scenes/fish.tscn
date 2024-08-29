@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://rnnp6armamg3"]
+[gd_scene load_steps=15 format=3 uid="uid://rnnp6armamg3"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_1vfep"]
 [ext_resource type="Texture2D" uid="uid://dsqirwk4ck61h" path="res://sprites/fish/Todo junto.png" id="2_lgl7b"]
+[ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="3_5v4p4"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="3_dlg1i"]
+[ext_resource type="Texture2D" uid="uid://bm1pp3x5ktcb7" path="res://sprites/fish/Don Cangejo.png" id="4_7mcr6"]
 [ext_resource type="Texture2D" uid="uid://bl1lac5w7alwo" path="res://sprites/fish/Don Octavio.png" id="4_ugico"]
+[ext_resource type="Texture2D" uid="uid://cadh3d6rryq46" path="res://sprites/fish/Pescadoso.png" id="5_wcq22"]
+[ext_resource type="Texture2D" uid="uid://q8j1hr8mi513" path="res://sprites/fish/Pulposo.png" id="6_bmh5o"]
+[ext_resource type="Texture2D" uid="uid://cpcyf7eg3mjcp" path="res://sprites/fish/Oil.png" id="7_7pg2r"]
+[ext_resource type="Texture2D" uid="uid://ddtoudyqhljqt" path="res://sprites/fish/Panel.png" id="8_x7m7w"]
+[ext_resource type="Texture2D" uid="uid://ccfqww6i6wmpb" path="res://sprites/fish/Turbina.png" id="9_mloml"]
+[ext_resource type="Texture2D" uid="uid://vlvp63khjj4m" path="res://sprites/fish/Nuclear.png" id="10_ilkiy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbueh"]
+bg_color = Color(1.92523e-07, 0.232635, 0.354814, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch4lg"]
+bg_color = Color(0, 0.231373, 0.352941, 1)
 
 [node name="Fish" type="Control"]
 layout_mode = 3
@@ -37,37 +51,87 @@ offset_left = 20.0
 offset_top = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbueh")
 
 [node name="Label" type="Label" parent="StartMenu/Panel"]
 layout_mode = 2
 offset_left = 435.0
-offset_top = 233.0
+offset_top = 39.0
 offset_right = 1081.0
-offset_bottom = 288.0
-theme_override_font_sizes/font_size = 40
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 60
 text = "¡Limpia el Río!"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="StartMenu/Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-offset_left = 550.0
-offset_top = 301.0
-offset_right = 1015.0
-offset_bottom = 433.0
-theme_override_font_sizes/font_size = 30
-text = "Tienes 20 segundos para dispararle agua a la mayor cantidad de basura que puedas"
+offset_left = 442.0
+offset_top = 142.0
+offset_right = 1094.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 35
+text = "Tienes 20 segundos para dispararle agua a la mayor cantidad de basura sin lastimar a tus amigos"
+horizontal_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 3
+
+[node name="Label3" type="Label" parent="StartMenu/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 442.0
+offset_top = 313.0
+offset_right = 1094.0
+offset_bottom = 491.0
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 35
+text = "Don Octavio el pez requiere $1000 para limpiar"
+horizontal_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 3
+
+[node name="Label4" type="Label" parent="StartMenu/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 24.0
+offset_top = 248.0
+offset_right = 363.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 40
+text = "Basura"
+horizontal_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 3
+
+[node name="Label5" type="Label" parent="StartMenu/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 1121.0
+offset_top = 248.0
+offset_right = 1460.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 40
+text = "Amigos
+"
+horizontal_alignment = 1
 autowrap_mode = 2
 max_lines_visible = 3
 
 [node name="StartGame" type="Button" parent="StartMenu/Panel"]
 layout_mode = 2
 offset_left = 432.0
-offset_top = 457.0
+offset_top = 540.0
 offset_right = 1078.0
-offset_bottom = 520.0
-theme_override_font_sizes/font_size = 40
-text = "Iniciar Juego"
+offset_bottom = 611.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = ExtResource("3_5v4p4")
+text = "Iniciar Juego - $1000"
 
 [node name="ReturnToEnergyManager" type="Button" parent="StartMenu/Panel"]
 layout_mode = 1
@@ -76,13 +140,89 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = 197.0
-offset_right = 54.0
-offset_bottom = 228.0
+offset_left = -228.0
+offset_top = 270.5
+offset_right = 207.0
+offset_bottom = 320.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Return to game"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dlg1i")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_5v4p4")
+text = "Regresar al Centro de Energía"
+
+[node name="TextureRect" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 1164.0
+offset_top = 322.0
+offset_right = 1292.0
+offset_bottom = 436.0
+texture = ExtResource("4_7mcr6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 322.0
+offset_right = 1432.0
+offset_bottom = 436.0
+texture = ExtResource("5_wcq22")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 1229.0
+offset_top = 430.0
+offset_right = 1357.0
+offset_bottom = 544.0
+texture = ExtResource("6_bmh5o")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 328.0
+offset_right = 170.0
+offset_bottom = 442.0
+texture = ExtResource("7_7pg2r")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 478.0
+offset_right = 322.0
+offset_bottom = 592.0
+texture = ExtResource("8_x7m7w")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 466.0
+offset_right = 170.0
+offset_bottom = 580.0
+texture = ExtResource("9_mloml")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 328.0
+offset_right = 324.0
+offset_bottom = 442.0
+texture = ExtResource("10_ilkiy")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="StartMenu/Panel"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 415.0
+offset_right = 804.0
+offset_bottom = 507.0
+texture = ExtResource("4_ugico")
+expand_mode = 1
 
 [node name="Results" type="Control" parent="."]
 visible = false
@@ -108,6 +248,7 @@ offset_left = 20.0
 offset_top = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ch4lg")
 
 [node name="ReturnToEnergyManager" type="Button" parent="Results/Panel"]
 layout_mode = 1
@@ -122,7 +263,10 @@ offset_right = 214.0
 offset_bottom = 262.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_5v4p4")
 text = "Regresar al juego principal"
 
 [node name="Label" type="Label" parent="Results/Panel"]
@@ -138,6 +282,7 @@ offset_right = 107.0
 offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Resultados"
 
@@ -154,6 +299,7 @@ offset_right = 107.0
 offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Puntaje"
 horizontal_alignment = 1
@@ -171,6 +317,7 @@ offset_right = 107.0
 offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Test"
 horizontal_alignment = 1
@@ -188,6 +335,7 @@ offset_right = 518.0
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Amigos Lastimados"
 
@@ -204,6 +352,7 @@ offset_right = -87.5
 offset_bottom = -106.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 40
 text = "Basura Eliminada"
 
@@ -220,6 +369,7 @@ offset_right = -87.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 64
 text = "00"
 horizontal_alignment = 1
@@ -237,6 +387,7 @@ offset_right = 490.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 64
 text = "00"
 horizontal_alignment = 1
@@ -285,6 +436,7 @@ theme_override_font_sizes/font_size = 50
 text = "00:00"
 
 [node name="Player" type="Sprite2D" parent="Game"]
+z_index = 1
 position = Vector2(98, 381)
 scale = Vector2(0.705801, 0.705801)
 texture = ExtResource("4_ugico")

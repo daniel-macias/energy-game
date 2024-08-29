@@ -61,6 +61,8 @@ var notification_time_target = 0.0
 @export var computer_on : Texture2D
 @export var computer_off : Texture2D
 
+@export var floating_label_scene = preload("res://scenes/floating_label.tscn")
+
 func _ready():
 	# Hide the notification button at the start
 	notification_button.visible = false
@@ -78,7 +80,23 @@ func _ready():
 	unlock_btn.pressed.connect(on_unlock_btn)
 	
 	update_room_state()
+
+func show_floating_gold(value: int, position: Vector2):
+	print(position)
+	# Instance the FloatingLabel scene
+	var floating_label_instance = floating_label_scene.instantiate()
 	
+	# Set the label's text
+	floating_label_instance.text = "+$ " + str(value)
+	
+	# Set the position where the label should appear
+	floating_label_instance.position = position
+	print(floating_label_instance.position)
+	
+	# Add the floating label to the current scene
+	add_child(floating_label_instance)
+
+
 func on_unlock_btn():
 	if GameManager.money >= unlock_price:
 		unlocked = true
@@ -129,6 +147,7 @@ func update_room_state():
 # Function to handle the Clicker button press
 func _on_Clicker_pressed():
 	GameManager.update_money(clicker_reward)
+	show_floating_gold(clicker_reward, get_global_mouse_position())
 
 
 func _on_RoomButton_pressed():
@@ -141,6 +160,7 @@ func _on_RoomButton_pressed():
 # Function to handle the Notification button press
 func _on_Notification_pressed():
 	GameManager.update_money(notification_reward)
+	show_floating_gold(notification_reward, get_global_mouse_position())
 	notification_button.visible = false  # Hide the notification again
 	notification_time_target = notification_interval + randf() * notification_interval_randomness
 
@@ -177,4 +197,5 @@ func remove_plant():
 		GameManager.update_money(remove_plant_refund)
 		plant_cost -= cost_increase_per_plant 
 		GameManager.update_panel(plant_amount, plant_cost, remove_plant_refund, id, contaminationCapacity, contaminationIndex, wattageIndex)
+
 

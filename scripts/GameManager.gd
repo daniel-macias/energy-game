@@ -452,7 +452,7 @@ func set_cleanliness(value):
 	cleanliness_bar.value = value
 
 func contaminate(contamination_value: float):
-	var whole = - contamination_value / 100
+	var whole = - contamination_value / 10000
 	# Decrease cleanliness based on the contamination value
 	cleanliness = clamp(cleanliness - whole, 0, 100)
 	cleanliness_bar.value = cleanliness
@@ -517,8 +517,8 @@ func calculate_tourists_based_on_happiness():
 	
 # Calculate wattage usage based on tourists with Lerp
 func calculate_wattage_usage():
-	var required_wattage = tourists * tourists_to_wattage_multiplier
-	wattage = clamp(wattage_capacity - required_wattage, 0, wattage_capacity) / wattage_capacity * 100
+	var wattage_use_by_tourists = tourists * tourists_to_wattage_multiplier
+	wattage = clamp(wattage_capacity - wattage_use_by_tourists, 0, wattage_capacity) / wattage_capacity * 100
 
 	var wattage_factor = wattage / 100.0  # Normalize wattage to 0-1
 	var happiness_adjustment = lerp(-1.0, 1.0, wattage_factor)  # Gradual adjustment based on wattage
@@ -583,6 +583,8 @@ func _process(delta):
 
 func trigger_notification(room):
 	room.notification_button.visible = true
+	if not room.animation_player_bag.is_playing():
+		room.animation_player_bag.play("bag_appears")
 
 func generate_money(delta):
 	# Calculate money generated during this interval
@@ -643,7 +645,7 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 				color = Color(0, 1, 0)  # Green for positive impact (more energy is good)
 		
 			"happiness_multiplier":
-				display_text = "Felicidad: +%0.1f%%" % [effect_value * 100]
+				display_text = "Capacidad de Contaminación: +%0.1f%%" % [effect_value * 100]
 				color = Color(0, 1, 0)  # Green for positive impact
 		
 			"money_multiplier":
@@ -702,6 +704,7 @@ func close_skill_window():
 
 func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, level: int):
 	print("Applying: ", effect_type , "value: " , effect_value)
+
 	var room = rooms[roomId]
 	match effect_type:
 		"money_multiplier":
@@ -719,6 +722,7 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 		"happiness_multiplier":
 			# Increase or decrease happiness index by the percentage.
 			room.happinessIndex *= (1 + (effect_value * level))
+			room.contaminationCapacity *= (1 + (effect_value * level))
 		
 		"room_notification_value":
 			# Increase the reward when clicking notifications.

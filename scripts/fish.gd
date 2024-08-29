@@ -197,6 +197,8 @@ func shoot_bullet(target_position: Vector2):
 			bullet_instance.call("set_direction", direction)  # Safely set direction using method
 		else:
 			print("Bullet instance does not have set_direction method!")
+		# Rotate the player to face the direction of the target
+		player.look_at(target_position)
 	else:
 		print("Failed to create bullet instance")
 

@@ -99,7 +99,9 @@ func activate_without_purchase():
 	# Apply each effect in the array to the GameManager
 	for effect in effects:
 		GameManager.apply_skill_effect(effect["type"], effect["value"], roomId, level)
-		
+	
+	
+	GameManager.update_panel(GameManager.rooms[GameManager.currently_selected_room].plant_amount, GameManager.rooms[GameManager.currently_selected_room].plant_cost, GameManager.rooms[GameManager.currently_selected_room].remove_plant_refund, GameManager.rooms[GameManager.currently_selected_room].id, GameManager.rooms[GameManager.currently_selected_room].contaminationCapacity, GameManager.rooms[GameManager.currently_selected_room].contaminationIndex, GameManager.rooms[GameManager.currently_selected_room].wattageIndex)
 	
 # Save skill state
 func save_state() -> Dictionary:
