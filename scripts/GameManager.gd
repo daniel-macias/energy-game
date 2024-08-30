@@ -9,6 +9,7 @@ var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 50  # 0 to 100
 var money = 40000
+var attractiveness = 10
 #var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
@@ -31,8 +32,10 @@ var empty_tech := "res://sprites/ui/tech_empty.png"
 @export var cleanliness_to_happiness_multiplier = 4.0
 @export var happiness_to_tourists_multiplier = 10.0
 @export var tourists_to_wattage_multiplier = 10.0
+@export var wattage_to_happiness_multiplier = 2.0
 
-@export var money_per_tourist: float = 10.0  # Money generated per tourist per minute
+
+@export var money_per_tourist: float = 1.0  # Money generated per tourist per minute
 @export var update_interval: float = 1.0  # Interval for updating money (in seconds)
 var total_money_generated: float = 0.0
 
@@ -472,12 +475,12 @@ func update_cleanliness(contamination_value):
 	calculate_happiness_based_on_cleanliness()
 
 func update_tourists(value):
-	tourists = max(tourists + value, 0)
-	tourists_label.text = "Turistas: " + str(tourists)
+	tourists = value
+	tourists_label.text = "Turistas: " + str(int(tourists))
 	calculate_wattage_usage()
 
 func update_wattage(value):
-	wattage = clamp(wattage + value, 0, 100)
+	#wattage = clamp(wattage + value, 0, 100)
 	wattage_bar.value = wattage
 
 func update_money(value):
@@ -504,28 +507,32 @@ func calculate_happiness_based_on_cleanliness():
 	var adjustment = lerp(-1.0, 1.0, cleanliness_factor)  # Gradual adjustment based on cleanliness
 	update_happiness(adjustment * cleanliness_to_happiness_multiplier)
 
-func calculate_tourists_based_on_happiness():
-	var happiness_factor = happiness / 100.0  # Normalize happiness to 0-1
-	var adjustment = 0.0
-	
-	# If happiness is above 0.5, increase tourists, if below, decrease them
-	if happiness_factor > 0.5:
-		adjustment = (happiness_factor - 0.5) * 2  # Scale from 0 to 1
-	elif happiness_factor < 0.5:
-		adjustment = (happiness_factor - 0.5) * 2  # Scale from 0 to -1
+func calculate_tourists():
 
-	# Apply the adjustment to tourists
-	update_tourists(int(adjustment * happiness_to_tourists_multiplier))
+	var base_tourists = 50  # This is a base number of tourists you might start with.
+	var cleanliness_factor = cleanliness / 100.0  # Convert cleanliness to a factor between 0 and 1.
+	
+	# Calculate tourists based on cleanliness and attractiveness
+	var newTourismNumber = base_tourists * cleanliness_factor * attractiveness
+	
+	# Ensure you don't go below 0 tourists
+	newTourismNumber = max(newTourismNumber, 0)
+	
+	# Update the number of tourists
+	update_tourists(newTourismNumber)
 
 	
 # Calculate wattage usage based on tourists with Lerp
 func calculate_wattage_usage():
 	var wattage_use_by_tourists = tourists * tourists_to_wattage_multiplier
 	wattage = clamp(wattage_capacity - wattage_use_by_tourists, 0, wattage_capacity) / wattage_capacity * 100
+	
+	update_wattage(wattage)
+	#TODO: Update bar
 
 	var wattage_factor = wattage / 100.0  # Normalize wattage to 0-1
 	var happiness_adjustment = lerp(-1.0, 1.0, wattage_factor)  # Gradual adjustment based on wattage
-	update_happiness(happiness_adjustment * cleanliness_to_happiness_multiplier)
+	update_happiness(happiness_adjustment * wattage_to_happiness_multiplier)
 
 # New function to calculate cleanliness based on other factors
 func calculate_cleanliness_factors():
@@ -573,15 +580,15 @@ func _process(delta):
 	#update_cleanliness(-total_contamination)
 	
 	# Apply wattage effect (e.g., modifying wattage capacity)
-	update_wattage(total_wattage)
+	#update_wattage(total_wattage)
 
 	# Adjust happiness globally based on room effects
 	#adjust_happiness(total_happiness) NOT EXISTENT
 	
 	# Now apply the global updates based on the combined effects
 	calculate_happiness_based_on_cleanliness()
-	calculate_tourists_based_on_happiness()
-	calculate_wattage_usage()  # Could use total_wattage in the calculation
+	calculate_tourists()
+	#calculate_wattage_usage()  # Could use total_wattage in the calculation
 	calculate_cleanliness_factors()
 
 func trigger_notification(room):
@@ -614,7 +621,7 @@ func update_avg_money_display(avg_money_per_minute):
 func update_skill_panel(title: String, description: String, price: int, effects: Array, skill_node: SkillNode):
 	title_label.text = title
 	description_label.text = description
-	price_label.text = str(price) + " Gold"
+	price_label.text = "$ " + str(price) 
 	invest_button.disabled = money < price  # Disable if not enough money
 	tech_image.texture = skill_node.texture_normal  
 
@@ -725,6 +732,7 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 			# Increase or decrease happiness index by the percentage.
 			room.happinessIndex *= (1 + (effect_value * level))
 			room.contaminationCapacity *= (1 + (effect_value * level))
+			attractiveness *= (1 + (effect_value * level))
 		
 		"room_notification_value":
 			# Increase the reward when clicking notifications.

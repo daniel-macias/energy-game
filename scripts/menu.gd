@@ -15,16 +15,22 @@ extends Control
 @onready var currentTutorialPic = $TutorialScreen/CurrentPic
 @onready var tutorialNext = $TutorialScreen/Next
 @onready var tutorialBack = $TutorialScreen/Back
+@onready var tutorialStartGame = $TutorialScreen/IniciarJuegoTut
 
 @onready var splash_container = $Splash
 @onready var splash_0 = $Splash/Gob
 @onready var splash_1 = $Splash/Pobe
+
+var tutorial_index = 0
 
 func _ready():
 	# Hide both images initial
 	splash_container.visible = true
 	splash_0.modulate.a = 0
 	splash_1.modulate.a = 0
+	
+	tutorialNext.pressed.connect(handle_next_slide)
+	tutorialBack.pressed.connect(handle_back_slide)
 	
 	# Start the splash screen sequence
 	show_splash_sequence()
@@ -56,9 +62,13 @@ func _ready():
 		debug_label.text = "No save found"
 
 	# Connect button signals
-	play_button.pressed.connect(_on_play_button_pressed)
-	tutorial_button.pressed.connect(_on_tutorial_button_pressed)
-	options_button.pressed.connect(_on_options_button_pressed)
+	if hasSaveFile:
+		play_button.pressed.connect(_on_play_button_pressed)
+	else:
+		play_button.pressed.connect(display_tutorial)
+	#play_button.pressed.connect(_on_play_button_pressed)
+	tutorialStartGame.pressed.connect(_on_play_button_pressed)
+
 	
 	# Center and scale the animated sprite
 	center_and_scale_sprite()
@@ -120,11 +130,35 @@ func _on_game_scene_loaded():
 	else:
 		GameManager.initialize_game_logic()  # Start a fresh game
 
-func _on_tutorial_button_pressed():
-	get_tree().change_scene("res://scenes/tutorial.tscn")
 
-func _on_options_button_pressed():
-	get_tree().change_scene("res://scenes/options.tscn")
+func display_tutorial():
+	tutorialPanel.visible = true
+	
+
+func handle_next_slide():
+	if tutorial_index < 15:
+		tutorial_index += 1
+		currentTutorialPic.texture = tutorialPics[tutorial_index]
+		tutorialNext.text = "Siguiente"
+		tutorialNext.disabled = false
+		tutorialBack.disabled = false
+		tutorialStartGame.visible = false
+		if tutorial_index == 15:
+			tutorialStartGame.visible = true
+			tutorialNext.disabled = true
+		
+	
+
+func handle_back_slide():
+	if tutorial_index > 0:
+		tutorial_index -= 1
+		currentTutorialPic.texture = tutorialPics[tutorial_index]
+		tutorialBack.text = "Anterior"
+		tutorialBack.disabled = false
+		tutorialNext.disabled = false
+		tutorialStartGame.visible = false
+		if tutorial_index == 0:
+			tutorialBack.disabled = true
 
 func center_and_scale_sprite():
 	# Get the viewport size (screen size)
@@ -133,5 +167,3 @@ func center_and_scale_sprite():
 	# Center the sprite
 	animated_sprite.position = viewport_size / 2
 	
-	# Optionally scale the sprite
-	#animated_sprite.scale = Vector2(2, 2)  # Example: double the size of the sprite

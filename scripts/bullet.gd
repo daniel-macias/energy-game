@@ -27,6 +27,5 @@ func set_direction(new_direction: Vector2):
 
 func _on_bullet_collide(area):
 	# Handle bullet collision with trash
-	print("Bullet Col")
 	area.destroy()  # Call the destroy function on the trash node
 	queue_free()  # Destroy the bullet as well

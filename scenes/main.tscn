@@ -1,19 +1,35 @@
-[gd_scene load_steps=18 format=3 uid="uid://hed4wco3yctu"]
+[gd_scene load_steps=34 format=3 uid="uid://hed4wco3yctu"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_mt6cq"]
 [ext_resource type="Texture2D" uid="uid://dpph8hyqg0oxx" path="res://sprites/MAIN MENU/Nuevo Juego SOlo.png" id="2_ddmfj"]
 [ext_resource type="Texture2D" uid="uid://c1kjowr03g3xj" path="res://sprites/MAIN MENU/MAIN01.png" id="2_igflk"]
 [ext_resource type="Texture2D" uid="uid://bx3x2kbqcs30i" path="res://sprites/MAIN MENU/MAIN02.png" id="3_q6d6t"]
 [ext_resource type="Texture2D" uid="uid://dokwat0qjksfp" path="res://sprites/MAIN MENU/MAIN03.png" id="4_mhj2m"]
+[ext_resource type="Texture2D" uid="uid://d2t6guqilewiw" path="res://sprites/tutorial/Untitled-1.png" id="4_x3uf6"]
+[ext_resource type="Texture2D" uid="uid://xm4xbbus6b3s" path="res://sprites/tutorial/hgmhghg.png" id="5_awffu"]
 [ext_resource type="Texture2D" uid="uid://boy0aejho0od3" path="res://sprites/MAIN MENU/MAIN004.png" id="5_ecym7"]
+[ext_resource type="Texture2D" uid="uid://ojxvvujrsic7" path="res://sprites/tutorial/turururur.png" id="6_776rt"]
 [ext_resource type="Texture2D" uid="uid://be6o11k44wa2d" path="res://sprites/MAIN MENU/Continuarsolo.png" id="6_k0181"]
 [ext_resource type="Texture2D" uid="uid://dxo7qoy62x04t" path="res://sprites/MAIN MENU/1.png" id="7_bp6il"]
+[ext_resource type="Texture2D" uid="uid://bjm5vhdnybv46" path="res://sprites/tutorial/electric.png" id="7_t151f"]
+[ext_resource type="Texture2D" uid="uid://ct53e0pousrg4" path="res://sprites/tutorial/limp.png" id="8_81bds"]
+[ext_resource type="Texture2D" uid="uid://bkewww85ghgt5" path="res://sprites/tutorial/diner.png" id="9_busnb"]
 [ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="9_qixtd"]
+[ext_resource type="Texture2D" uid="uid://crm1l34vvcjy0" path="res://sprites/tutorial/limpmininigame.png" id="10_2ew55"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="10_nu7p8"]
+[ext_resource type="Texture2D" uid="uid://drsbt2mfpubb8" path="res://sprites/tutorial/taptap.png" id="11_38nqr"]
 [ext_resource type="Texture2D" uid="uid://ccwfje1syuktf" path="res://x-black-side.png" id="11_g2cyi"]
 [ext_resource type="Texture2D" uid="uid://c704rr1eliyvm" path="res://sprites/splash/gob.png" id="12_glvyh"]
+[ext_resource type="Texture2D" uid="uid://bcm1c8fs2bvi4" path="res://sprites/tutorial/recompenza.png" id="12_wol3g"]
+[ext_resource type="Texture2D" uid="uid://ddvrxjpupqntx" path="res://sprites/tutorial/entrar a compu.png" id="13_flinx"]
 [ext_resource type="Texture2D" uid="uid://um3eqcl3ee3f" path="res://sprites/splash/fdsf.png" id="13_x5cou"]
 [ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="14_78von"]
+[ext_resource type="Texture2D" uid="uid://c038ogx81j7ga" path="res://sprites/tutorial/compraplana.png" id="14_jto1d"]
+[ext_resource type="Texture2D" uid="uid://nm4cxg0b8utr" path="res://sprites/tutorial/comogeneracont.png" id="15_ukvs8"]
+[ext_resource type="Texture2D" uid="uid://0vb0xhdniwar" path="res://sprites/tutorial/entrar a tech.png" id="16_el4ag"]
+[ext_resource type="Texture2D" uid="uid://s8cvh51m1gm8" path="res://sprites/tutorial/tecnologiaaa.png" id="17_exy1b"]
+[ext_resource type="Texture2D" uid="uid://b8lw3wqolo8uq" path="res://sprites/tutorial/investigaaa.png" id="18_53hqt"]
+[ext_resource type="Texture2D" uid="uid://ccae783nwp4lj" path="res://sprites/tutorial/fin.png" id="19_26mp8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bkm70"]
 animations = [{
@@ -53,6 +69,7 @@ grow_vertical = 2
 script = ExtResource("1_mt6cq")
 newGameTexture = ExtResource("2_ddmfj")
 continueGameTexture = ExtResource("6_k0181")
+tutorialPics = Array[Texture2D]([ExtResource("4_x3uf6"), ExtResource("5_awffu"), ExtResource("6_776rt"), ExtResource("7_t151f"), ExtResource("8_81bds"), ExtResource("9_busnb"), ExtResource("10_2ew55"), ExtResource("11_38nqr"), ExtResource("12_wol3g"), ExtResource("13_flinx"), ExtResource("14_jto1d"), ExtResource("15_ukvs8"), ExtResource("16_el4ag"), ExtResource("17_exy1b"), ExtResource("18_53hqt"), ExtResource("19_26mp8")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -73,7 +90,7 @@ color = Color(0.862745, 0.831373, 0.784314, 1)
 position = Vector2(757, 360.5)
 scale = Vector2(0.662037, 0.662037)
 sprite_frames = SubResource("SpriteFrames_bkm70")
-frame_progress = 0.830784
+frame_progress = 0.245321
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -261,6 +278,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("19_26mp8")
 
 [node name="Next" type="Button" parent="TutorialScreen"]
 layout_mode = 1
@@ -296,3 +314,23 @@ theme_override_fonts/font = ExtResource("10_nu7p8")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("14_78von")
 text = "Anterior"
+
+[node name="IniciarJuegoTut" type="Button" parent="TutorialScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 139.0
+offset_right = 86.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nu7p8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("14_78von")
+text = "¡Iniciar Juego!"

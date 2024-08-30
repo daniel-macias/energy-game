@@ -150,8 +150,10 @@ func update_room_state():
 
 # Function to handle the Clicker button press
 func _on_Clicker_pressed():
-	GameManager.update_money(clicker_reward)
-	show_floating_gold(clicker_reward, get_global_mouse_position())
+	var mainHappinessMult = int(GameManager.happiness/100 + 1) 
+	
+	GameManager.update_money(clicker_reward * mainHappinessMult)
+	show_floating_gold(clicker_reward * mainHappinessMult, get_global_mouse_position())
 
 
 func _on_RoomButton_pressed():
@@ -163,8 +165,9 @@ func _on_RoomButton_pressed():
 
 # Function to handle the Notification button press
 func _on_Notification_pressed():
-	GameManager.update_money(notification_reward)
-	show_floating_gold(notification_reward, get_global_mouse_position())
+	var mainHappinessMult = int(GameManager.happiness/100 + 1)
+	GameManager.update_money(notification_reward * mainHappinessMult)
+	show_floating_gold(notification_reward * mainHappinessMult, get_global_mouse_position())
 	notification_button.visible = false  # Hide the notification again
 	notification_time_target = notification_interval + randf() * notification_interval_randomness
 
