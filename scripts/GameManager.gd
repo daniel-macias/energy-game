@@ -8,7 +8,7 @@ var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 50  # 0 to 100
-var money = 90000000
+var money = 400000000
 #var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
@@ -25,7 +25,7 @@ var happiness_images = [
 	"res://sprites/ui/happy_4.png"
 ]
 
-var empty_tech := "res://sprites/techs/empty_tech.png"
+var empty_tech := "res://sprites/ui/tech_empty.png"
 
 # Multipliers for balancing
 @export var cleanliness_to_happiness_multiplier = 4.0
@@ -373,6 +373,9 @@ func _on_OpenTechTreeButton_pressed():
 	# Update the tree title
 	energy_tree_title.text = energy_type + " - Tecnologías"
 	
+	#No tech selected
+	description_label.text = "Selecione una tecnología para ver detalles"
+	
 	match energy_type:
 		"Central de Combustibles Fósiles":
 			switch_tree(fossilTree)
@@ -604,7 +607,7 @@ func calculate_avg_money_per_minute():
 
 func update_avg_money_display(avg_money_per_minute):
 	# Assuming you have a label or UI element to display the average money per minute
-	avg_money_label.text = "$ por minuto: " + str(int(avg_money_per_minute))
+	avg_money_label.text = "$ p/m: " + str(int(avg_money_per_minute))
 
 
 # Update the skill panel with the selected skill details
@@ -642,15 +645,15 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 		match effect_type:
 			"wattage_multiplier":
 				display_text = "Energía: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact (more energy is good)
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 		
 			"happiness_multiplier":
 				display_text = "Capacidad de Contaminación: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 		
 			"money_multiplier":
 				display_text = "Dinero: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 		
 			"contamination_multiplier":
 				display_text = "Contaminación: +%0.1f%%" % [effect_value * 100]
@@ -662,19 +665,19 @@ func update_skill_panel(title: String, description: String, price: int, effects:
 		
 			"room_refund_price_mult":
 				display_text = "Reembolso de Planta: %0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0) if effect_value > 0 else Color(1, 0, 0)  # Green for higher refunds, red for lower refunds
+				color = Color(0.07, 0.4, 0) if effect_value > 0 else Color(1, 0, 0)  # Green for higher refunds, red for lower refunds
 			
 			"room_notification_value":
 				display_text = "Dinero de recompensa: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 			
 			"room_notification_frequency":
 				display_text = "Frecuencia de recompensa: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 				
 			"room_clicker":
 				display_text = "Dinero al presionar trabajador: +%0.1f%%" % [effect_value * 100]
-				color = Color(0, 1, 0)  # Green for positive impact
+				color = Color(0.07, 0.4, 0)  # Green for positive impact
 		# Add text with the appropriate color
 		description_label.push_color(color)
 		description_label.add_text(display_text + "\n")
@@ -712,8 +715,7 @@ func apply_skill_effect(effect_type: String, effect_value: float, roomId: int, l
 			room.clicker_reward *= (1 + (effect_value * level))
 			
 		"wattage_multiplier":
-			# TODO: Placeholder for future use.
-			pass
+			room.wattageIndex *= (1 + (effect_value * level))
 
 		"contamination_multiplier":
 			# Increase or decrease contamination index by the percentage.
@@ -904,6 +906,6 @@ func collect_skill_nodes(node, skills):
 		collect_skill_nodes(child, skills)
 
 func _notification(what):
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT && get_tree().current_scene && get_tree().current_scene.name != "Fish":
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT && get_tree().current_scene && get_tree().current_scene.name != "Fish" && get_tree().current_scene.name != "MainMenu":
 		save_game()  # Save the game before quitting
 		#get_tree().quit()

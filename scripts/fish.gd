@@ -42,6 +42,9 @@ func _ready():
 	var start_button = $StartMenu/Panel/StartGame
 	start_button.pressed.connect(_on_StartGame_pressed)
 	
+	if(GameManager.money < 500):
+		start_button.disabled = true
+	
 	start_timer.one_shot = true
 	start_timer.wait_time = 1.0  # Countdown
 	start_timer.timeout.connect(on_countdown_tick)
@@ -70,11 +73,13 @@ func _process(delta):
 
 func _on_StartGame_pressed():
 	start_menu.visible = false
+	GameManager.money = GameManager.money - 500
 	start_countdown()  # Start the countdown timer
 
 func start_countdown():
 	startsInLabel.visible = true
 	canvas_layer.visible = true
+	game.visible = true
 	startsInLabel.text = "Inicia en " + str(countdown_time) + "..."
 	start_timer.start()
 
@@ -97,8 +102,8 @@ func start_game():
 	GameManager.trash_shot = 0
 	GameManager.friend_shot = 0
 	game_active = true 
-	game.visible = true
-	game_time = 15  # Reset game time
+	gameTimeLabel.visible = true
+	game_time = 20  # Reset game time
 	score = 0  # Reset score
 	update_game_timer()  # Update timer label for display
 	spawn_trash()  # Start spawning trash
@@ -127,6 +132,7 @@ func on_game_finished():
 	game_active = false
 	game_timer.stop()
 	game.visible = false
+	gameTimeLabel.visible = false
 	startsInLabel.text = "Terminado!"
 	startsInLabel.visible = true
 	transition_timer.start()  # Start transition to results after a brief pause
@@ -138,6 +144,7 @@ func show_results():
 	trashEliminatedLabel.text = str(GameManager.trash_shot)
 	friendsHurtLabel.text = str(GameManager.friend_shot)
 	
+	
 	var totalShot = GameManager.trash_shot + GameManager.friend_shot
 	var awarded = 0
 
@@ -145,6 +152,8 @@ func show_results():
 		var currentCleanliness = GameManager.cleanliness
 		awarded = (100 - currentCleanliness) * (float(GameManager.trash_shot) / float(totalShot))
 		GameManager.set_cleanliness(currentCleanliness + awarded)
+	
+	finalScoreLabel.text = "¡Haz limpiado " + str(round(awarded)) + "% de tu suciedad!"
 	
 	#display_results()
 

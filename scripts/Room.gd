@@ -45,6 +45,8 @@ extends Control
 @onready var shorthand_label = $LockPanel/Shorthand
 @onready var unlock_btn = $LockPanel/UnlockBtn
 
+@onready var particles = $CPUParticles2D
+
 # To track the time for notifications
 var notification_timer = 0.0
 var notification_time_target = 0.0
@@ -135,6 +137,7 @@ func update_room_state():
 		room_button.texture_normal = computer_on
 		animation_player.play("ComputerOn")
 		animation_player_animal.play("animal_scale")
+		particles.emitting = true
 		#animation_player.play("room_active")  # Play an animation to show room is active
 	else:
 		dark_panel.visible = true  # Show the dark panel
@@ -142,6 +145,7 @@ func update_room_state():
 		room_button.texture_normal = computer_off
 		animation_player.stop()
 		animation_player_animal.stop()
+		particles.emitting = false
 		#animation_player.stop()  # Stop any running animations
 
 # Function to handle the Clicker button press

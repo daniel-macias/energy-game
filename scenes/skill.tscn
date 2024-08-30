@@ -61,23 +61,27 @@ layout_mode = 0
 offset_left = 112.0
 offset_right = 118.0
 offset_bottom = 82.0
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="SelectRectangle"]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 6.0
 offset_bottom = 112.0
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="SelectRectangle"]
 layout_mode = 0
 offset_top = 111.0
 offset_right = 118.0
 offset_bottom = 117.0
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="SelectRectangle"]
 layout_mode = 0
 offset_right = 118.0
 offset_bottom = 6.0
+color = Color(0, 0, 0, 1)
 
 [node name="Lock" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,17 +1,21 @@
-[gd_scene load_steps=107 format=3 uid="uid://c7a8cexa0tn2l"]
+[gd_scene load_steps=113 format=3 uid="uid://c7a8cexa0tn2l"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dyvnu"]
 [ext_resource type="Texture2D" uid="uid://bjcmyhwx6rxme" path="res://test.png" id="1_s5s73"]
 [ext_resource type="Texture2D" uid="uid://bpbnk8p61xp2l" path="res://icon.svg" id="1_wyxp4"]
 [ext_resource type="PackedScene" uid="uid://m20qguwbdhdt" path="res://scenes/room.tscn" id="2_ylmqk"]
+[ext_resource type="Texture2D" uid="uid://2k1bd17xdqf3" path="res://sprites/ui/battery_back.png" id="4_srawo"]
 [ext_resource type="Texture2D" uid="uid://dj0dunamm67me" path="res://sprites/Habitaciones/1 - Fosil.png" id="5_1ciuj"]
 [ext_resource type="Texture2D" uid="uid://ciyydi8u75asa" path="res://sprites/animales portrait/murcielado.png" id="5_3qr5y"]
 [ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="5_28okl"]
 [ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="5_hkpeo"]
+[ext_resource type="Texture2D" uid="uid://crnm433vwh6ja" path="res://sprites/ui/battery_front.png" id="5_kxq5k"]
 [ext_resource type="Texture2D" uid="uid://btouefw37fdgu" path="res://sprites/animales portrait/tortuga.png" id="6_810w7"]
 [ext_resource type="PackedScene" uid="uid://bhd3stdcsoy56" path="res://scenes/skill.tscn" id="6_ph5yp"]
+[ext_resource type="Texture2D" uid="uid://dkux460u5sa8h" path="res://sprites/ui/bar_green.png" id="6_xdt7q"]
 [ext_resource type="Texture2D" uid="uid://cyfq742ekyu3x" path="res://sprites/Habitaciones/3 - Hidro.png" id="6_xkm50"]
+[ext_resource type="Texture2D" uid="uid://mkcv7nqcuyve" path="res://sprites/ui/clean_back.png" id="7_bsfm1"]
 [ext_resource type="Texture2D" uid="uid://dm6ososcao56w" path="res://sprites/animales portrait/watusa.png" id="7_qu4h5"]
 [ext_resource type="Texture2D" uid="uid://cvoo5s54aoch6" path="res://sprites/techs/nuclear/Energía Nuclear .png" id="7_utpjk"]
 [ext_resource type="Texture2D" uid="uid://fyhgwc8rwv2l" path="res://sprites/Habitaciones/4 - Eolica.png" id="7_yfb08"]
@@ -22,8 +26,10 @@
 [ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="8_rwo8v"]
 [ext_resource type="Texture2D" uid="uid://b48esen7gnj2x" path="res://sprites/techs/hydro/hydro.png" id="8_uibp2"]
 [ext_resource type="Texture2D" uid="uid://h1hmisf2rgf4" path="res://sprites/Habitaciones/5 - Solar.png" id="8_vqcmp"]
+[ext_resource type="Texture2D" uid="uid://xyvhhi07s183" path="res://sprites/ui/clean_front.png" id="8_y7qgj"]
 [ext_resource type="Texture2D" uid="uid://dt10edyb645ek" path="res://sprites/techs/fossil/fososo.png" id="8_y7287"]
 [ext_resource type="Texture2D" uid="uid://cvwlc38655dek" path="res://sprites/animales portrait/cusuco.png" id="9_35kax"]
+[ext_resource type="Texture2D" uid="uid://ijd5r7oww5uc" path="res://sprites/ui/clean_bar.png" id="9_044li"]
 [ext_resource type="Texture2D" uid="uid://bxsad3uclugf8" path="res://sprites/Habitaciones/2 - Geotermica.png" id="9_artt4"]
 [ext_resource type="Texture2D" uid="uid://dh3t21oone3nx" path="res://sprites/techs/wind/moden.png" id="9_bhlq0"]
 [ext_resource type="Texture2D" uid="uid://wq6v71aw8qnw" path="res://sprites/techs/fossil/verd.png" id="9_dap7b"]
@@ -52,7 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://cuygxsxq6eaa5" path="res://sprites/techs/geo/volcan.png" id="13_n3d6p"]
 [ext_resource type="Texture2D" uid="uid://bupj03o6krcax" path="res://sprites/techs/fossil/carbon.png" id="13_qcv3f"]
 [ext_resource type="Texture2D" uid="uid://ccwfje1syuktf" path="res://x-black-side.png" id="13_vm3tp"]
-[ext_resource type="Texture2D" uid="uid://bu8xxyoewg46v" path="res://sprites/techs/empty_tech.png" id="14_2yi35"]
 [ext_resource type="Texture2D" uid="uid://bke5j66n6w432" path="res://sprites/techs/geo/generadorvapor.png" id="14_5ki1x"]
 [ext_resource type="Texture2D" uid="uid://b2pisyhud30h" path="res://sprites/techs/wind/turbina.png" id="14_8p3va"]
 [ext_resource type="Texture2D" uid="uid://dqsi2i3o4my6j" path="res://sprites/techs/hydro/aaaa.png" id="14_367kq"]
@@ -99,6 +104,7 @@
 [ext_resource type="Texture2D" uid="uid://65vtgwu1048p" path="res://sprites/techs/solar/bateria.png" id="28_65x1m"]
 [ext_resource type="Texture2D" uid="uid://d1362fa8078gw" path="res://sprites/techs/solar/fotoelectrico.png" id="29_td53n"]
 [ext_resource type="Texture2D" uid="uid://tdn5jfu5i23q" path="res://sprites/techs/solar/irridanci.png" id="30_ot7bn"]
+[ext_resource type="Texture2D" uid="uid://dtrb38jlnmymu" path="res://sprites/ui/tech_empty.png" id="33_d82e1"]
 [ext_resource type="Texture2D" uid="uid://dqm7m8qnedvbc" path="res://sprites/ui/contamination.png" id="99_g7gaj"]
 [ext_resource type="Texture2D" uid="uid://jug0vxchmc3d" path="res://sprites/ui/energy_icon.png" id="100_35xoh"]
 
@@ -178,7 +184,7 @@ expand_mode = 3
 [node name="Tourists" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.353479, 0.16286, 0.0259053, 1)
+theme_override_colors/font_color = Color(0.888254, 0.81618, 0.759463, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Turistas: 999"
@@ -188,14 +194,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 value = 50.0
 nine_patch_stretch = true
-texture_progress = ExtResource("1_wyxp4")
+texture_under = ExtResource("4_srawo")
+texture_over = ExtResource("5_kxq5k")
+texture_progress = ExtResource("6_xdt7q")
 
 [node name="Cleanliness" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 50.0
 nine_patch_stretch = true
-texture_progress = ExtResource("1_wyxp4")
+texture_under = ExtResource("7_bsfm1")
+texture_over = ExtResource("8_y7qgj")
+texture_progress = ExtResource("9_044li")
 
 [node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
 visible = false
@@ -208,15 +218,15 @@ text = "Capacity: 0
 [node name="IncomeAvg" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.353479, 0.16286, 0.0259053, 1)
+theme_override_colors/font_color = Color(0.888254, 0.81618, 0.759463, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
-text = "$ por minuto: 0"
+text = "$ p/m: 0"
 
 [node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.353479, 0.16286, 0.0259053, 1)
+theme_override_colors/font_color = Color(0.888254, 0.81618, 0.759463, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Money: 1000"
@@ -431,6 +441,7 @@ alignment = 1
 [node name="Title Lable" type="Label" parent="TreeContainer/VBoxContainer/TopColor/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 40
 text = "Fossil Tree"
@@ -463,7 +474,7 @@ autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]
 layout_mode = 2
-texture = ExtResource("14_2yi35")
+texture = ExtResource("33_d82e1")
 stretch_mode = 3
 
 [node name="Info" type="Button" parent="TreeContainer/VBoxContainer/Menu/TechInfo"]

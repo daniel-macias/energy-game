@@ -29,4 +29,4 @@ window/stretch/aspect="expand"
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.861922, 0.713918, 0.592937, 1)
+environment/defaults/default_clear_color=Color(0.226966, 0.172972, 0.105969, 1)

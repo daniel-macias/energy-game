@@ -4,6 +4,10 @@ extends Control
 @onready var tutorial_button = $VBoxContainer/Tutorial
 @onready var options_button = $VBoxContainer/Options
 @onready var debug_label = $VBoxContainer/Debug
+@onready var animated_sprite = $AnimatedSprite2D
+
+
+
 
 func _ready():
 	# Check if a save file exists
@@ -35,6 +39,17 @@ func _ready():
 	play_button.pressed.connect(_on_play_button_pressed)
 	tutorial_button.pressed.connect(_on_tutorial_button_pressed)
 	options_button.pressed.connect(_on_options_button_pressed)
+	
+	# Center and scale the animated sprite
+	center_and_scale_sprite()
+	animated_sprite.play("default")
+	
+	# Create a new Environment
+
+	#get_viewport().world_2d = world_env
+
+
+	
 
 func _on_play_button_pressed():
 	# Load the game scene
@@ -60,3 +75,13 @@ func _on_tutorial_button_pressed():
 
 func _on_options_button_pressed():
 	get_tree().change_scene("res://scenes/options.tscn")
+
+func center_and_scale_sprite():
+	# Get the viewport size (screen size)
+	var viewport_size = get_viewport_rect().size
+	
+	# Center the sprite
+	animated_sprite.position = viewport_size / 2
+	
+	# Optionally scale the sprite
+	#animated_sprite.scale = Vector2(2, 2)  # Example: double the size of the sprite

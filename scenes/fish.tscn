@@ -87,7 +87,7 @@ offset_right = 1094.0
 offset_bottom = 491.0
 theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 35
-text = "Don Octavio el pez requiere $1000 para limpiar"
+text = "Don Octavio el pez requiere $500 para limpiar"
 horizontal_alignment = 1
 autowrap_mode = 2
 max_lines_visible = 3
@@ -131,7 +131,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = ExtResource("3_5v4p4")
-text = "Iniciar Juego - $1000"
+text = "Iniciar Juego - $500"
 
 [node name="ReturnToEnergyManager" type="Button" parent="StartMenu/Panel"]
 layout_mode = 1
@@ -430,10 +430,11 @@ offset_top = 64.0
 offset_right = 43.0
 offset_bottom = 119.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(4.81308e-08, 9.62615e-08, 0.540356, 1)
 theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 50
-text = "00:00"
+text = "20"
+justification_flags = 35
 
 [node name="Player" type="Sprite2D" parent="Game"]
 z_index = 1
