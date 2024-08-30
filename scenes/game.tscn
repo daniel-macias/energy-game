@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dj0dunamm67me" path="res://sprites/Habitaciones/1 - Fosil.png" id="5_1ciuj"]
 [ext_resource type="Texture2D" uid="uid://ciyydi8u75asa" path="res://sprites/animales portrait/murcielado.png" id="5_3qr5y"]
 [ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="5_28okl"]
-[ext_resource type="Texture2D" uid="uid://e0p7qh6t4oc" path="res://x.png" id="5_chb1t"]
 [ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="5_hkpeo"]
 [ext_resource type="Texture2D" uid="uid://crnm433vwh6ja" path="res://sprites/ui/battery_front.png" id="5_kxq5k"]
 [ext_resource type="Texture2D" uid="uid://btouefw37fdgu" path="res://sprites/animales portrait/tortuga.png" id="6_810w7"]
@@ -42,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dt3fh3jug7glo" path="res://sprites/techs/geo/intercambio.png" id="10_nrrmu"]
 [ext_resource type="Texture2D" uid="uid://do0u64a1qjiwc" path="res://sprites/animales portrait/boa.png" id="10_snswy"]
 [ext_resource type="Texture2D" uid="uid://cjsntyuf4ybf6" path="res://sprites/techs/fossil/filt.png" id="10_t5l31"]
+[ext_resource type="Texture2D" uid="uid://dvh63crsagijf" path="res://sprites/ui/soap.png" id="10_t6m3m"]
 [ext_resource type="Texture2D" uid="uid://bmk3o8vp6htv6" path="res://sprites/techs/wind/marina.png" id="10_tici5"]
 [ext_resource type="Texture2D" uid="uid://bcoeh2sm0xc8j" path="res://sprites/techs/nuclear/Neutron.png" id="11_6smjy"]
 [ext_resource type="Texture2D" uid="uid://ny6mo1j5t7k8" path="res://sprites/techs/hydro/arc.png" id="11_08uxm"]
@@ -231,12 +231,10 @@ theme_override_fonts/font = ExtResource("5_hkpeo")
 theme_override_font_sizes/font_size = 32
 text = "Money: 1000"
 
-[node name="GoToFish" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="GoToFish" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("5_hkpeo")
-theme_override_font_sizes/font_size = 32
-text = "Limpiar"
+texture_normal = ExtResource("10_t6m3m")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -2770,7 +2768,7 @@ horizontal_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="InfoAboutTech/VBoxContainer/Panel/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_chb1t")
+texture_normal = ExtResource("13_vm3tp")
 
 [node name="InfoText" type="Label" parent="InfoAboutTech/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)

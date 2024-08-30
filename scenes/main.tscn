@@ -1,12 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://hed4wco3yctu"]
+[gd_scene load_steps=18 format=3 uid="uid://hed4wco3yctu"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_mt6cq"]
+[ext_resource type="Texture2D" uid="uid://dpph8hyqg0oxx" path="res://sprites/MAIN MENU/Nuevo Juego SOlo.png" id="2_ddmfj"]
 [ext_resource type="Texture2D" uid="uid://c1kjowr03g3xj" path="res://sprites/MAIN MENU/MAIN01.png" id="2_igflk"]
 [ext_resource type="Texture2D" uid="uid://bx3x2kbqcs30i" path="res://sprites/MAIN MENU/MAIN02.png" id="3_q6d6t"]
 [ext_resource type="Texture2D" uid="uid://dokwat0qjksfp" path="res://sprites/MAIN MENU/MAIN03.png" id="4_mhj2m"]
 [ext_resource type="Texture2D" uid="uid://boy0aejho0od3" path="res://sprites/MAIN MENU/MAIN004.png" id="5_ecym7"]
 [ext_resource type="Texture2D" uid="uid://be6o11k44wa2d" path="res://sprites/MAIN MENU/Continuarsolo.png" id="6_k0181"]
 [ext_resource type="Texture2D" uid="uid://dxo7qoy62x04t" path="res://sprites/MAIN MENU/1.png" id="7_bp6il"]
+[ext_resource type="StyleBox" uid="uid://rx1q4lbelyj4" path="res://scenes/panel_beige.tres" id="9_qixtd"]
+[ext_resource type="FontFile" uid="uid://d0u2fytfynav6" path="res://fonts/Tektur-VariableFont_wdth,wght.ttf" id="10_nu7p8"]
+[ext_resource type="Texture2D" uid="uid://ccwfje1syuktf" path="res://x-black-side.png" id="11_g2cyi"]
+[ext_resource type="Texture2D" uid="uid://c704rr1eliyvm" path="res://sprites/splash/gob.png" id="12_glvyh"]
+[ext_resource type="Texture2D" uid="uid://um3eqcl3ee3f" path="res://sprites/splash/fdsf.png" id="13_x5cou"]
+[ext_resource type="StyleBox" uid="uid://c1o7al5chud6c" path="res://scenes/button_white.tres" id="14_78von"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bkm70"]
 animations = [{
@@ -28,6 +35,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cxyt"]
+bg_color = Color(0.956863, 0.454902, 0.0313726, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xnkh"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -36,6 +51,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mt6cq")
+newGameTexture = ExtResource("2_ddmfj")
+continueGameTexture = ExtResource("6_k0181")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -56,7 +73,7 @@ color = Color(0.862745, 0.831373, 0.784314, 1)
 position = Vector2(757, 360.5)
 scale = Vector2(0.662037, 0.662037)
 sprite_frames = SubResource("SpriteFrames_bkm70")
-frame_progress = 0.456123
+frame_progress = 0.830784
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -110,3 +127,172 @@ offset_bottom = 536.0
 texture_normal = ExtResource("7_bp6il")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="PanelCover" type="Panel" parent="."]
+visible = false
+z_index = 20
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0299342
+anchor_top = -0.049581
+anchor_right = 1.02993
+anchor_bottom = 1.04958
+offset_right = 0.00012207
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomDialog" type="PanelContainer" parent="."]
+visible = false
+z_index = 25
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -171.0
+offset_right = 353.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("9_qixtd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomDialog"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CustomDialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7cxyt")
+
+[node name="TopBar" type="HBoxContainer" parent="CustomDialog/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -353.5
+offset_right = 353.5
+offset_bottom = 64.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nu7p8")
+theme_override_font_sizes/font_size = 36
+text = "¿Qué es esto?"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="CustomDialog/VBoxContainer/Panel/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_g2cyi")
+
+[node name="InfoText" type="Label" parent="CustomDialog/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nu7p8")
+theme_override_font_sizes/font_size = 28
+text = "Text text text text text text text text text text text text text text text text text text text text text textText text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Splash" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6xnkh")
+
+[node name="Gob" type="TextureRect" parent="Splash"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -360.0
+offset_right = 760.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_glvyh")
+expand_mode = 1
+
+[node name="Pobe" type="TextureRect" parent="Splash"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.5
+offset_top = -265.5
+offset_right = 335.5
+offset_bottom = 265.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_x5cou")
+expand_mode = 1
+
+[node name="TutorialScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrentPic" type="TextureRect" parent="TutorialScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Next" type="Button" parent="TutorialScreen"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -83.0
+offset_right = -25.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nu7p8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("14_78von")
+text = "Siguiente"
+
+[node name="Back" type="Button" parent="TutorialScreen"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -87.0
+offset_right = 199.0
+offset_bottom = -30.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nu7p8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("14_78von")
+text = "Anterior"

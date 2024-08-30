@@ -7,14 +7,32 @@ extends Control
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var hasSaveFile = false
 
+@export var newGameTexture: Texture2D
+@export var continueGameTexture: Texture2D
 
+@export var tutorialPics: Array[Texture2D]
+@onready var tutorialPanel = $TutorialScreen
+@onready var currentTutorialPic = $TutorialScreen/CurrentPic
+@onready var tutorialNext = $TutorialScreen/Next
+@onready var tutorialBack = $TutorialScreen/Back
+
+@onready var splash_container = $Splash
+@onready var splash_0 = $Splash/Gob
+@onready var splash_1 = $Splash/Pobe
 
 func _ready():
+	# Hide both images initial
+	splash_container.visible = true
+	splash_0.modulate.a = 0
+	splash_1.modulate.a = 0
+	
+	# Start the splash screen sequence
+	show_splash_sequence()
+	
 	# Check if a save file exists
 	if FileAccess.file_exists("user://save_game.dat"):
-		#play_button.text = "Continue Game"
-		#TODO: CHANGE ICON
 		hasSaveFile = true
+		play_button.texture_normal = continueGameTexture
 		# Load the save file and display some of its contents in the debug label
 		var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
 		var result = JSON.parse_string(file.get_as_text())
@@ -33,8 +51,8 @@ func _ready():
 			debug_label.text = "Save file is corrupted."
 		
 	else:
-		#play_button.text = "Start Game"
 		hasSaveFile = false
+		play_button.texture_normal = newGameTexture
 		debug_label.text = "No save found"
 
 	# Connect button signals
@@ -52,6 +70,36 @@ func _ready():
 
 
 	
+	
+
+func show_splash_sequence():
+	# Create a tween programmatically
+	var tween = get_tree().create_tween()
+	
+	# Fade in Gob
+	tween.tween_property(splash_0, "modulate:a", 1.0, 1.0)
+	
+	# Wait 3 seconds, then fade out
+	tween.tween_property(splash_0, "modulate:a", 0.0, 1.0).set_delay(3.0)
+	
+	# After Gob fades out, fade in Pobe
+	tween.tween_callback(Callable(self, "_show_pobe"))
+	
+func _show_pobe():
+	var tween = get_tree().create_tween()
+	
+	# Fade in Pobe
+	tween.tween_property(splash_1, "modulate:a", 1.0, 1.0)
+	
+	# Wait 3 seconds, then fade out
+	tween.tween_property(splash_1, "modulate:a", 0.0, 1.0).set_delay(3.0)
+	
+	# After Pobe fades out, hide the splash container
+	tween.tween_callback(Callable(self, "_hide_splash"))
+
+func _hide_splash():
+	splash_container.visible = false
+
 
 func _on_play_button_pressed():
 	# Load the game scene

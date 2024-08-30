@@ -8,7 +8,7 @@ var tourists = 0  # 0 to infinity
 var wattage = 100  # 0 to 100 (current wattage usage as a percentage of capacity)
 var wattage_capacity = 1000  # Max wattage capacity (can be increased with upgrades)
 var cleanliness = 50  # 0 to 100
-var money = 400000000
+var money = 40000
 #var contaminationCapacity = 0
 var rooms = []
 var currently_selected_room = -1  # -1 means no room is currently selected
@@ -104,7 +104,7 @@ var animal_info : Label = null
 var energy_panel_animal_pic : TextureRect = null
 var open_animal_info_button : Button = null
 
-var fish_button : Button = null
+var fish_button : TextureButton = null
 
 var main_game_root : Control = null
 
