@@ -26,6 +26,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1520.0
 offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1vfep")
 
 [node name="StartMenu" type="Control" parent="."]
@@ -401,6 +403,7 @@ offset_right = 1519.0
 offset_bottom = 720.0
 texture = ExtResource("2_lgl7b")
 expand_mode = 3
+stretch_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Game"]
 visible = false
@@ -431,6 +434,8 @@ offset_right = 43.0
 offset_bottom = 119.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(4.81308e-08, 9.62615e-08, 0.540356, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_dlg1i")
 theme_override_font_sizes/font_size = 50
 text = "20"

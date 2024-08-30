@@ -317,10 +317,10 @@ func update_panel(plant_amount, plant_cost, remove_plant_refund, id, CC, contami
 	remove_plant_button.text =  "+ $ " +str(remove_plant_refund)
 	
 	cont_cap.text = str(CC)
-	cont_total.text = str(contaminationI * 100 * plant_amount)
-	energ_total.text = str(wattageI * 1000 * plant_amount)
-	energ_x_planta.text = str(wattageI * 1000)
-	cont_x_planta.text = str(contaminationI * 100)
+	cont_total.text = str(int(contaminationI * 100 * plant_amount))
+	energ_total.text = str(int(wattageI * 1000 * plant_amount))
+	energ_x_planta.text = str(int(wattageI * 1000))
+	cont_x_planta.text = str(int(contaminationI * 100))
 	if CC > contaminationI * 100 * plant_amount:
 		bajo_cap.visible = true
 		sobre_cap.visible = false

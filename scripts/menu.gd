@@ -21,7 +21,12 @@ extends Control
 @onready var splash_0 = $Splash/Gob
 @onready var splash_1 = $Splash/Pobe
 
+@onready var options_btn = $Options
+@onready var custom_dialog = $CustomDialog
+@onready var exit_custom_dialog = $CustomDialog/VBoxContainer/Panel/TopBar/ExitButton
+
 var tutorial_index = 0
+
 
 func _ready():
 	# Hide both images initial
@@ -29,8 +34,13 @@ func _ready():
 	splash_0.modulate.a = 0
 	splash_1.modulate.a = 0
 	
+	options_btn.pressed.connect(hangle_open_dialog)
+	exit_custom_dialog.pressed.connect(hangle_close_dialog)
+	
 	tutorialNext.pressed.connect(handle_next_slide)
 	tutorialBack.pressed.connect(handle_back_slide)
+	
+	
 	
 	# Start the splash screen sequence
 	show_splash_sequence()
@@ -80,6 +90,13 @@ func _ready():
 
 
 	
+	
+
+func hangle_open_dialog():
+	custom_dialog.visible = true
+
+func hangle_close_dialog():
+	custom_dialog.visible = false
 	
 
 func show_splash_sequence():
