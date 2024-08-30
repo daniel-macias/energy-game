@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://hed4wco3yctu"]
+[gd_scene load_steps=35 format=3 uid="uid://hed4wco3yctu"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_mt6cq"]
 [ext_resource type="Texture2D" uid="uid://dpph8hyqg0oxx" path="res://sprites/MAIN MENU/Nuevo Juego SOlo.png" id="2_ddmfj"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://s8cvh51m1gm8" path="res://sprites/tutorial/tecnologiaaa.png" id="17_exy1b"]
 [ext_resource type="Texture2D" uid="uid://b8lw3wqolo8uq" path="res://sprites/tutorial/investigaaa.png" id="18_53hqt"]
 [ext_resource type="Texture2D" uid="uid://ccae783nwp4lj" path="res://sprites/tutorial/fin.png" id="19_26mp8"]
+[ext_resource type="AudioStream" uid="uid://defnliarxa444" path="res://sounds/My Song.mp3" id="31_3mdop"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bkm70"]
 animations = [{
@@ -350,3 +351,7 @@ theme_override_fonts/font = ExtResource("10_nu7p8")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("14_78von")
 text = "¡Iniciar Juego!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_3mdop")
+autoplay = true

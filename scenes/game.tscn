@@ -296,7 +296,8 @@ computer_off = ExtResource("18_ae7hp")
 
 [node name="Control3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_reward = 40
+notification_reward = 100
+clicker_reward = 50
 energy_type = "Central Eólica"
 plant_cost = 1500
 remove_plant_refund = 600
@@ -324,8 +325,8 @@ computer_off = ExtResource("18_ae7hp")
 
 [node name="Control4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_reward = 45
-clicker_reward = 12
+notification_reward = 100
+clicker_reward = 50
 energy_type = "Central Solar"
 plant_cost = 2000
 remove_plant_refund = 800
@@ -353,8 +354,8 @@ computer_off = ExtResource("18_ae7hp")
 
 [node name="Control5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_reward = 55
-clicker_reward = 18
+notification_reward = 120
+clicker_reward = 80
 energy_type = "Central Geotérmica"
 plant_cost = 3500
 remove_plant_refund = 1000
@@ -382,8 +383,8 @@ computer_off = ExtResource("18_ae7hp")
 
 [node name="Control6" parent="VBoxContainer/GridContainer" instance=ExtResource("2_ylmqk")]
 layout_mode = 2
-notification_reward = 80
-clicker_reward = 25
+notification_reward = 250
+clicker_reward = 100
 energy_type = "Central Nuclear"
 plant_cost = 5000
 remove_plant_refund = 3500
