@@ -1,19 +1,20 @@
 extends Control
 
-@onready var play_button = $VBoxContainer/Play
+@onready var play_button = $Play
 @onready var tutorial_button = $VBoxContainer/Tutorial
-@onready var options_button = $VBoxContainer/Options
+@onready var options_button = $Options
 @onready var debug_label = $VBoxContainer/Debug
 @onready var animated_sprite = $AnimatedSprite2D
-
+@onready var hasSaveFile = false
 
 
 
 func _ready():
 	# Check if a save file exists
 	if FileAccess.file_exists("user://save_game.dat"):
-		play_button.text = "Continue Game"
-		
+		#play_button.text = "Continue Game"
+		#TODO: CHANGE ICON
+		hasSaveFile = true
 		# Load the save file and display some of its contents in the debug label
 		var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
 		var result = JSON.parse_string(file.get_as_text())
@@ -32,7 +33,8 @@ func _ready():
 			debug_label.text = "Save file is corrupted."
 		
 	else:
-		play_button.text = "Start Game"
+		#play_button.text = "Start Game"
+		hasSaveFile = false
 		debug_label.text = "No save found"
 
 	# Connect button signals
@@ -64,7 +66,7 @@ func _on_play_button_pressed():
 	self.visible = false
 
 func _on_game_scene_loaded():
-	if play_button.text == "Continue Game":
+	if hasSaveFile:
 		GameManager.initialize_game_logic()
 		GameManager.load_game()
 	else:
