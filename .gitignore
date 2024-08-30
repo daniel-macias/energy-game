@@ -1,2 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
+# Other ignores
+/node_modules/
+/build/
+/.DS_Store
+
+# Ignore android folder
+/android/
